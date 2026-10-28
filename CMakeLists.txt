@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.28)
+find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
+project(nv_modbus)
+add_subdirectory(lib/modbus)
+target_sources(app PRIVATE src/main.c src/demo_data.c src/usb.c src/network.c)
+target_include_directories(app PRIVATE src)

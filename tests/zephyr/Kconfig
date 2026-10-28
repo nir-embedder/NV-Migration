@@ -1,0 +1,3 @@
+mainmenu "Modbus port integration tests"
+source "Kconfig.zephyr"
+rsource "../../lib/modbus/Kconfig"

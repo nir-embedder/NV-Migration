@@ -1,0 +1,19 @@
+tests:
+  modbus.port.rtu:
+    platform_allow: qemu_cortex_m3
+    tags: [modbus, uart]
+  modbus.port.rtu.large:
+    platform_allow: qemu_cortex_m3
+    extra_configs:
+      - CONFIG_MODBUS_PORT_BUFFER_SIZE=256
+    tags: [modbus, uart]
+  modbus.port.tcp:
+    platform_allow: qemu_cortex_m3
+    extra_args: EXTRA_CONF_FILE=tcp.conf
+    tags: [modbus, net]
+  modbus.port.tcp.large:
+    platform_allow: qemu_cortex_m3
+    extra_args: EXTRA_CONF_FILE=tcp.conf
+    extra_configs:
+      - CONFIG_MODBUS_PORT_BUFFER_SIZE=256
+    tags: [modbus, net]

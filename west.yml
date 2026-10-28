@@ -1,0 +1,22 @@
+manifest:
+  version: "1.2"
+  projects:
+    - name: zephyr
+      url: https://github.com/zephyrproject-rtos/zephyr
+      revision: 5c71a733110403a2e01f6cabd922b5f0198e9981
+      path: .deps/zephyr
+      west-commands: scripts/west-commands.yml
+    - name: cmsis
+      url: https://github.com/zephyrproject-rtos/cmsis
+      revision: 512cc7e895e8491696b61f7ba8066b4a182569b8
+      path: .deps/modules/hal/cmsis
+    - name: cmsis_6
+      url: https://github.com/zephyrproject-rtos/CMSIS_6
+      revision: 1c1840af7a7e757d6e2fec3ddb0e5ce0dfcc93c8
+      path: .deps/modules/hal/cmsis_6
+    - name: hal_nuvoton
+      url: https://github.com/zephyrproject-rtos/hal_nuvoton
+      revision: 0f411a85da7d17a612d54450f608f4d30cdb971f
+      path: .deps/modules/hal/nuvoton
+  self:
+    path: .

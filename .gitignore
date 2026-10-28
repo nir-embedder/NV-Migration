@@ -1,0 +1,19 @@
+.deps/
+.venv/
+.west/
+.toolchains/
+build*/
+__pycache__/
+.pytest_cache/
+*.pyc
+config/usb-identity.conf
+.embedder/captures/
+
+# Local device flash dumps (APROM/LDROM/Data Flash/CONFIG); keep local only
+.embedder/backups/
+
+# Embedder tool state (account context, workspace selection, LSP config)
+.embedder/bootstrap-context-prod.enc
+.embedder/workspace-selection-prod.json
+.embedder/lsp.json
+.embedder/skills/

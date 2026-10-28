@@ -1,0 +1,4 @@
+# Verified with project Python 3.12; no host/network configuration dependency.
+pymodbus==3.16.1
+pyserial==3.5
+pytest==9.2.0

@@ -1,0 +1,42 @@
+mainmenu "NK-M3351KI Modbus migration"
+
+menu "Application"
+config APP_MODBUS_CLIENT
+	bool "Run master/client demonstration instead of server"
+	default n
+config APP_SEPARATE_REGIONS
+	bool "Use the upstream separate-region example map"
+	default n
+config APP_LARGE_TEST_MAP
+	bool "Enlarge shared map to 128 words for packet-boundary testing"
+	depends on !APP_SEPARATE_REGIONS
+	default n
+config APP_USB_VID
+	hex "Assigned application USB vendor ID"
+	range 0x0 0xffff
+	default 0
+	help
+	  Set your assigned identity in a private configuration overlay.
+	  A zero identity permits compile checks but prevents USB startup.
+config APP_USB_PID
+	hex "Assigned application USB product ID"
+	range 0x0 0xffff
+	default 0
+config APP_IP_ADDRESS
+	string "Board private USB-network IPv4 address"
+	default "192.168.77.2"
+config APP_PEER_ADDRESS
+	string "PC private USB-network IPv4 address"
+	default "192.168.77.1"
+config APP_PEER_PORT
+	int "PC Modbus server TCP port"
+	range 1 65535
+	default 1502
+config APP_QUERY_INTERVAL_MS
+	int "Client query interval in milliseconds"
+	range 10 60000
+	default 100
+endmenu
+
+rsource "lib/modbus/Kconfig"
+source "Kconfig.zephyr"

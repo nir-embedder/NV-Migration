@@ -1,0 +1,68 @@
+# SPDX-License-Identifier: LGPL-2.1-only
+# Modified 2026-10-28 for NV-Migration: Zephyr transport and capacity options.
+menuconfig MODBUS_PORT
+	bool "Port of Modbus-STM32-HAL-FreeRTOS"
+	default y
+	help
+	  Independent port of upstream 9c022fd2538edb5b53e2e07c98ebbe9a4685546c.
+	  Does not use or enable Zephyr's Modbus subsystem.
+
+if MODBUS_PORT
+
+config MODBUS_PORT_RTU
+	bool "Interrupt-driven UART and USB CDC RTU"
+	default y
+	depends on SERIAL
+	select UART_INTERRUPT_DRIVEN
+	select UART_USE_RUNTIME_CONFIGURE
+
+config MODBUS_PORT_TCP
+	bool "IPv4 Modbus TCP sockets"
+	default y if NETWORKING
+	depends on NET_SOCKETS && NET_TCP && NET_IPV4
+
+config MODBUS_PORT_BUFFER_SIZE
+	int "Nominal RTU ADU bytes (including unit and CRC)"
+	range 32 256
+	default 128
+	help
+	  Both transports reserve this value minus three bytes for the PDU.
+	  TCP allocates four extra bytes for its larger header: 132 bytes at
+	  the default setting, or 260 bytes at setting 256. The large setting
+	  supports 125-register reads on both transports.
+
+config MODBUS_PORT_QUEUE_DEPTH
+	int "Pending master telegrams per handler"
+	range 1 16
+	default 2
+
+config MODBUS_PORT_TCP_CONNECTIONS
+	int "TCP connections per handler"
+	range 1 8
+	default 4
+
+config MODBUS_PORT_MAX_HANDLERS
+	int "Maximum concurrently started handlers"
+	range 2 8
+	default 4
+
+config MODBUS_PORT_STACK_SIZE
+	int "Worker stack bytes per statically allocated handler"
+	range 1536 16384
+	default 3072
+
+config MODBUS_PORT_THREAD_PRIORITY
+	int "Worker preemptible thread priority"
+	range 0 14
+	default 5
+
+config MODBUS_PORT_CDC_ASSEMBLY_MS
+	int "CDC incomplete-frame and malformed-stream expiry (milliseconds)"
+	range 10 10000
+	default 100
+	help
+	  USB line coding is not serial timing. Supported frames use length and
+	  CRC, while incomplete or unrecognized frames expire after this idle
+	  period. Physical UART uses actual serial configuration for T1.5/T3.5.
+
+endif

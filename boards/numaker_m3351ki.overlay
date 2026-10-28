@@ -1,0 +1,24 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* The confirmed M3351KJCAE uses the upstream 1 MiB APROM map.
+ * This application is a directly booted APROM image, not an MCUboot image.
+ */
+/ {
+	chosen {
+		/delete-property/ zephyr,code-partition;
+	};
+	cdc_ecm_eth0: cdc_ecm_eth0 {
+		compatible = "zephyr,cdc-ecm-ethernet";
+		local-mac-address = [02 4e 56 33 51 02];
+		remote-mac-address = "024E56335101";
+	};
+};
+
+&flash0 {
+	/delete-node/ partitions;
+};
+&zephyr_udc0 {
+	modbus_uart: modbus_uart {
+		compatible = "zephyr,cdc-acm-uart";
+		label = "Modbus RTU";
+	};
+};
