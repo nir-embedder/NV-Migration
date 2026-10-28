@@ -1,0 +1,12 @@
+common:
+  platform_allow:
+    - qemu_cortex_m3
+  tags:
+    - usb
+    - cdc
+  harness: ztest
+tests:
+  usb.cdc.session.system:
+    extra_args: CDC_DEDICATED_WORKQUEUE=OFF
+  usb.cdc.session.dedicated:
+    extra_args: CDC_DEDICATED_WORKQUEUE=ON

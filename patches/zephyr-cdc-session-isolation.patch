@@ -1,0 +1,586 @@
+diff --git a/subsys/usb/device_next/class/usbd_cdc_acm.c b/subsys/usb/device_next/class/usbd_cdc_acm.c
+index 3957daa16..25989433c 100644
+--- a/subsys/usb/device_next/class/usbd_cdc_acm.c
++++ b/subsys/usb/device_next/class/usbd_cdc_acm.c
+@@ -15,6 +15,7 @@
+ #include <zephyr/usb/usbd.h>
+ #include <zephyr/usb/usb_ch9.h>
+ #include <zephyr/usb/class/usb_cdc.h>
++#include <zephyr/usb/class/usbd_cdc_acm.h>
+ 
+ #include <zephyr/drivers/usb/udc.h>
+ 
+@@ -129,6 +130,18 @@ struct cdc_acm_uart_data {
+ 	struct k_work_delayable tx_fifo_work;
+ 	/* USBD CDC ACM RX fifo work */
+ 	struct k_work rx_fifo_work;
++	/* Session cleanup shares the UART workqueue: never wait for our own callback. */
++	struct k_work session_work;
++	bool session_closed;
++	bool session_purged;
++	bool dtr_closed;
++	uint32_t rx_enqueued;
++	uint32_t notif_enqueued;
++	uint32_t notif_submitting;
++	bool notif_busy;
++	int notif_result;
++	usbd_cdc_acm_session_cb_t session_cb;
++	void *session_cb_data;
+ 	atomic_t state;
+ 	struct k_sem notif_sem;
+ 	struct k_spinlock lock;
+@@ -266,7 +279,7 @@ static uint32_t cdc_acm_tx_fifo_space_get(struct cdc_acm_uart_data *const data)
+ 
+ 	available = count - data->tx_fifo.enqueued;
+ 
+-	if (available == 0) {
++	if (data->session_closed || available == 0) {
+ 		space = 0;
+ 	} else if (available == 1 || !data->echo_mitigated) {
+ 		space = cdc_acm_tx_current_tailroom_locked(data);
+@@ -308,94 +321,168 @@ static void cdc_acm_tx_buf_recycle_locked(struct cdc_acm_uart_data *const data,
+ 	}
+ }
+ 
+-static int usbd_cdc_acm_request(struct usbd_class_data *const c_data,
+-				struct net_buf *buf, int err)
++/* Called with lock held; completion ownership is retained until request(). */
++static void cdc_acm_session_close_locked(struct cdc_acm_uart_data *data)
+ {
+-	struct usbd_context *uds_ctx = usbd_class_get_ctx(c_data);
+-	const struct device *dev = usbd_class_get_private(c_data);
+-	struct cdc_acm_uart_data *data = dev->data;
+-	struct udc_buf_info *bi;
+-	k_spinlock_key_t key;
+-	int ret = 0;
++	data->session_closed = true;
++	data->session_purged = false;
++}
+ 
+-	bi = udc_get_buf_info(buf);
+-	if (err) {
+-		if (err == -ECONNABORTED) {
+-			LOG_WRN("request ep 0x%02x, len %u cancelled",
+-				bi->ep, buf->len);
+-		} else {
+-			LOG_ERR("request ep 0x%02x, len %u failed",
+-				bi->ep, buf->len);
+-		}
++static bool cdc_acm_session_is_closed(struct cdc_acm_uart_data *data)
++{
++	k_spinlock_key_t key = k_spin_lock(&data->lock);
++	bool closed = data->session_closed;
+ 
+-		if (bi->ep == cdc_acm_get_bulk_in(c_data)) {
+-			key = k_spin_lock(&data->lock);
+-			data->tx_fifo.enqueued--;
+-			cdc_acm_tx_buf_recycle_locked(data, buf);
+-			k_spin_unlock(&data->lock, key);
+-			goto ep_buf_already_handled;
+-		}
++	k_spin_unlock(&data->lock, key);
++	return closed;
++}
+ 
+-		if (bi->ep == cdc_acm_get_int_in(c_data)) {
+-			k_sem_reset(&data->notif_sem);
+-		}
++static void cdc_acm_session_handler(struct k_work *work)
++{
++	struct cdc_acm_uart_data *data = CONTAINER_OF(work, struct cdc_acm_uart_data,
++						   session_work);
++	const struct cdc_acm_uart_config *cfg = data->dev->config;
++	struct usbd_context *ctx = usbd_class_get_ctx(cfg->c_data);
++	struct net_buf *buf;
++	bool purge = false;
++	bool reopen = false;
++	k_spinlock_key_t key = k_spin_lock(&data->lock);
+ 
+-		goto ep_request_error;
++	/* Notification submission can originate outside this workqueue. Its
++	 * submitter wakes us after leaving usbd_ep_enqueue(), without waiting.
++	 */
++	if (data->notif_submitting != 0) {
++		k_spin_unlock(&data->lock, key);
++		return;
+ 	}
+-
+-	if (bi->ep == cdc_acm_get_bulk_out(c_data)) {
+-		/* RX transfer completion */
+-
+-		LOG_HEXDUMP_INF(buf->data, buf->len, "");
+-		if (buf->len == 0) {
+-			/* Drop transfer with zero length */
++	if (data->session_closed && !data->session_purged) {
++		data->session_purged = true;
++		purge = true;
++		data->echo_mitigated = false;
++		data->zlp_needed = false;
++		data->rx_fifo.irq = false;
++		data->tx_fifo.irq = false;
++		if (data->tx_fifo.current != NULL) {
++			net_buf_reset(data->tx_fifo.current);
++		}
++		while ((buf = k_fifo_get(data->rx_fifo.bufs, K_NO_WAIT)) != NULL) {
+ 			net_buf_unref(buf);
+-			cdc_acm_work_submit(&data->rx_fifo_work);
+-			goto ep_buf_already_handled;
+ 		}
++	}
++	k_spin_unlock(&data->lock, key);
++
++	if (purge) {
++		/* No other UART work can enqueue while this handler runs. A producer
++		 * already inside enqueue finishes before this handler is dispatched.
++		 * UDC calls may sleep; never make them under the FIFO spinlock.
++		 */
++		k_work_cancel_delayable(&data->tx_fifo_work);
++		if (data->session_cb != NULL) {
++			data->session_cb(data->dev, data->session_cb_data);
++		}
++		int ret_in = usbd_ep_dequeue(ctx, cdc_acm_get_bulk_in(cfg->c_data));
++		int ret_out = usbd_ep_dequeue(ctx, cdc_acm_get_bulk_out(cfg->c_data));
++		int ret_int = usbd_ep_dequeue(ctx, cdc_acm_get_int_in(cfg->c_data));
+ 
+-		k_fifo_put(data->rx_fifo.bufs, buf);
+-		if (data->cb) {
+-			cdc_acm_work_submit(&data->irq_cb_work);
++		if (ret_in != 0 || ret_out != 0 || ret_int != 0) {
++			LOG_DBG("Session dequeue: IN %d OUT %d INT %d",
++				ret_in, ret_out, ret_int);
+ 		}
++	}
+ 
+-		goto ep_buf_already_handled;
++	key = k_spin_lock(&data->lock);
++	/* A successful dequeue only schedules completion events. Do not reopen
++	 * until every buffer (including already-completed events) has returned.
++	 * Each late completion wakes this work instead of using a delay/poll.
++	 */
++	if (data->session_closed && data->session_purged &&
++	    data->tx_fifo.enqueued == 0 && data->rx_enqueued == 0 &&
++	    data->notif_enqueued == 0 &&
++	    atomic_test_bit(&data->state, CDC_ACM_CLASS_ENABLED) && !data->dtr_closed) {
++		data->session_closed = false;
++		data->zlp_needed = true;
++		reopen = true;
+ 	}
++	k_spin_unlock(&data->lock, key);
+ 
+-	if (bi->ep == cdc_acm_get_bulk_in(c_data)) {
+-		/* TX transfer completion */
+-		if (data->cb) {
++	if (reopen) {
++		cdc_acm_work_submit(&data->rx_fifo_work);
++		if (data->cb != NULL) {
+ 			cdc_acm_work_submit(&data->irq_cb_work);
+ 		}
++		cdc_acm_work_schedule(&data->tx_fifo_work, K_NO_WAIT);
++	}
++}
+ 
+-		key = k_spin_lock(&data->lock);
++static int usbd_cdc_acm_request(struct usbd_class_data *const c_data,
++				struct net_buf *buf, int err)
++{
++	struct usbd_context *uds_ctx = usbd_class_get_ctx(c_data);
++	const struct device *dev = usbd_class_get_private(c_data);
++	struct cdc_acm_uart_data *data = dev->data;
++	struct udc_buf_info *bi;
++	k_spinlock_key_t key;
++	int ret = 0;
+ 
+-		data->tx_fifo.enqueued--;
+-		cdc_acm_tx_buf_recycle_locked(data, buf);
++	bi = udc_get_buf_info(buf);
++	if (err == -ECONNABORTED) {
++		LOG_WRN("request ep 0x%02x, len %u cancelled", bi->ep, buf->len);
++	} else if (err != 0) {
++		LOG_ERR("request ep 0x%02x, len %u failed", bi->ep, buf->len);
++	}
++	if (bi->ep == cdc_acm_get_bulk_out(c_data) ||
++	    bi->ep == cdc_acm_get_bulk_in(c_data)) {
++		bool closed;
+ 
+-		if (!data->echo_mitigated) {
+-			/* If mitigation was not yet applied give the host some
+-			 * time to disable ECHO.
+-			 */
+-			cdc_acm_work_schedule(&data->tx_fifo_work,
+-					      K_MSEC(CONFIG_USBD_CDC_ACM_TX_DELAY_MS));
+-			data->echo_mitigated = true;
++		key = k_spin_lock(&data->lock);
++		closed = data->session_closed;
++		if (bi->ep == cdc_acm_get_bulk_out(c_data)) {
++			data->rx_enqueued--;
++			if (closed || err || buf->len == 0) {
++				net_buf_unref(buf);
++			} else {
++				k_fifo_put(data->rx_fifo.bufs, buf);
++			}
+ 		} else {
+-			cdc_acm_tx_schedule_leftover_locked(data);
++			data->tx_fifo.enqueued--;
++			cdc_acm_tx_buf_recycle_locked(data, buf);
++			if (!closed && !err) {
++				if (!data->echo_mitigated) {
++					cdc_acm_work_schedule(&data->tx_fifo_work,
++						K_MSEC(CONFIG_USBD_CDC_ACM_TX_DELAY_MS));
++					data->echo_mitigated = true;
++				} else {
++					cdc_acm_tx_schedule_leftover_locked(data);
++				}
++			}
+ 		}
+-
+ 		k_spin_unlock(&data->lock, key);
+-
+-		goto ep_buf_already_handled;
++		if (closed) {
++			cdc_acm_work_submit(&data->session_work);
++		} else {
++			cdc_acm_work_submit(&data->rx_fifo_work);
++			if (data->cb != NULL) {
++				cdc_acm_work_submit(&data->irq_cb_work);
++			}
++		}
++		return 0;
+ 	}
+ 
+ 	if (bi->ep == cdc_acm_get_int_in(c_data)) {
++		key = k_spin_lock(&data->lock);
++		data->notif_enqueued--;
++		bool closed = data->session_closed;
++
++		data->notif_result = closed ? -ECANCELED : err;
++		/* Completion may precede the sender's wait; retain the wakeup. */
+ 		k_sem_give(&data->notif_sem);
++		k_spin_unlock(&data->lock, key);
++		if (closed) {
++			cdc_acm_work_submit(&data->session_work);
++		}
+ 	}
+ 
+-ep_request_error:
+ 	ret = usbd_ep_buf_free(uds_ctx, buf);
+-ep_buf_already_handled:
+ 	return ret;
+ }
+ 
+@@ -411,19 +498,14 @@ static void usbd_cdc_acm_enable(struct usbd_class_data *const c_data)
+ 	const struct device *dev = usbd_class_get_private(c_data);
+ 	struct cdc_acm_uart_data *data = dev->data;
+ 
++	k_spinlock_key_t key = k_spin_lock(&data->lock);
++
+ 	atomic_set_bit(&data->state, CDC_ACM_CLASS_ENABLED);
++	/* Enumeration must not require a terminal to assert DTR. */
++	data->dtr_closed = false;
++	k_spin_unlock(&data->lock, key);
++	cdc_acm_work_submit(&data->session_work);
+ 	LOG_INF("Configuration enabled");
+-
+-	if (atomic_test_bit(&data->state, CDC_ACM_IRQ_RX_ENABLED)) {
+-		cdc_acm_irq_rx_enable(dev);
+-	}
+-
+-	if (data->cb == NULL) {
+-		/* Allow cdc_acm_poll_in to receive */
+-		cdc_acm_work_submit(&data->rx_fifo_work);
+-	}
+-	data->zlp_needed = true;
+-	cdc_acm_work_schedule(&data->tx_fifo_work, K_NO_WAIT);
+ }
+ 
+ static void usbd_cdc_acm_disable(struct usbd_class_data *const c_data)
+@@ -431,10 +513,16 @@ static void usbd_cdc_acm_disable(struct usbd_class_data *const c_data)
+ 	const struct device *dev = usbd_class_get_private(c_data);
+ 	struct cdc_acm_uart_data *data = dev->data;
+ 
+-	data->echo_mitigated = false;
++	k_spinlock_key_t key = k_spin_lock(&data->lock);
+ 
+ 	atomic_clear_bit(&data->state, CDC_ACM_CLASS_ENABLED);
+ 	atomic_clear_bit(&data->state, CDC_ACM_CLASS_SUSPENDED);
++	data->line_state = 0;
++	data->line_state_dtr = false;
++	data->line_state_rts = false;
++	cdc_acm_session_close_locked(data);
++	k_spin_unlock(&data->lock, key);
++	cdc_acm_work_submit(&data->session_work);
+ 	LOG_INF("Configuration disabled");
+ }
+ 
+@@ -599,8 +687,16 @@ static int usbd_cdc_acm_ctd(struct usbd_class_data *const c_data,
+ 			return -ENOTSUP;
+ 		}
+ 
++		k_spinlock_key_t key = k_spin_lock(&data->lock);
++
+ 		data->line_state = setup->wValue;
+ 		cdc_acm_update_linestate(data);
++		data->dtr_closed = !data->line_state_dtr;
++		if (data->dtr_closed) {
++			cdc_acm_session_close_locked(data);
++		}
++		k_spin_unlock(&data->lock, key);
++		cdc_acm_work_submit(&data->session_work);
+ 		usbd_msg_pub_device(uds_ctx, USBD_MSG_CDC_ACM_CONTROL_LINE_STATE, dev);
+ 		return 0;
+ 
+@@ -663,23 +759,59 @@ static __maybe_unused int cdc_acm_send_notification(const struct device *dev,
+ 		return -EACCES;
+ 	}
+ 
++#if CONFIG_USBD_CDC_ACM_WORKQUEUE
++	struct k_work_q *queue = &cdc_acm_work_q;
++#else
++	struct k_work_q *queue = &k_sys_work_q;
++#endif
++	if (k_is_in_isr() || k_current_get() == k_work_queue_thread_get(queue)) {
++		return -EWOULDBLOCK;
++	}
++
+ 	ep = cdc_acm_get_int_in(c_data);
+ 	buf = usbd_ep_buf_alloc(c_data, ep, sizeof(struct cdc_acm_notification));
+ 	if (buf == NULL) {
+ 		return -ENOMEM;
+ 	}
+ 
+-	net_buf_add_mem(buf, &notification, sizeof(struct cdc_acm_notification));
+-	ret = usbd_ep_enqueue(c_data, buf);
+-	if (ret) {
++	k_spinlock_key_t key = k_spin_lock(&data->lock);
++
++	if (data->session_closed || data->notif_busy) {
++		ret = data->session_closed ? -EACCES : -EBUSY;
++		k_spin_unlock(&data->lock, key);
+ 		net_buf_unref(buf);
+ 		return ret;
+ 	}
++	data->notif_busy = true;
++	data->notif_enqueued++;
++	data->notif_submitting++;
++	k_sem_reset(&data->notif_sem);
++	k_spin_unlock(&data->lock, key);
+ 
+-	if (k_sem_take(&data->notif_sem, K_FOREVER) == -EAGAIN) {
+-		return -ECANCELED;
++	net_buf_add_mem(buf, &notification, sizeof(struct cdc_acm_notification));
++	ret = usbd_ep_enqueue(c_data, buf);
++	key = k_spin_lock(&data->lock);
++	data->notif_submitting--;
++	if (ret != 0) {
++		data->notif_enqueued--;
+ 	}
++	bool closed = data->session_closed;
+ 
++	k_spin_unlock(&data->lock, key);
++	if (closed) {
++		cdc_acm_work_submit(&data->session_work);
++	}
++	if (ret != 0) {
++		net_buf_unref(buf);
++	} else {
++		k_sem_take(&data->notif_sem, K_FOREVER);
++	}
++	key = k_spin_lock(&data->lock);
++	if (ret == 0) {
++		ret = data->notif_result;
++	}
++	data->notif_busy = false;
++	k_spin_unlock(&data->lock, key);
+ 	return ret;
+ }
+ 
+@@ -691,7 +823,7 @@ static uint32_t cdc_acm_tx_put_locked(const struct device *dev, const uint8_t *c
+ 	uint32_t written;
+ 
+ 	buf = data->tx_fifo.current;
+-	if (buf == NULL) {
++	if (data->session_closed || buf == NULL) {
+ 		return 0;
+ 	}
+ 
+@@ -725,6 +857,13 @@ static void cdc_acm_tx_fifo_enqueue(const struct device *dev)
+ 	new_buf = net_buf_alloc(data->tx_fifo.pool, K_NO_WAIT);
+ 
+ 	key = k_spin_lock(&data->lock);
++	if (data->session_closed) {
++		k_spin_unlock(&data->lock, key);
++		if (new_buf != NULL) {
++			net_buf_unref(new_buf);
++		}
++		return;
++	}
+ 
+ 	if (data->echo_mitigated) {
+ 		/* Echo was mitigated, can enqueue current buffer with data. */
+@@ -827,8 +966,20 @@ static void cdc_acm_rx_fifo_handler(struct k_work *work)
+ 
+ 		bi = udc_get_buf_info(buf);
+ 		bi->ep = cdc_acm_get_bulk_out(c_data);
++		k_spinlock_key_t key = k_spin_lock(&data->lock);
++
++		if (data->session_closed) {
++			k_spin_unlock(&data->lock, key);
++			net_buf_unref(buf);
++			break;
++		}
++		data->rx_enqueued++;
++		k_spin_unlock(&data->lock, key);
+ 		if (usbd_ep_enqueue(c_data, buf) != 0) {
+ 			LOG_ERR("Failed to enqueue net_buf for 0x%02x", bi->ep);
++			key = k_spin_lock(&data->lock);
++			data->rx_enqueued--;
++			k_spin_unlock(&data->lock, key);
+ 			net_buf_unref(buf);
+ 			break;
+ 		}
+@@ -914,7 +1065,11 @@ static int cdc_acm_fifo_fill(const struct device *dev,
+ 		}
+ 
+ 		if (enqueue) {
+-			cdc_acm_tx_fifo_enqueue(dev);
++			/* fifo_fill can be called with the application's IRQ lock held.
++			 * Only the work handler may enter the (potentially sleeping) UDC.
++			 */
++			cdc_acm_work_schedule(&data->tx_fifo_work, K_NO_WAIT);
++			break;
+ 		}
+ 	}
+ 
+@@ -934,6 +1089,7 @@ static int cdc_acm_fifo_read(const struct device *dev,
+ {
+ 	struct cdc_acm_uart_data *const data = dev->data;
+ 	struct net_buf *head;
++	k_spinlock_key_t key;
+ 	int offset = 0;
+ 	int len;
+ 
+@@ -945,7 +1101,8 @@ static int cdc_acm_fifo_read(const struct device *dev,
+ 		return 0;
+ 	}
+ 
+-	while (true) {
++	key = k_spin_lock(&data->lock);
++	while (!data->session_closed) {
+ 		head = k_fifo_peek_head(data->rx_fifo.bufs);
+ 		if (head == NULL || offset == size) {
+ 			break;
+@@ -961,6 +1118,7 @@ static int cdc_acm_fifo_read(const struct device *dev,
+ 			data->rx_fifo.altered = true;
+ 		}
+ 	}
++	k_spin_unlock(&data->lock, key);
+ 
+ 	return offset;
+ }
+@@ -1024,7 +1182,8 @@ static void cdc_acm_irq_update(const struct device *dev)
+ 		return;
+ 	}
+ 
+-	if (atomic_test_bit(&data->state, CDC_ACM_IRQ_RX_ENABLED) &&
++	if (!cdc_acm_session_is_closed(data) &&
++	    atomic_test_bit(&data->state, CDC_ACM_IRQ_RX_ENABLED) &&
+ 	    !k_fifo_is_empty(data->rx_fifo.bufs)) {
+ 		data->rx_fifo.irq = true;
+ 	} else {
+@@ -1062,6 +1221,10 @@ static void cdc_acm_irq_cb_handler(struct k_work *work)
+ 	cfg = data->dev->config;
+ 	c_data = cfg->c_data;
+ 
++	if (cdc_acm_session_is_closed(data)) {
++		return;
++	}
++
+ 	if (data->cb == NULL) {
+ 		LOG_ERR("IRQ callback is not set");
+ 		return;
+@@ -1121,9 +1284,11 @@ static int cdc_acm_poll_in(const struct device *dev, unsigned char *const c)
+ {
+ 	struct cdc_acm_uart_data *const data = dev->data;
+ 	struct net_buf *head;
++	k_spinlock_key_t key = k_spin_lock(&data->lock);
+ 
+ 	head = k_fifo_peek_head(data->rx_fifo.bufs);
+-	if (head == NULL) {
++	if (data->session_closed || head == NULL) {
++		k_spin_unlock(&data->lock, key);
+ 		return -1;
+ 	}
+ 
+@@ -1134,6 +1299,7 @@ static int cdc_acm_poll_in(const struct device *dev, unsigned char *const c)
+ 		net_buf_unref(head);
+ 		cdc_acm_work_submit(&data->rx_fifo_work);
+ 	}
++	k_spin_unlock(&data->lock, key);
+ 
+ 	return 0;
+ }
+@@ -1153,7 +1319,8 @@ static void cdc_acm_poll_out(const struct device *dev, const unsigned char c)
+ 			break;
+ 		}
+ 
+-		if (k_is_in_isr() || !data->flow_ctrl) {
++		if (k_is_in_isr() || !data->flow_ctrl ||
++		    cdc_acm_session_is_closed(data)) {
+ 			LOG_WRN_ONCE("No TX buffer available, discard data");
+ 			goto cdc_acm_poll_out_schedule;
+ 		}
+@@ -1275,6 +1442,8 @@ static int usbd_cdc_acm_preinit(const struct device *dev)
+ 	k_work_init_delayable(&data->tx_fifo_work, cdc_acm_tx_fifo_handler);
+ 	k_work_init(&data->rx_fifo_work, cdc_acm_rx_fifo_handler);
+ 	k_work_init(&data->irq_cb_work, cdc_acm_irq_cb_handler);
++	k_work_init(&data->session_work, cdc_acm_session_handler);
++	data->session_closed = true;
+ 
+ 	cdc_acm_update_uart_cfg(data);
+ 
+@@ -1307,6 +1476,20 @@ static DEVICE_API(uart, cdc_acm_uart_api) = {
+ #endif
+ };
+ 
++int usbd_cdc_acm_set_session_cb(const struct device *dev,
++			      usbd_cdc_acm_session_cb_t cb, void *user_data)
++{
++	if (dev == NULL || dev->api != &cdc_acm_uart_api) {
++		return -ENODEV;
++	}
++	struct cdc_acm_uart_data *data = dev->data;
++
++	/* Register before enabling the USB device, not while callbacks run. */
++	data->session_cb = cb;
++	data->session_cb_data = user_data;
++	return 0;
++}
++
+ static const struct usbd_class_api usbd_cdc_acm_api = {
+ 	.request = usbd_cdc_acm_request,
+ 	.update = usbd_cdc_acm_update,
+diff --git a/include/zephyr/usb/class/usbd_cdc_acm.h b/include/zephyr/usb/class/usbd_cdc_acm.h
+new file mode 100644
+index 000000000..8ba48831f
+--- /dev/null
++++ b/include/zephyr/usb/class/usbd_cdc_acm.h
+@@ -0,0 +1,20 @@
++/* SPDX-License-Identifier: Apache-2.0 */
++#ifndef ZEPHYR_INCLUDE_USB_CLASS_USBD_CDC_ACM_H_
++#define ZEPHYR_INCLUDE_USB_CLASS_USBD_CDC_ACM_H_
++
++#include <zephyr/device.h>
++
++/** Session boundary notification, invoked on the CDC workqueue without locks.
++ * Driver FIFOs are empty and admission is closed. Request application protocol
++ * reset here; do not wait for work on the same queue. Includes initial enable,
++ * explicit DTR clear and configuration disable. Multiple closes may coalesce.
++ */
++typedef void (*usbd_cdc_acm_session_cb_t)(const struct device *dev, void *user_data);
++
++/** Register before USB enable. NULL removes the callback. Returns -ENODEV for
++ * a device which is not the next-stack CDC ACM UART implementation.
++ */
++int usbd_cdc_acm_set_session_cb(const struct device *dev,
++                              usbd_cdc_acm_session_cb_t cb, void *user_data);
++
++#endif
