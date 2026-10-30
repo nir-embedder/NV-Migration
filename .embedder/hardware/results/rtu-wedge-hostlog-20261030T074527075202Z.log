@@ -1,0 +1,171 @@
+{"timestamp": "2026-10-30T07:45:21.326119+00:00", "port": "/dev/cu.usbmodem1101", "transactions_before_wedge": 20, "wedged": true, "wedged_reply_len": 0, "log_line_count": 170, "t_wedge": "00:45:23.815152"}
+Timestamp               Ty Process[PID:TID]
+2026-10-30 00:45:21.714 Df dasd[384:2dcc45] [com.apple.duetactivityscheduler:scoring] 501:com.apple.intelligenceplatform.IntelligencePlatformCore.FullPipeline:C6F50C:[
+	{name: Device Activity Policy, policyWeight: 20.000, response: {33, 0.00, [{deviceActivity == 4}]}}
+ ], Decision: MNP}
+2026-10-30 00:45:21.715 Df dasd[384:2dcc45] [com.apple.duetactivityscheduler:scoring] 501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.c:FF10DF:[
+	{name: Device Activity Policy, policyWeight: 20.000, response: {33, 0.00, [{deviceActivity == 4}]}}
+ ], Decision: MNP}
+2026-10-30 00:45:21.716 Df dasd[384:2dcc45] [com.apple.duetactivityscheduler:scoring] 501:com.apple.intelligenceplatform.IntelligencePlatformCore.AutonamingMessagesPipeline:4CB30C:[
+	{name: Device Activity Policy, policyWeight: 20.000, response: {33, 0.00, [{deviceActivity == 4}]}}
+ ], Decision: MNP}
+2026-10-30 00:45:21.717 Df dasd[384:2dcc45] [com.apple.duetactivityscheduler:scoring] 501:com.apple.photoanalysisd.searchdonation:2BCDC0:[
+	{name: Device Activity Policy, policyWeight: 20.000, response: {33, 0.00, [{deviceActivity == 4}]}}
+	{name: Result Dependency Policy, policyWeight: 0.001, response: {100, 0.00, [{dependencySatisfaction == 0}]}}
+ ], Decision: AMNP}
+2026-10-30 00:45:21.718 Df dasd[384:2dcc45] [com.apple.duetactivityscheduler:scoring] 501:com.apple.spotlightknowledged.pipelines.lssr5identificationdocumentsbackground.journal-processing:9A0907:[
+	{name: Device Activity Policy, policyWeight: 20.000, response: {33, 0.00, [{deviceActivity == 4}]}}
+ ], Decision: MNP}
+2026-10-30 00:45:21.718 Df dasd[384:2dcc45] [com.apple.duetactivityscheduler:scoring] 501:com.apple.spotlightknowledged.pipelines.lssr5eventsandordersbackground.journal-processing:95F2E7:[
+	{name: Device Activity Policy, policyWeight: 20.000, response: {33, 0.00, [{deviceActivity == 4}]}}
+ ], Decision: MNP}
+2026-10-30 00:45:21.718 Df dasd[384:2dcc45] [com.apple.duetactivityscheduler:scoring] 501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab:D637AD, Decision: CP Score: 0.994672}
+2026-10-30 00:45:21.718 Df dasd[384:2dcc45] [com.apple.duetactivityscheduler:scoring] '501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab:D637AD' CurrentScore: 0.994672, ThresholdScore: 0.159249 DecisionToRun:1
+2026-10-30 00:45:21.721 Df dasd[384:2dcc45] [com.apple.duetactivityscheduler:scoring] 0:com.apple.diagnosticpipeline.cloudkit_expedited_upload:2D3C56:[
+	{name: Device Activity Policy, policyWeight: 20.000, response: {33, 0.00, [{deviceActivity == 4}]}}
+ ], Decision: MNP}
+2026-10-30 00:45:21.721 Df dasd[384:2dcc45] [com.apple.duetactivityscheduler:scoring] 0:com.apple.diagnosticpipeline.cloudkit_report_stats:EBCC8D:[
+	{name: Device Activity Policy, policyWeight: 20.000, response: {33, 0.00, [{deviceActivity == 4}]}}
+ ], Decision: MNP}
+2026-10-30 00:45:21.721 Df dasd[384:2dcc45] [com.apple.duetactivityscheduler:scoring] 0:com.apple.diagnosticpipeline.cloudkit_activity:AD20E7:[
+	{name: Device Activity Policy, policyWeight: 20.000, response: {33, 0.00, [{deviceActivity == 4}]}}
+ ], Decision: MNP}
+2026-10-30 00:45:21.726 Df dasd[384:2dcc45] [com.apple.duetactivityscheduler:scoring] 0:com.apple.diagnosticpipeline.tasking_invalidation_activity:178B7E:[
+	{name: Device Activity Policy, policyWeight: 20.000, response: {33, 0.00, [{deviceActivity == 4}]}}
+ ], Decision: MNP}
+2026-10-30 00:45:21.730 Df dasd[384:2dcc44] [com.apple.duetactivityscheduler:client] REQUESTING START: 501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab:D637AD
+2026-10-30 00:45:21.730 I  dasd[384:2dcc44] [com.apple.duetactivityscheduler:BGST] DAS told us to run 501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab (0x810b9bb80)
+2026-10-30 00:45:21.730 I  dasd[384:2dcc44] [com.apple.duetactivityscheduler:BGSTHelper] 501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab state change 7 -> 2
+2026-10-30 00:45:21.731 Df dasd[384:2dcc44] [com.apple.duetactivityscheduler:BGSTHelper] Initiating BGST: 501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab (0x810b9bb80)
+2026-10-30 00:45:21.731 Df dasd[384:2dcc44] [com.apple.duetactivityscheduler:BGSTHelper] Client (PID 784) confirmed run for 501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab (0x810b9bb80)
+2026-10-30 00:45:21.731 Df spotlightknowledged.updater[784:2dcc47] [com.apple.BackgroundSystemTasks:BGSTFramework] Calling launch handler for com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab
+2026-10-30 00:45:21.731 Df spotlightknowledged.updater[784:2dcc47] [com.apple.spotlightknowledge:BackgroundSystemTasks] Background System Task Launched: com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab
+2026-10-30 00:45:21.731 Df spotlightknowledged.updater[784:2dcc47] [com.apple.spotlightknowledge:Scheduler] [DAS] Background task launched: com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab
+2026-10-30 00:45:21.731 Df spotlightknowledged.updater[784:2dc042] [com.apple.spotlightknowledge:Scheduler] Task beginning: com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab
+2026-10-30 00:45:21.731 Df dasd[384:2dcb01] [com.apple.duetactivityscheduler:lifecycle] STARTING <_DASActivity: "501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab:D637AD", Maintenance, 60s, [10/30/26, 12:44:51 AM - 10/30/26, 12:44:51 AM], Started at 10/30/26, 12:45:21 AM, Group: com.apple.dasd.defaultIntensive, Intensive: CPU Disk, PID: 784>
+2026-10-30 00:45:21.733 Df spotlightknowledged.updater[784:2dcc49] [com.apple.spotlightknowledge:Scheduler] Task finished and requesting deferral: com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab
+2026-10-30 00:45:21.733 Df spotlightknowledged.updater[784:2dcc49] [com.apple.BackgroundSystemTasks:BGSTFramework] Client requested expiration of task <BGRepeatingSystemTask: com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab>
+2026-10-30 00:45:21.733 Df dasd[384:2dcc45] [com.apple.duetactivityscheduler:BGSTHelper] Client (PID 784) requested expiration for 501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab (0x810b9bb80)
+2026-10-30 00:45:21.733 I  dasd[384:2dcc45] [com.apple.duetactivityscheduler:BGSTHelper] Canceling 501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab:D637AD (BGST 0x810b9bb80)
+2026-10-30 00:45:21.733 Df dasd[384:2dcc45] [com.apple.duetactivityscheduler:client] SUBMITTING: 501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab:C7C78F
+2026-10-30 00:45:21.733 Df dasd[384:2dcb01] [com.apple.duetactivityscheduler:scoring] 501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab:D637AD, Decision: CP Score: 0.994672}
+2026-10-30 00:45:21.733 Df dasd[384:2dcb01] [com.apple.duetactivityscheduler:lifecycle] CANCELED: 501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab:D637AD at priority 5
+2026-10-30 00:45:21.734 Df dasd[384:2dcb01] [com.apple.duetactivityscheduler:lifecycle(activityGroup)] NO LONGER RUNNING 501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab:D637AD ...Tasks running in group [com.apple.dasd.defaultIntensive] are 0!
+2026-10-30 00:45:21.742 Df dasd[384:2dcb01] [com.apple.duetactivityscheduler:default] Submitted: 501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab:C7C78F at priority 5 with interval 86400 (Fri Oct 30 00:50:21 2026 - Fri Oct 30 00:50:21 2026)
+2026-10-30 00:45:21.743 Df dasd[384:2dcc45] [com.apple.duetactivityscheduler:BGSTHelper] Submitted <_DASActivity: "501:com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab:C7C78F", Maintenance, 60s, [10/30/26, 12:50:21 AM - 10/30/26, 12:50:21 AM], Group: "com.apple.dasd.defaultIntensive", InternalGroups: {(
+    "com.apple.dasd.defaultIntensive"
+)}, CPU Intensive, Disk Intensive, Plugin Required, Interval=1440, Involved Processes: (     spotlightknowledged,     corespotlightd ), Service Name: spotlightknowledged.updater, Budgeted, ClassA, ClassA, Delayed Start, User Specified: {     Resources = "CPU, Disk"; }> (BGST 0x810b9bb80)
+2026-10-30 00:45:21.743 Df spotlightknowledged.updater[784:2dcc49] [com.apple.spotlightknowledge:BackgroundSystemTasks] Expired Background System Task com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab for 5 minutes
+2026-10-30 00:45:21.743 Df spotlightknowledged.updater[784:2dcc49] [com.apple.spotlightknowledge:Scheduler] [DAS] Background task deferred: com.apple.spotlightknowledged.pipelines.keyphrase.index-processing.ab
+2026-10-30 00:45:22.027 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBIORequest: AppleUSBIORequest::complete: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: status 0xe00002ed (transaction error): 0 bytes transferred
+2026-10-30 00:45:22.027 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBXHCIPipe: IOUSBHostPipe::abortGated: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: aborting 15 requests
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 2
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 3
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 4
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 5
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 6
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 7
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 8
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 9
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 10
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 11
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 12
+2026-10-30 00:45:22.028 E  kernel[0:67c] (IOUSBHostFamily) AppleT8142USBXHCI@01000000: AppleUSBHostController::io: request <private> completed with 0xe0005000
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 13
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 14
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 15
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 16
+2026-10-30 00:45:22.028 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBIORequest: AppleUSBIORequest::complete: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: status 0xe00002ed (transaction error): 0 bytes transferred
+2026-10-30 00:45:22.028 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBXHCIPipe: IOUSBHostPipe::abortGated: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: aborting 13 requests
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 18
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 19
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 20
+2026-10-30 00:45:22.028 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 21
+2026-10-30 00:45:22.028 E  kernel[0:67c] (IOUSBHostFamily) AppleT8142USBXHCI@01000000: AppleUSBHostController::io: request <private> completed with 0xe0005000
+2026-10-30 00:45:22.029 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 22
+2026-10-30 00:45:22.029 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 23
+2026-10-30 00:45:22.029 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 24
+2026-10-30 00:45:22.029 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 25
+2026-10-30 00:45:22.029 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 26
+2026-10-30 00:45:22.029 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 27
+2026-10-30 00:45:22.029 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 28
+2026-10-30 00:45:22.029 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 29
+2026-10-30 00:45:22.029 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 30
+2026-10-30 00:45:22.029 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBIORequest: AppleUSBIORequest::complete: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: status 0xe00002ed (transaction error): 0 bytes transferred
+2026-10-30 00:45:22.029 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBXHCIPipe: IOUSBHostPipe::abortGated: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: aborting 11 requests
+2026-10-30 00:45:22.029 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 32
+2026-10-30 00:45:22.029 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 33
+2026-10-30 00:45:22.029 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 34
+2026-10-30 00:45:22.029 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 35
+2026-10-30 00:45:22.029 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 36
+2026-10-30 00:45:22.029 E  kernel[0:67c] (IOUSBHostFamily) AppleT8142USBXHCI@01000000: AppleUSBHostController::io: request <private> completed with 0xe0005000
+2026-10-30 00:45:22.030 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 37
+2026-10-30 00:45:22.030 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 38
+2026-10-30 00:45:22.030 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 39
+2026-10-30 00:45:22.030 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 40
+2026-10-30 00:45:22.030 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 41
+2026-10-30 00:45:22.030 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 42
+2026-10-30 00:45:22.030 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBIORequest: AppleUSBIORequest::complete: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: status 0xe00002ed (transaction error): 0 bytes transferred
+2026-10-30 00:45:22.030 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBXHCIPipe: IOUSBHostPipe::abortGated: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: aborting 9 requests
+2026-10-30 00:45:22.030 E  kernel[0:64f] (AppleUSBXHCI) AppleUSBXHCIRequest: AppleUSBXHCIRequest::update: device 1 endpoint 0x89: transfer event for _previousTD
+2026-10-30 00:45:22.030 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 44
+2026-10-30 00:45:22.030 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 45
+2026-10-30 00:45:22.030 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 46
+2026-10-30 00:45:22.030 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 1
+2026-10-30 00:45:22.030 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 2
+2026-10-30 00:45:22.030 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 3
+2026-10-30 00:45:22.030 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 4
+2026-10-30 00:45:22.030 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 5
+2026-10-30 00:45:22.753 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBIORequest: AppleUSBIORequest::complete: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: status 0xe00002ed (transaction error): 0 bytes transferred
+2026-10-30 00:45:22.753 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBXHCIPipe: IOUSBHostPipe::abortGated: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: aborting 8 requests
+2026-10-30 00:45:22.753 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 2
+2026-10-30 00:45:22.753 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 3
+2026-10-30 00:45:22.753 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 4
+2026-10-30 00:45:22.753 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 5
+2026-10-30 00:45:22.753 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 6
+2026-10-30 00:45:22.753 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 7
+2026-10-30 00:45:22.753 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 8
+2026-10-30 00:45:22.753 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 9
+2026-10-30 00:45:22.753 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBIORequest: AppleUSBIORequest::complete: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: status 0xe00002ed (transaction error): 0 bytes transferred
+2026-10-30 00:45:22.753 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBXHCIPipe: IOUSBHostPipe::abortGated: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: aborting 7 requests
+2026-10-30 00:45:22.753 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 11
+2026-10-30 00:45:22.753 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 12
+2026-10-30 00:45:22.753 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 13
+2026-10-30 00:45:22.753 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 14
+2026-10-30 00:45:22.753 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 15
+2026-10-30 00:45:22.753 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 16
+2026-10-30 00:45:22.753 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 17
+2026-10-30 00:45:22.754 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBIORequest: AppleUSBIORequest::complete: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: status 0xe00002ed (transaction error): 0 bytes transferred
+2026-10-30 00:45:22.754 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBXHCIPipe: IOUSBHostPipe::abortGated: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: aborting 6 requests
+2026-10-30 00:45:22.754 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 19
+2026-10-30 00:45:22.754 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 20
+2026-10-30 00:45:22.754 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 21
+2026-10-30 00:45:22.754 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 22
+2026-10-30 00:45:22.754 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 23
+2026-10-30 00:45:22.754 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 24
+2026-10-30 00:45:22.754 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBIORequest: AppleUSBIORequest::complete: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: status 0xe00002ed (transaction error): 0 bytes transferred
+2026-10-30 00:45:22.754 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBXHCIPipe: IOUSBHostPipe::abortGated: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: aborting 5 requests
+2026-10-30 00:45:22.754 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 26
+2026-10-30 00:45:22.754 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 27
+2026-10-30 00:45:22.754 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 28
+2026-10-30 00:45:22.754 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 29
+2026-10-30 00:45:22.754 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 30
+2026-10-30 00:45:22.754 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBIORequest: AppleUSBIORequest::complete: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: status 0xe00002ed (transaction error): 0 bytes transferred
+2026-10-30 00:45:22.754 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBXHCIPipe: IOUSBHostPipe::abortGated: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: aborting 4 requests
+2026-10-30 00:45:22.754 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 32
+2026-10-30 00:45:22.755 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 33
+2026-10-30 00:45:22.755 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 34
+2026-10-30 00:45:22.755 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 35
+2026-10-30 00:45:22.755 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBIORequest: AppleUSBIORequest::complete: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: status 0xe00002ed (transaction error): 0 bytes transferred
+2026-10-30 00:45:22.755 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBXHCIPipe: IOUSBHostPipe::abortGated: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: aborting 3 requests
+2026-10-30 00:45:22.755 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 37
+2026-10-30 00:45:22.755 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 38
+2026-10-30 00:45:22.755 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 39
+2026-10-30 00:45:22.755 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBIORequest: AppleUSBIORequest::complete: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: status 0xe00002ed (transaction error): 0 bytes transferred
+2026-10-30 00:45:22.755 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBXHCIPipe: IOUSBHostPipe::abortGated: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: aborting 2 requests
+2026-10-30 00:45:22.755 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 41
+2026-10-30 00:45:22.755 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 42
+2026-10-30 00:45:22.755 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBIORequest: AppleUSBIORequest::complete: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: status 0xe00002ed (transaction error): 0 bytes transferred
+2026-10-30 00:45:22.755 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBXHCIPipe: IOUSBHostPipe::abortGated: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: aborting 1 requests
+2026-10-30 00:45:22.755 Df kernel[0:67c] (AppleUSBSerial) [0x1000051fc] AppleUSBSerial::operator()() re-enqueue IO after error 0xe00002eb, _numIOErrors 44
+2026-10-30 00:45:22.756 E  kernel[0:67c] (IOUSBHostFamily) AppleUSBIORequest: AppleUSBIORequest::complete: device 1 (NK-M3351 Modbus RTU + TCP@01100000) endpoint 0x89: status 0xe00002ed (transaction error): 0 bytes transferred

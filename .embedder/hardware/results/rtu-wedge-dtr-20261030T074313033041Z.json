@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-10-30T07:42:52.362430+00:00",
+  "port": "/dev/cu.usbmodem1101",
+  "runs": [
+    {
+      "attempt": 0,
+      "transactions_before_wedge": 20,
+      "silence_5s_recover_ms": null,
+      "dtr_toggle_recover_ms": null,
+      "dtr_toggle_long_recover_ms": null
+    }
+  ],
+  "healthy_dtr_toggle_recover_ms": 157.9,
+  "close_reopen_recover_ms": 157.5
+}

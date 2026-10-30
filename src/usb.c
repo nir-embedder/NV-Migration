@@ -8,6 +8,7 @@
 #include <zephyr/logging/log.h>
 #include <zephyr/usb/usbd.h>
 #include <zephyr/usb/class/usbd_cdc_acm.h>
+#include <soc.h>
 
 LOG_MODULE_REGISTER(app_usb, LOG_LEVEL_INF);
 USBD_DEVICE_DEFINE(modbus_usb, DEVICE_DT_GET(DT_NODELABEL(zephyr_udc0)),
@@ -26,12 +27,36 @@ static void cdc_session_reset(const struct device *dev, void *user_data)
     app_transport_reset(false);
 }
 
+/*
+ * The M335x devicetree leaves HXT off, so the USBD module and the PLL both run
+ * from the factory-trimmed but otherwise free-running 48 MHz HIRC, and the
+ * UDC driver does not trim it. Full-speed USB needs +/-0.25 %: without trim,
+ * long IN packets with unfavourable bit patterns fail CRC at the host and the
+ * controller retransmits the same DATA packet indefinitely (RTU "wedge").
+ * Trim HIRC against USB SOF (TRM 6.2.10). Hardware clears FREQSEL when SOF is
+ * missing for RETRYCNT loops, so re-arm on every reset/configuration/resume.
+ */
+static void hirc_trim_arm(void)
+{
+    SYS->HIRCTISTS = SYS_HIRCTISTS_TFAILIF_Msk | SYS_HIRCTISTS_CLKERRIF_Msk |
+                     SYS_HIRCTISTS_OVBDIF_Msk;
+    SYS->HIRCTCTL = (SYS->HIRCTCTL & SYS_HIRCTCTL_BOUNDARY_Msk) |
+                    SYS_HIRCTCTL_REFCKSEL_Msk |
+                    (3UL << SYS_HIRCTCTL_RETRYCNT_Pos) |
+                    (3UL << SYS_HIRCTCTL_LOOPSEL_Pos) |
+                    (1UL << SYS_HIRCTCTL_FREQSEL_Pos);
+}
+
 static void usb_message(struct usbd_context *const context,
                         const struct usbd_msg *const message)
 {
     int error = 0;
     if (message->type == USBD_MSG_RESET || message->type == USBD_MSG_VBUS_REMOVED) {
         app_transport_reset(true);
+    }
+    if (message->type == USBD_MSG_RESET || message->type == USBD_MSG_CONFIGURATION ||
+        message->type == USBD_MSG_RESUME) {
+        hirc_trim_arm();
     }
     if (usbd_can_detect_vbus(context)) {
         if (message->type == USBD_MSG_VBUS_READY) {

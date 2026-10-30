@@ -1,0 +1,370 @@
+{
+  "timestamp": "2026-10-30T04:56:52.616484+00:00",
+  "port": "/dev/cu.usbmodem1101",
+  "scenarios": [
+    {
+      "name": "full10_exact",
+      "steps": [
+        {
+          "step": "zero16",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_0_1234",
+          "rx": "0a060000123485c6",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_1_2345",
+          "rx": "0a060001234501b2",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_2_3456",
+          "rx": "0a0600023456bf8f",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_3_4567",
+          "rx": "0a06000345670bcb",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_4_5678",
+          "rx": "0a0600045678f6f2",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_5_6789",
+          "rx": "0a06000567897326",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_6_789a",
+          "rx": "0a060006789acadb",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_7_89ab",
+          "rx": "0a06000789ab1f5f",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_8_9abc",
+          "rx": "0a0600089abc6262",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_9_abcd",
+          "rx": "0a060009abcde616",
+          "rx_len": 8
+        },
+        {
+          "step": "fc3_0_16",
+          "rx": "",
+          "rx_len": 0
+        }
+      ],
+      "ok": false
+    },
+    {
+      "name": "full10_w0_1235",
+      "steps": [
+        {
+          "step": "zero16",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_0_1235",
+          "rx": "0a06000012354406",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_1_2345",
+          "rx": "0a060001234501b2",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_2_3456",
+          "rx": "0a0600023456bf8f",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_3_4567",
+          "rx": "0a06000345670bcb",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_4_5678",
+          "rx": "0a0600045678f6f2",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_5_6789",
+          "rx": "0a06000567897326",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_6_789a",
+          "rx": "0a060006789acadb",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_7_89ab",
+          "rx": "0a06000789ab1f5f",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_8_9abc",
+          "rx": "0a0600089abc6262",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_9_abcd",
+          "rx": "0a060009abcde616",
+          "rx_len": 8
+        },
+        {
+          "step": "fc3_0_16",
+          "rx": "",
+          "rx_len": 0
+        }
+      ],
+      "ok": false
+    },
+    {
+      "name": "first9_only",
+      "steps": [
+        {
+          "step": "zero16",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_0_1234",
+          "rx": "0a060000123485c6",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_1_2345",
+          "rx": "0a060001234501b2",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_2_3456",
+          "rx": "0a0600023456bf8f",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_3_4567",
+          "rx": "0a06000345670bcb",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_4_5678",
+          "rx": "0a0600045678f6f2",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_5_6789",
+          "rx": "0a06000567897326",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_6_789a",
+          "rx": "0a060006789acadb",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_7_89ab",
+          "rx": "0a06000789ab1f5f",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_8_9abc",
+          "rx": "0a0600089abc6262",
+          "rx_len": 8
+        },
+        {
+          "step": "fc3_0_16",
+          "rx": "0a0320123423453456456756786789789a89ab9abc00000000000000000000000000004383",
+          "rx_len": 37
+        },
+        {
+          "step": "fc6_after",
+          "rx_len": 8
+        }
+      ],
+      "ok": true
+    },
+    {
+      "name": "full10_read_0_10",
+      "steps": [
+        {
+          "step": "zero16",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_0_1234",
+          "rx": "0a060000123485c6",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_1_2345",
+          "rx": "0a060001234501b2",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_2_3456",
+          "rx": "0a0600023456bf8f",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_3_4567",
+          "rx": "0a06000345670bcb",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_4_5678",
+          "rx": "0a0600045678f6f2",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_5_6789",
+          "rx": "0a06000567897326",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_6_789a",
+          "rx": "0a060006789acadb",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_7_89ab",
+          "rx": "0a06000789ab1f5f",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_8_9abc",
+          "rx": "0a0600089abc6262",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_9_abcd",
+          "rx": "0a060009abcde616",
+          "rx_len": 8
+        },
+        {
+          "step": "fc3_0_10",
+          "rx": "",
+          "rx_len": 0
+        }
+      ],
+      "ok": false
+    },
+    {
+      "name": "last5_only",
+      "steps": [
+        {
+          "step": "zero16",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_5_6789",
+          "rx": "0a06000567897326",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_6_789a",
+          "rx": "0a060006789acadb",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_7_89ab",
+          "rx": "0a06000789ab1f5f",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_8_9abc",
+          "rx": "0a0600089abc6262",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_9_abcd",
+          "rx": "0a060009abcde616",
+          "rx_len": 8
+        },
+        {
+          "step": "fc3_0_16",
+          "rx": "",
+          "rx_len": 0
+        }
+      ],
+      "ok": false
+    },
+    {
+      "name": "full10_w9_abce",
+      "steps": [
+        {
+          "step": "zero16",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_0_1234",
+          "rx": "0a060000123485c6",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_1_2345",
+          "rx": "0a060001234501b2",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_2_3456",
+          "rx": "0a0600023456bf8f",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_3_4567",
+          "rx": "0a06000345670bcb",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_4_5678",
+          "rx": "0a0600045678f6f2",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_5_6789",
+          "rx": "0a06000567897326",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_6_789a",
+          "rx": "0a060006789acadb",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_7_89ab",
+          "rx": "0a06000789ab1f5f",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_8_9abc",
+          "rx": "0a0600089abc6262",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_9_abce",
+          "rx": "0a060009abcea617",
+          "rx_len": 8
+        },
+        {
+          "step": "fc3_0_16",
+          "rx": "",
+          "rx_len": 0
+        }
+      ],
+      "ok": false
+    }
+  ]
+}

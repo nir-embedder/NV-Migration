@@ -1,0 +1,203 @@
+{
+  "timestamp": "2026-10-30T04:56:32.399044+00:00",
+  "port": "/dev/cu.usbmodem1101",
+  "scenarios": [
+    {
+      "name": "abcd_at9_read16",
+      "steps": [
+        {
+          "step": "zero16",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_9_abcd",
+          "rx": "0a060009abcde616",
+          "rx_len": 8
+        },
+        {
+          "step": "fc3_0_16",
+          "rx": "0a0320000000000000000000000000000000000000abcd000000000000000000000000349c",
+          "rx_len": 37
+        },
+        {
+          "step": "fc6_after",
+          "rx_len": 8
+        }
+      ],
+      "ok": true
+    },
+    {
+      "name": "abcd_at0_read1",
+      "steps": [
+        {
+          "step": "zero16",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_0_abcd",
+          "rx": "0a060000abcd3614",
+          "rx_len": 8
+        },
+        {
+          "step": "fc3_0_1",
+          "rx": "0a0302abcda320",
+          "rx_len": 7
+        },
+        {
+          "step": "fc6_after",
+          "rx_len": 8
+        }
+      ],
+      "ok": true
+    },
+    {
+      "name": "abcd_at0_read16",
+      "steps": [
+        {
+          "step": "zero16",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_0_abcd",
+          "rx": "0a060000abcd3614",
+          "rx_len": 8
+        },
+        {
+          "step": "fc3_0_16",
+          "rx": "0a0320abcd00000000000000000000000000000000000000000000000000000000000083c5",
+          "rx_len": 37
+        },
+        {
+          "step": "fc6_after",
+          "rx_len": 8
+        }
+      ],
+      "ok": true
+    },
+    {
+      "name": "9abc_at8_abcd_at9_read16",
+      "steps": [
+        {
+          "step": "zero16",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_8_9abc",
+          "rx": "0a0600089abc6262",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_9_abcd",
+          "rx": "0a060009abcde616",
+          "rx_len": 8
+        },
+        {
+          "step": "fc3_0_16",
+          "rx": "0a0320000000000000000000000000000000009abcabcd0000000000000000000000006226",
+          "rx_len": 37
+        },
+        {
+          "step": "fc6_after",
+          "rx_len": 8
+        }
+      ],
+      "ok": true
+    },
+    {
+      "name": "cdab_at9_read16",
+      "steps": [
+        {
+          "step": "zero16",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_9_cdab",
+          "rx": "0a060009cdab4d9c",
+          "rx_len": 8
+        },
+        {
+          "step": "fc3_0_16",
+          "rx": "0a0320000000000000000000000000000000000000cdab000000000000000000000000da9c",
+          "rx_len": 37
+        },
+        {
+          "step": "fc6_after",
+          "rx_len": 8
+        }
+      ],
+      "ok": true
+    },
+    {
+      "name": "beef_at9_read16",
+      "steps": [
+        {
+          "step": "zero16",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_9_beef",
+          "rx": "0a060009beef689f",
+          "rx_len": 8
+        },
+        {
+          "step": "fc3_0_16",
+          "rx": "0a0320000000000000000000000000000000000000beef000000000000000000000000586b",
+          "rx_len": 37
+        },
+        {
+          "step": "fc6_after",
+          "rx_len": 8
+        }
+      ],
+      "ok": true
+    },
+    {
+      "name": "abcd_at9_read_9_1",
+      "steps": [
+        {
+          "step": "zero16",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_9_abcd",
+          "rx": "0a060009abcde616",
+          "rx_len": 8
+        },
+        {
+          "step": "fc3_9_1",
+          "rx": "0a0302abcda320",
+          "rx_len": 7
+        },
+        {
+          "step": "fc6_after",
+          "rx_len": 8
+        }
+      ],
+      "ok": true
+    },
+    {
+      "name": "abcd_at9_read_0_9",
+      "steps": [
+        {
+          "step": "zero16",
+          "rx_len": 8
+        },
+        {
+          "step": "fc6_9_abcd",
+          "rx": "0a060009abcde616",
+          "rx_len": 8
+        },
+        {
+          "step": "fc3_0_9",
+          "rx": "0a031200000000000000000000000000000000000048f9",
+          "rx_len": 23
+        },
+        {
+          "step": "fc6_after",
+          "rx_len": 8
+        }
+      ],
+      "ok": true
+    }
+  ]
+}

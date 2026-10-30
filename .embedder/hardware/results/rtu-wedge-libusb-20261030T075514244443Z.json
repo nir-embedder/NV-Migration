@@ -1,0 +1,218 @@
+{
+  "timestamp": "2026-10-30T07:55:11.580986+00:00",
+  "steps": [
+    {
+      "step": "zero16",
+      "rx_len": 8,
+      "packets": [
+        8
+      ],
+      "ms": 47.1
+    },
+    {
+      "step": "fc6_0",
+      "rx_len": 8,
+      "packets": [
+        8
+      ],
+      "ms": 0.3
+    },
+    {
+      "step": "fc3_after_0",
+      "rx_len": 37,
+      "packets": [
+        37
+      ],
+      "ms": 0.4
+    },
+    {
+      "step": "fc6_1",
+      "rx_len": 8,
+      "packets": [
+        8
+      ],
+      "ms": 0.4
+    },
+    {
+      "step": "fc3_after_1",
+      "rx_len": 37,
+      "packets": [
+        37
+      ],
+      "ms": 0.4
+    },
+    {
+      "step": "fc6_2",
+      "rx_len": 8,
+      "packets": [
+        8
+      ],
+      "ms": 0.3
+    },
+    {
+      "step": "fc3_after_2",
+      "rx_len": 37,
+      "packets": [
+        37
+      ],
+      "ms": 0.4
+    },
+    {
+      "step": "fc6_3",
+      "rx_len": 8,
+      "packets": [
+        8
+      ],
+      "ms": 0.3
+    },
+    {
+      "step": "fc3_after_3",
+      "rx_len": 37,
+      "packets": [
+        37
+      ],
+      "ms": 0.4
+    },
+    {
+      "step": "fc6_4",
+      "rx_len": 8,
+      "packets": [
+        8
+      ],
+      "ms": 0.3
+    },
+    {
+      "step": "fc3_after_4",
+      "rx_len": 37,
+      "packets": [
+        37
+      ],
+      "ms": 0.5
+    },
+    {
+      "step": "fc6_5",
+      "rx_len": 8,
+      "packets": [
+        8
+      ],
+      "ms": 0.3
+    },
+    {
+      "step": "fc3_after_5",
+      "rx_len": 37,
+      "packets": [
+        37
+      ],
+      "ms": 0.5
+    },
+    {
+      "step": "fc6_6",
+      "rx_len": 8,
+      "packets": [
+        8
+      ],
+      "ms": 0.3
+    },
+    {
+      "step": "fc3_after_6",
+      "rx_len": 37,
+      "packets": [
+        37
+      ],
+      "ms": 0.4
+    },
+    {
+      "step": "fc6_7",
+      "rx_len": 8,
+      "packets": [
+        8
+      ],
+      "ms": 0.3
+    },
+    {
+      "step": "fc3_after_7",
+      "rx_len": 37,
+      "packets": [
+        37
+      ],
+      "ms": 0.5
+    },
+    {
+      "step": "fc6_8",
+      "rx_len": 8,
+      "packets": [
+        8
+      ],
+      "ms": 0.4
+    },
+    {
+      "step": "fc3_after_8",
+      "rx_len": 37,
+      "packets": [
+        37
+      ],
+      "ms": 0.4
+    },
+    {
+      "step": "fc6_9",
+      "rx_len": 8,
+      "packets": [
+        8
+      ],
+      "ms": 0.3
+    },
+    {
+      "step": "fc3_after_9",
+      "error": "USBError(5, 'Input/Output Error')",
+      "errno": 5,
+      "backend_error_code": -1,
+      "rx_len": 0,
+      "packets": [],
+      "ms": 0.6
+    },
+    {
+      "step": "retry_fc3_1",
+      "error": "USBError(32, 'Pipe error')",
+      "errno": 32,
+      "backend_error_code": -9,
+      "rx_len": 0,
+      "packets": [],
+      "ms": 0.1
+    },
+    {
+      "step": "after_clear_halt_fc3_1",
+      "error": "USBError(5, 'Input/Output Error')",
+      "errno": 5,
+      "backend_error_code": -1,
+      "rx_len": 0,
+      "packets": [],
+      "ms": 0.3
+    },
+    {
+      "step": "zero16_restore",
+      "error": "USBError(32, 'Pipe error')",
+      "errno": 32,
+      "backend_error_code": -9,
+      "rx_len": 0,
+      "packets": [],
+      "ms": 0.1
+    }
+  ],
+  "ep_in": "0x89",
+  "ep_out": "0x1",
+  "detach_error": "USBError(13, 'Access denied (insufficient permissions)')",
+  "claimed": true,
+  "dtr_set": "wIndex=1 ok",
+  "failed": {
+    "step": "fc3_after_9",
+    "error": "USBError(5, 'Input/Output Error')",
+    "errno": 5,
+    "backend_error_code": -1,
+    "rx_len": 0,
+    "packets": [],
+    "ms": 0.6
+  },
+  "clear_halt_in": "ok",
+  "recovered_after_clear_halt": false,
+  "reattached": true
+}

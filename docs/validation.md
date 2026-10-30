@@ -1038,3 +1038,67 @@ does not enumerate the Nu-Link VCOM; use
 `.embedder/hardware/cases/m3351-flash-lockup/boot_and_observe.py` for UART0
 boot captures.
 
+## 2026-10-30, 04:50–07:55 UTC: J3 RTU traffic, "wedge" root cause and fix
+
+### Physical RTU results on the real J3 ACM port (`build/server`, `d5f161e7…`)
+
+`rtu_acceptance.py` (PyModbus 3.16.1 + raw cases, unit 10, 115200 8-N-1,
+`/dev/cu.usbmodem1101`): **26 pass / 7 fail / 1 skip / 2 manual**, FC 1, 2, 3,
+4, 5, 6, 15, 16 all exercised, mean round trip 7.1 ms
+(`rtu-acceptance-20261030T045044…` and `…045235…`). The failures were all one
+symptom: after a particular reply the device stopped answering on the ACM
+port until the port was closed and reopened (157 ms recovery, `rtu-wedge-dtr…`),
+with no recovery from 5 s of silence or a DTR toggle alone.
+
+### Fault characterisation (all scripts under `cases/m3351-flash-lockup/`)
+
+| Probe | Result |
+|---|---|
+| `rtu_fc16_probe.py`, `rtu_scenarios.py` | Deterministic by *reply content*, not by function code or length class: a 37-byte FC3 reply carrying `6789 789A 89AB 9ABC ABCD` wedges every time; the same length with the first nine words only, or the five words in another order, passes. Repeat runs agree. |
+| `rtu_wedge_direction.py` | Device→host direction only: after the wedge the host can still write 64 KiB to the OUT endpoint without error. |
+| `rtu_wedge_hostlog.py` | macOS kernel: `endpoint 0x89 … status 0xe00002ed (transaction error): 0 bytes transferred`, repeated aborts of 8–15 queued IN requests, `AppleUSBSerial re-enqueue IO after error`. Host-side CRC/bit-level error on the device's IN data, not a protocol NAK. |
+| `rtu_wedge_libusb.py` | Raw libusb reproduces it (`fc3_after_9` → `EIO`, then `EPIPE`); `clear_halt` on 0x89 succeeds but the next IN still fails — the controller keeps retransmitting the un-ACKed DATA packet. |
+| `rtu_wedge_gdb_snapshot.py` | Could not run: no Nu-Link probe enumerated (see below). |
+
+### Root cause
+
+`dts/arm/nuvoton/m335x.dtsi` enables `hirc48m` and `lxt` but never `hxt`, so
+`CLK_SetCoreClock()` derives the 144 MHz PLL from HIRC/4 and the board DTS runs
+the USBD module directly from the 48 MHz HIRC. `drivers/usb/udc/udc_numaker.c`
+states it does *not* support HIRC48 as the USB clock because that "involves
+trim with USB SOF packets". Nothing in the Zephyr SoC, clock-control or UDC
+code ever enables `SYS_HIRCTCTL` auto-trim (TRM 6.2.10: ±0.25 % only with
+LXT or USB-SOF trim). An untrimmed RC oscillator is outside the full-speed
+USB ±0.25 % budget, so a long IN packet whose bit pattern accumulates enough
+edge error fails CRC at the host; the host never ACKs, the USBD controller
+retransmits the same packet indefinitely, and only a class-level session reset
+(close/reopen) re-arms the endpoint.
+
+### Fix (`src/usb.c`, committed to the tree)
+
+`hirc_trim_arm()` clears `SYS_HIRCTISTS`, then writes `SYS_HIRCTCTL` with
+`REFCKSEL=1` (USB SOF reference), `RETRYCNT=3`, `LOOPSEL=3`, `FREQSEL=01`. It
+is called from the USBD message callback on `USBD_MSG_RESET`,
+`USBD_MSG_CONFIGURATION` and `USBD_MSG_RESUME`, because the hardware clears
+`FREQSEL` itself when SOF is absent for `RETRYCNT` loops (suspend/unplug). No
+devicetree or driver change; all four profiles rebuild (`server` 115,104 B
+flash / 73,452 B RAM), `tests/tools` **1,184 passed**, `tests/protocol` 10/10.
+
+### Not yet verified on hardware
+
+The rebuilt `build/server` (`e77479bd…`) has **not** been programmed. At the
+time of the fix the Nu-Link2-Me no longer enumerates at all (no `0416:2004`
+CMSIS-DAP, no VCOM `/dev/cu.usbmodem1202`; only J3 `0416:B002` is present).
+The last successful probe use was the 00:02 UTC `--boot`; the GDB snapshot at
+07:36 UTC already reported "No connected debug probe". The target itself is
+alive and powered from J3. Re-seat the Nu-Link2-Me USB cable (ICEJ2) and
+re-run:
+
+```sh
+.venv/bin/python tools/flash.py --build-dir build/server --program \
+    --probe 13010000003800F1047546CF0000065D --halt-at-reset-vector --boot
+```
+
+then `rtu_scenarios.py` (the `full10`/`last5` cases must pass) and
+`rtu_acceptance.py`. ECM/TCP, simultaneous operation, unplug/replug and
+cold-boot acceptance remain open as listed in `docs/pc-tests.md`.

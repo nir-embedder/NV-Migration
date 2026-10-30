@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-10-30T05:00:43.090194+00:00",
+  "port": "/dev/cu.usbmodem1101",
+  "attempts": [
+    {
+      "attempt": 0,
+      "transactions_before_wedge": 20,
+      "after_3s_silence_reply_len": 0,
+      "big_write": {
+        "bytes": 65536,
+        "ms": 202.1,
+        "result": "accepted"
+      },
+      "after_big_write_reply_len": 0,
+      "after_dtr_cycle_reply_len": 0
+    }
+  ],
+  "healthy_big_write": {
+    "bytes": 65536,
+    "ms": 204.3,
+    "result": "accepted"
+  },
+  "healthy_after_big_write_reply_len": 7
+}

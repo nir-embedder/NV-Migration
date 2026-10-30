@@ -1,0 +1,150 @@
+{
+  "timestamp": "2026-10-30T04:53:17.453563+00:00",
+  "port": "/dev/cu.usbmodem1101",
+  "steps": [
+    {
+      "step": "fc3_read16_before",
+      "tx": "0a0300000010457d",
+      "tx_len": 8,
+      "rx": "0a0320beee000000000000000000000000000000000000000000000000000000000000394a",
+      "rx_len": 37,
+      "ms": 60.7
+    },
+    {
+      "step": "fc16_write_16",
+      "tx": "0a100000001020123423453456456756786789789a89ab9abcabcdbcdecdefdf00f01101221233392c",
+      "tx_len": 41,
+      "rx": "0a1000000010c0be",
+      "rx_len": 8,
+      "ms": 52.4
+    },
+    {
+      "step": "fc3_read16_after_16",
+      "tx": "0a0300000010457d",
+      "tx_len": 8,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1070.3
+    },
+    {
+      "step": "fc6_after_16",
+      "tx": "0a06000fbeef889e",
+      "tx_len": 8,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1067.7
+    },
+    {
+      "step": "fc16_write_15",
+      "tx": "0a100000000f1e123423453456456756786789789a89ab9abcabcdbcdecdefdf00f01101225ee4",
+      "tx_len": 39,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1065.1
+    },
+    {
+      "step": "fc3_read16_after_15",
+      "tx": "0a0300000010457d",
+      "tx_len": 8,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1064.6
+    },
+    {
+      "step": "fc6_after_15",
+      "tx": "0a06000fbeef889e",
+      "tx_len": 8,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1070.4
+    },
+    {
+      "step": "fc16_write_14",
+      "tx": "0a100000000e1c123423453456456756786789789a89ab9abcabcdbcdecdefdf00f0115401",
+      "tx_len": 37,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1070.4
+    },
+    {
+      "step": "fc3_read16_after_14",
+      "tx": "0a0300000010457d",
+      "tx_len": 8,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1070.3
+    },
+    {
+      "step": "fc6_after_14",
+      "tx": "0a06000fbeef889e",
+      "tx_len": 8,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1069.7
+    },
+    {
+      "step": "fc16_write_13",
+      "tx": "0a100000000d1a123423453456456756786789789a89ab9abcabcdbcdecdefdf00c71c",
+      "tx_len": 35,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1057.3
+    },
+    {
+      "step": "fc3_read16_after_13",
+      "tx": "0a0300000010457d",
+      "tx_len": 8,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1062.1
+    },
+    {
+      "step": "fc6_after_13",
+      "tx": "0a06000fbeef889e",
+      "tx_len": 8,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1070.3
+    },
+    {
+      "step": "fc16_write_12",
+      "tx": "0a100000000c18123423453456456756786789789a89ab9abcabcdbcdecdef79a3",
+      "tx_len": 33,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1061.1
+    },
+    {
+      "step": "fc3_read16_after_12",
+      "tx": "0a0300000010457d",
+      "tx_len": 8,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1070.3
+    },
+    {
+      "step": "fc6_after_12",
+      "tx": "0a06000fbeef889e",
+      "tx_len": 8,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1063.0
+    },
+    {
+      "step": "fc16_zero16",
+      "tx": "0a1000000010200000000000000000000000000000000000000000000000000000000000000000d468",
+      "tx_len": 41,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1067.3
+    },
+    {
+      "step": "fc3_read16_final",
+      "tx": "0a0300000010457d",
+      "tx_len": 8,
+      "rx": "",
+      "rx_len": 0,
+      "ms": 1070.4
+    }
+  ]
+}

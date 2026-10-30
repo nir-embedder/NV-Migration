@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "mem_1793318745778_2bfdc661",
+      "kind": "decision",
+      "tags": [
+        "hardware",
+        "flash"
+      ],
+      "keywords": [
+        "M3351KJCAE",
+        "Nu-Link2",
+        "pyocd",
+        "DAUTHSTATUS",
+        "Secure Bootloader",
+        "FPB",
+        "VECMAP",
+        "halt-at-reset-vector",
+        "lockup"
+      ],
+      "preview": "M3351 flash access: DP must be powered down during nRESET; use tools/flash.py --program --halt-at-reset-vector --boot",
+      "content": "Established 2026-10-29 for the NuMaker M3351KJCAE (probe 13010000003800F1047546CF0000065D): the \"LOCKUP / FAULT / DAUTHSTATUS=0xAF\" state was not a security lock. Interrupted programming had erased APROM page 0, so the Secure Bootloader stayed in ROM; while a debugger keeps the DP powered across reset the ROM leaves secure debug disabled and all bus accesses fault. Fix: power the DP down (dp.power_down_debug) during the nRESET pulse and reconnect a few ms later. Repeatable programming entry: FPB breakpoint on APROM Reset_Handler + C_DEBUGEN, DP down during reset, DP up 50 ms later -> core halts in Secure privileged Thread on MSP, VECMAP=0, so all tools/flash.py guards pass. Implemented as `tools/flash.py --program --halt-at-reset-vector --boot`; run only through the arbitrated flash tool. Never use pyocd under-reset/reset-halt or the pack DebugPortStart sequence on this part. If page 0 is invalid again: case scripts rom_window_timing -> halted_sde_check -> preflight_config -> vecmap_restore_backup (volatile VECMAP 0x2E to 0). Full 1 MiB APROM/LDROM/Data Flash/CONFIG backups in .embedder/backups. Embedder serial provider does not enumerate the Nu-Link VCOM; use cases/m3351-flash-lockup/boot_and_observe.py (pySerial) for UART0 boot captures. Open item: macOS shows J3 device !registered/!matched with no CDC interfaces (also for upstream cdc_acm sample).",
+      "paths": [
+        "tools/flash.py",
+        ".embedder/hardware/cases/m3351-flash-lockup/CASE.md",
+        "docs/validation.md"
+      ],
+      "source": "inferred",
+      "pinned": true,
+      "createdAt": "2026-10-30T00:05:45.778Z",
+      "updatedAt": "2026-10-30T00:05:45.778Z"
+    },
+    {
+      "id": "mem_1793347486259_6be9a79c",
+      "kind": "issue",
+      "tags": [
+        "usb",
+        "hardware"
+      ],
+      "keywords": [
+        "HIRC",
+        "HIRCTCTL",
+        "USB SOF trim",
+        "CDC ACM wedge",
+        "endpoint 0x89",
+        "transaction error",
+        "udc_numaker",
+        "hxt"
+      ],
+      "preview": "M3351 CDC ACM IN-endpoint wedge = untrimmed HIRC USB clock; fix is USB-SOF HIRC trim in src/usb.c (hirc_trim_arm), pending HIL",
+      "content": "2026-10-30: On numaker_m3351ki the J3 CDC ACM port (/dev/cu.usbmodem1101) wedged deterministically after specific 37-byte FC3 replies (data 6789 789A 89AB 9ABC ABCD): macOS logged endpoint 0x89 status 0xe00002ed (transaction error), libusb got EIO/EPIPE, clear_halt did not recover, only close/reopen did. OUT direction unaffected. Root cause: dts/arm/nuvoton/m335x.dtsi never enables hxt, so PLL comes from HIRC/4 and USBD runs from raw 48 MHz HIRC; udc_numaker.c explicitly does not trim HIRC and nothing in Zephyr enables SYS_HIRCTCTL auto-trim (TRM 6.2.10). Untrimmed RC exceeds FS USB ±0.25%, long IN packets fail CRC at host, controller retransmits forever. Fix: src/usb.c hirc_trim_arm() writes SYS_HIRCTCTL REFCKSEL=1 (USB SOF), RETRYCNT=3, LOOPSEL=3, FREQSEL=01 on USBD_MSG_RESET/CONFIGURATION/RESUME (hardware clears FREQSEL when SOF absent). Built (server e77479bd…) but NOT programmed/verified because the Nu-Link2-Me stopped enumerating (no 0416:2004); re-seat ICEJ2 cable, program with tools/flash.py --program --halt-at-reset-vector --boot, then run cases/m3351-flash-lockup/rtu_scenarios.py (full10/last5 must pass) and rtu_acceptance.py. Diagnostic scripts: rtu_wedge_direction/hostlog/libusb/dtr_recovery.py.",
+      "paths": [
+        "src/usb.c",
+        "docs/validation.md",
+        ".embedder/hardware/cases/m3351-flash-lockup/rtu_scenarios.py"
+      ],
+      "source": "inferred",
+      "pinned": false,
+      "createdAt": "2026-10-30T08:04:46.259Z",
+      "updatedAt": "2026-10-30T08:04:46.259Z"
+    }
+  ]
+}

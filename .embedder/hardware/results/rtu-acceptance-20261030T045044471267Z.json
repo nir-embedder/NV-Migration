@@ -1,0 +1,368 @@
+{
+  "acceptance_complete": false,
+  "adu_capacity": 128,
+  "buffer_size": 128,
+  "cases": [
+    {
+      "details": {},
+      "elapsed_ms": 114.613,
+      "name": "initialize_zeroed_demo_map",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "address": 255,
+        "quantity": 1,
+        "request_adu_bytes": 8,
+        "response_adu_bytes": 8
+      },
+      "elapsed_ms": 15.686,
+      "name": "iteration_0_fc5_write_and_all_read_views",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "address": 0,
+        "quantity": 4,
+        "request_adu_bytes": 10,
+        "response_adu_bytes": 8
+      },
+      "elapsed_ms": 15.645,
+      "name": "iteration_0_fc15_write_and_all_read_views",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "address": 15,
+        "quantity": 1,
+        "request_adu_bytes": 8,
+        "response_adu_bytes": 8
+      },
+      "elapsed_ms": 15.69,
+      "name": "iteration_0_fc6_write_and_all_read_views",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "address": 0,
+        "quantity": 16,
+        "request_adu_bytes": 41,
+        "response_adu_bytes": 8
+      },
+      "error": "ModbusIOException: Modbus Error: [Input/Output] No response received after 0 retries, continue with next request",
+      "name": "iteration_0_fc16_write_and_all_read_views",
+      "status": "fail"
+    },
+    {
+      "details": {},
+      "error": "ModbusIOException: Modbus Error: [Input/Output] No response received after 0 retries, continue with next request",
+      "name": "iteration_0_fc1_first_last",
+      "status": "fail"
+    },
+    {
+      "details": {},
+      "error": "ModbusIOException: Modbus Error: [Input/Output] No response received after 0 retries, continue with next request",
+      "name": "iteration_0_fc2_first_last",
+      "status": "fail"
+    },
+    {
+      "details": {},
+      "error": "ModbusIOException: Modbus Error: [Input/Output] No response received after 0 retries, continue with next request",
+      "name": "iteration_0_fc3_first_last",
+      "status": "fail"
+    },
+    {
+      "details": {},
+      "error": "ModbusIOException: Modbus Error: [Input/Output] ERROR: No response received of the last requests (default: retries+3), CLOSING CONNECTION.",
+      "name": "iteration_0_fc4_first_last",
+      "status": "fail"
+    },
+    {
+      "details": {
+        "larger_than_usb_packet": false,
+        "quantity": 128,
+        "request_adu_bytes": 25
+      },
+      "error": "ModbusIOException: Modbus Error: [Input/Output] ERROR: No response received of the last requests (default: retries+3), CLOSING CONNECTION.",
+      "name": "fc15_128_coils",
+      "status": "fail"
+    },
+    {
+      "name": "valid_single_adu_over_64_bytes",
+      "reason": "Selected map has only 16 shared words or 4 separate words. Use the opt-in large test map, not just a larger buffer.",
+      "status": "skip"
+    },
+    {
+      "details": {},
+      "error": "ModbusIOException: Modbus Error: [Input/Output] ERROR: No response received of the last requests (default: retries+3), CLOSING CONNECTION.",
+      "name": "restore_writable_zero_map",
+      "status": "fail"
+    },
+    {
+      "details": {
+        "exception_code": 2,
+        "rejection": "exception"
+      },
+      "elapsed_ms": 209.889,
+      "name": "fc1_out_of_range",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exception_code": 3,
+        "rejection": "exception"
+      },
+      "elapsed_ms": 210.35,
+      "name": "fc1_zero_quantity",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exception_code": 2,
+        "rejection": "exception"
+      },
+      "elapsed_ms": 211.166,
+      "name": "fc2_out_of_range",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exception_code": 3,
+        "rejection": "exception"
+      },
+      "elapsed_ms": 210.208,
+      "name": "fc2_zero_quantity",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exception_code": 2,
+        "rejection": "exception"
+      },
+      "elapsed_ms": 210.008,
+      "name": "fc3_out_of_range",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exception_code": 3,
+        "rejection": "exception"
+      },
+      "elapsed_ms": 210.19,
+      "name": "fc3_zero_quantity",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exception_code": 2,
+        "rejection": "exception"
+      },
+      "elapsed_ms": 209.602,
+      "name": "fc4_out_of_range",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exception_code": 3,
+        "rejection": "exception"
+      },
+      "elapsed_ms": 209.993,
+      "name": "fc4_zero_quantity",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exception_code": 1,
+        "rejection": "exception"
+      },
+      "elapsed_ms": 309.445,
+      "name": "unsupported_fc_0x45",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exception_code": 3,
+        "rejection": "exception",
+        "request_pdu_hex": "0500001234"
+      },
+      "elapsed_ms": 209.951,
+      "name": "fc5_invalid_value",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exception_code": 2,
+        "rejection": "exception",
+        "request_pdu_hex": "050100ff00"
+      },
+      "elapsed_ms": 210.061,
+      "name": "fc5_out_of_range",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exception_code": 2,
+        "rejection": "exception",
+        "request_pdu_hex": "0600101234"
+      },
+      "elapsed_ms": 209.609,
+      "name": "fc6_out_of_range",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exception_code": 3,
+        "rejection": "exception",
+        "request_pdu_hex": "0f0000000901ff"
+      },
+      "elapsed_ms": 209.609,
+      "name": "fc15_bad_byte_count",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exception_code": 3,
+        "rejection": "exception",
+        "request_pdu_hex": "1000000002021234"
+      },
+      "elapsed_ms": 209.758,
+      "name": "fc16_bad_byte_count",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exception_code": 2,
+        "rejection": "exception",
+        "request_pdu_hex": "0f00ff00020103"
+      },
+      "elapsed_ms": 209.388,
+      "name": "fc15_out_of_range",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exception_code": 2,
+        "rejection": "exception",
+        "request_pdu_hex": "10000f00020412345678"
+      },
+      "elapsed_ms": 207.966,
+      "name": "fc16_out_of_range",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "declared_byte_count": 66,
+        "declared_quantity": 1,
+        "exception_code": 3,
+        "larger_than_usb_packet": true,
+        "rejection": "exception",
+        "request_adu_bytes": 75,
+        "valid_map_payload": false
+      },
+      "elapsed_ms": 209.061,
+      "name": "malformed_fc16_adu_75_bytes",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "declared_byte_count": 119,
+        "declared_quantity": 1,
+        "exception_code": 3,
+        "larger_than_usb_packet": true,
+        "rejection": "exception",
+        "request_adu_bytes": 128,
+        "valid_map_payload": false
+      },
+      "elapsed_ms": 211.261,
+      "name": "malformed_fc16_adu_128_bytes",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "declared_byte_count": 120,
+        "declared_quantity": 1,
+        "exception_code": 3,
+        "larger_than_usb_packet": true,
+        "rejection": "silent_or_closed",
+        "request_adu_bytes": 129,
+        "valid_map_payload": false
+      },
+      "elapsed_ms": 1720.471,
+      "name": "malformed_fc16_adu_129_bytes",
+      "status": "pass"
+    },
+    {
+      "details": {},
+      "elapsed_ms": 1617.083,
+      "name": "rtu_wrong_unit_silent_and_unchanged",
+      "status": "pass"
+    },
+    {
+      "details": {},
+      "elapsed_ms": 1618.484,
+      "name": "rtu_bad_crc_silent_and_unchanged",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "fc5_value": false,
+        "fc6_value": 48879
+      },
+      "elapsed_ms": 3019.921,
+      "name": "rtu_broadcast_fc6_fc5_silent_then_readback",
+      "status": "pass"
+    },
+    {
+      "name": "usb_unplug_replug",
+      "reason": "Requires physical cable disconnect/reconnect and rediscovery.",
+      "status": "manual_pending"
+    },
+    {
+      "name": "no_terminal_cold_boot",
+      "reason": "Requires cold boot without opening a CDC terminal; verify ECM independently.",
+      "status": "manual_pending"
+    }
+  ],
+  "counts": {
+    "fail": 7,
+    "manual_pending": 2,
+    "pass": 26,
+    "skip": 1
+  },
+  "coverage": {
+    "1": 5,
+    "15": 2,
+    "16": 2,
+    "2": 5,
+    "3": 4,
+    "4": 4,
+    "5": 1,
+    "6": 1
+  },
+  "dependencies": {
+    "pymodbus": "3.16.1",
+    "pyserial": "3.5",
+    "python": "3.12.16"
+  },
+  "endpoint": "/dev/cu.usbmodem1101",
+  "latency_ms": {
+    "max": 98.893,
+    "mean": 7.107,
+    "min": 3.089
+  },
+  "latency_scope": "PyModbus round trips only; raw cases are listed separately",
+  "parameters": {
+    "cycles": 1,
+    "duration": 20.0,
+    "iterations": 1,
+    "timeout": 1.5
+  },
+  "pdu_capacity": 125,
+  "profile": "shared",
+  "role": "board-server",
+  "schema_version": 1,
+  "success": false,
+  "transactions": 24,
+  "transport": "rtu",
+  "unit": 10
+}
