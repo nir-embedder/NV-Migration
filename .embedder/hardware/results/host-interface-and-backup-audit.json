@@ -1,0 +1,526 @@
+{
+  "timestamp_utc": "2026-10-28T22:17:39.458003+00:00",
+  "method": "IOUSBHostDevice OS tree plus local-file hashing only",
+  "serial_ancestry": [
+    [
+      {
+        "IORegistryEntryName": "USB2.1 Hub",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1507,
+        "idProduct": 1552,
+        "USB Product Name": "USB2.1 Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20Hub",
+        "IOObjectClass": "AppleUSB20Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20HubPort",
+        "IOObjectClass": "AppleUSB20HubPort"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 CMSIS-DAP",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu_Link2 CMSIS_DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D"
+      },
+      {
+        "IORegistryEntryName": "IOUSBHostInterface",
+        "IOObjectClass": "IOUSBHostInterface",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu-Link2 CMSIS-DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D",
+        "bInterfaceClass": 10,
+        "bInterfaceSubClass": 0,
+        "bInterfaceProtocol": 0,
+        "bInterfaceNumber": 2
+      },
+      {
+        "IORegistryEntryName": "AppleUSBACMData",
+        "IOObjectClass": "AppleUSBACMData",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "bInterfaceClass": 10,
+        "bInterfaceSubClass": 0
+      },
+      {
+        "IORegistryEntryName": "IOSerialBSDClient",
+        "IOObjectClass": "IOSerialBSDClient",
+        "IOCalloutDevice": "/dev/cu.usbmodem1102"
+      }
+    ]
+  ],
+  "nuvoton_interfaces": [
+    [
+      {
+        "IORegistryEntryName": "USB2.1 Hub",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1507,
+        "idProduct": 1552,
+        "USB Product Name": "USB2.1 Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20Hub",
+        "IOObjectClass": "AppleUSB20Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20HubPort",
+        "IOObjectClass": "AppleUSB20HubPort"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 CMSIS-DAP",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu_Link2 CMSIS_DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 CMSIS-DAP",
+        "IOObjectClass": "IOUSBHostInterface",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu-Link2 CMSIS-DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D",
+        "bInterfaceClass": 255,
+        "bInterfaceSubClass": 0,
+        "bInterfaceProtocol": 0,
+        "bInterfaceNumber": 0
+      }
+    ],
+    [
+      {
+        "IORegistryEntryName": "USB2.1 Hub",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1507,
+        "idProduct": 1552,
+        "USB Product Name": "USB2.1 Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20Hub",
+        "IOObjectClass": "AppleUSB20Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20HubPort",
+        "IOObjectClass": "AppleUSB20HubPort"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 CMSIS-DAP",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu_Link2 CMSIS_DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 VCOM",
+        "IOObjectClass": "IOUSBHostInterface",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu-Link2 CMSIS-DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D",
+        "bInterfaceClass": 2,
+        "bInterfaceSubClass": 2,
+        "bInterfaceProtocol": 1,
+        "bInterfaceNumber": 1
+      }
+    ],
+    [
+      {
+        "IORegistryEntryName": "USB2.1 Hub",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1507,
+        "idProduct": 1552,
+        "USB Product Name": "USB2.1 Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20Hub",
+        "IOObjectClass": "AppleUSB20Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20HubPort",
+        "IOObjectClass": "AppleUSB20HubPort"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 CMSIS-DAP",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu_Link2 CMSIS_DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 VCOM",
+        "IOObjectClass": "IOUSBHostInterface",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu-Link2 CMSIS-DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D",
+        "bInterfaceClass": 2,
+        "bInterfaceSubClass": 2,
+        "bInterfaceProtocol": 1,
+        "bInterfaceNumber": 1
+      },
+      {
+        "IORegistryEntryName": "AppleUSBACMControl",
+        "IOObjectClass": "AppleUSBACMControl",
+        "bInterfaceClass": 2,
+        "bInterfaceSubClass": 2,
+        "bInterfaceProtocol": 1
+      }
+    ],
+    [
+      {
+        "IORegistryEntryName": "USB2.1 Hub",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1507,
+        "idProduct": 1552,
+        "USB Product Name": "USB2.1 Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20Hub",
+        "IOObjectClass": "AppleUSB20Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20HubPort",
+        "IOObjectClass": "AppleUSB20HubPort"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 CMSIS-DAP",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu_Link2 CMSIS_DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D"
+      },
+      {
+        "IORegistryEntryName": "IOUSBHostInterface",
+        "IOObjectClass": "IOUSBHostInterface",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu-Link2 CMSIS-DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D",
+        "bInterfaceClass": 10,
+        "bInterfaceSubClass": 0,
+        "bInterfaceProtocol": 0,
+        "bInterfaceNumber": 2
+      }
+    ],
+    [
+      {
+        "IORegistryEntryName": "USB2.1 Hub",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1507,
+        "idProduct": 1552,
+        "USB Product Name": "USB2.1 Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20Hub",
+        "IOObjectClass": "AppleUSB20Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20HubPort",
+        "IOObjectClass": "AppleUSB20HubPort"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 CMSIS-DAP",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu_Link2 CMSIS_DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D"
+      },
+      {
+        "IORegistryEntryName": "IOUSBHostInterface",
+        "IOObjectClass": "IOUSBHostInterface",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu-Link2 CMSIS-DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D",
+        "bInterfaceClass": 10,
+        "bInterfaceSubClass": 0,
+        "bInterfaceProtocol": 0,
+        "bInterfaceNumber": 2
+      },
+      {
+        "IORegistryEntryName": "AppleUSBACMData",
+        "IOObjectClass": "AppleUSBACMData",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "bInterfaceClass": 10,
+        "bInterfaceSubClass": 0
+      }
+    ],
+    [
+      {
+        "IORegistryEntryName": "USB2.1 Hub",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1507,
+        "idProduct": 1552,
+        "USB Product Name": "USB2.1 Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20Hub",
+        "IOObjectClass": "AppleUSB20Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20HubPort",
+        "IOObjectClass": "AppleUSB20HubPort"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 CMSIS-DAP",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu_Link2 CMSIS_DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 HID",
+        "IOObjectClass": "IOUSBHostInterface",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu-Link2 CMSIS-DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D",
+        "bInterfaceClass": 3,
+        "bInterfaceSubClass": 0,
+        "bInterfaceProtocol": 0,
+        "bInterfaceNumber": 3
+      }
+    ],
+    [
+      {
+        "IORegistryEntryName": "USB2.1 Hub",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1507,
+        "idProduct": 1552,
+        "USB Product Name": "USB2.1 Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20Hub",
+        "IOObjectClass": "AppleUSB20Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20HubPort",
+        "IOObjectClass": "AppleUSB20HubPort"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 CMSIS-DAP",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu_Link2 CMSIS_DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 HID",
+        "IOObjectClass": "IOUSBHostInterface",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu-Link2 CMSIS-DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D",
+        "bInterfaceClass": 3,
+        "bInterfaceSubClass": 0,
+        "bInterfaceProtocol": 0,
+        "bInterfaceNumber": 3
+      },
+      {
+        "IORegistryEntryName": "AppleUserUSBHostHIDDevice",
+        "IOObjectClass": "AppleUserHIDDevice",
+        "bInterfaceClass": 3,
+        "bInterfaceSubClass": 0
+      }
+    ],
+    [
+      {
+        "IORegistryEntryName": "USB2.1 Hub",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1507,
+        "idProduct": 1552,
+        "USB Product Name": "USB2.1 Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20Hub",
+        "IOObjectClass": "AppleUSB20Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20HubPort",
+        "IOObjectClass": "AppleUSB20HubPort"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 CMSIS-DAP",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu_Link2 CMSIS_DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 WebUSB",
+        "IOObjectClass": "IOUSBHostInterface",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu-Link2 CMSIS-DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D",
+        "bInterfaceClass": 255,
+        "bInterfaceSubClass": 3,
+        "bInterfaceProtocol": 0,
+        "bInterfaceNumber": 4
+      }
+    ],
+    [
+      {
+        "IORegistryEntryName": "USB2.1 Hub",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1507,
+        "idProduct": 1552,
+        "USB Product Name": "USB2.1 Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20Hub",
+        "IOObjectClass": "AppleUSB20Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20HubPort",
+        "IOObjectClass": "AppleUSB20HubPort"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 CMSIS-DAP",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu_Link2 CMSIS_DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 MSC",
+        "IOObjectClass": "IOUSBHostInterface",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu-Link2 CMSIS-DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D",
+        "bInterfaceClass": 8,
+        "bInterfaceSubClass": 6,
+        "bInterfaceProtocol": 80,
+        "bInterfaceNumber": 5
+      }
+    ],
+    [
+      {
+        "IORegistryEntryName": "USB2.1 Hub",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1507,
+        "idProduct": 1552,
+        "USB Product Name": "USB2.1 Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20Hub",
+        "IOObjectClass": "AppleUSB20Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20HubPort",
+        "IOObjectClass": "AppleUSB20HubPort"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 CMSIS-DAP",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu_Link2 CMSIS_DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 MSC",
+        "IOObjectClass": "IOUSBHostInterface",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu-Link2 CMSIS-DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D",
+        "bInterfaceClass": 8,
+        "bInterfaceSubClass": 6,
+        "bInterfaceProtocol": 80,
+        "bInterfaceNumber": 5
+      },
+      {
+        "IORegistryEntryName": "IOUSBMassStorageInterfaceNub",
+        "IOObjectClass": "IOUSBMassStorageInterfaceNub",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu-Link2 CMSIS-DAP",
+        "bInterfaceClass": 8,
+        "bInterfaceSubClass": 6,
+        "bInterfaceProtocol": 80,
+        "bInterfaceNumber": 5
+      }
+    ],
+    [
+      {
+        "IORegistryEntryName": "USB2.1 Hub",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1507,
+        "idProduct": 1552,
+        "USB Product Name": "USB2.1 Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20Hub",
+        "IOObjectClass": "AppleUSB20Hub"
+      },
+      {
+        "IORegistryEntryName": "AppleUSB20HubPort",
+        "IOObjectClass": "AppleUSB20HubPort"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 CMSIS-DAP",
+        "IOObjectClass": "IOUSBHostDevice",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu_Link2 CMSIS_DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D"
+      },
+      {
+        "IORegistryEntryName": "Nu-Link2 MSC",
+        "IOObjectClass": "IOUSBHostInterface",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu-Link2 CMSIS-DAP",
+        "USB Serial Number": "13010000003800F1047546CF0000065D",
+        "bInterfaceClass": 8,
+        "bInterfaceSubClass": 6,
+        "bInterfaceProtocol": 80,
+        "bInterfaceNumber": 5
+      },
+      {
+        "IORegistryEntryName": "IOUSBMassStorageInterfaceNub",
+        "IOObjectClass": "IOUSBMassStorageInterfaceNub",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu-Link2 CMSIS-DAP",
+        "bInterfaceClass": 8,
+        "bInterfaceSubClass": 6,
+        "bInterfaceProtocol": 80,
+        "bInterfaceNumber": 5
+      },
+      {
+        "IORegistryEntryName": "IOUSBMassStorageDriverNub",
+        "IOObjectClass": "IOUSBMassStorageDriverNub",
+        "idVendor": 1046,
+        "idProduct": 8196,
+        "USB Product Name": "Nu-Link2 CMSIS-DAP",
+        "bInterfaceClass": 8,
+        "bInterfaceSubClass": 6,
+        "bInterfaceProtocol": 80,
+        "bInterfaceNumber": 5
+      }
+    ]
+  ],
+  "saved_binary_images": [
+    {
+      "path": ".embedder/hardware/results/backup-20261028T201055Z/aprom.bin",
+      "bytes": 524288,
+      "sha256": "cdc14f595cf29c2877cc9b11bc564df62b66e3338a0a77ea35ba533aba0b93d3"
+    }
+  ]
+}

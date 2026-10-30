@@ -1,0 +1,21 @@
+{
+  "state_before": "State.RUNNING",
+  "pc": "cannot read register pc because core #0 is not halted",
+  "sp": "cannot read register sp because core #0 is not halted",
+  "xpsr": "cannot read register xpsr because core #0 is not halted",
+  "lr": "cannot read register lr because core #0 is not halted",
+  "control": "cannot read register control because core #0 is not halted",
+  "cpuid": "0x411fd210",
+  "cfsr": "0x0",
+  "hfsr": "0x0",
+  "bfar": "0x40070018",
+  "sfsr": "0x0",
+  "sfar": "0x40070018",
+  "0x20000000": "00000000000000000000000060000000",
+  "0x20003c00": "74fa3868c003fcd51d48f86038688003",
+  "0x30000000": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x30000000-0x3000000f",
+  "0x30003c00": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x30003c00-0x30003c0f",
+  "aprom_unchanged": true,
+  "aprom_sha256": "cdc14f595cf29c2877cc9b11bc564df62b66e3338a0a77ea35ba533aba0b93d3",
+  "different_bytes": 0
+}

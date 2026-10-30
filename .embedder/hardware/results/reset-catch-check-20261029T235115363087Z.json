@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-10-29T23:51:14.318125+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "method": "C_DEBUGEN + VC_CORERESET, nRESET pulse with DP powered, inspect halted state",
+  "before": {
+    "DHCSR": "0x130003",
+    "DEMCR": "0x1100000"
+  },
+  "armed": {
+    "DHCSR": "0x5140001",
+    "DEMCR": "0x100001"
+  },
+  "DHCSR_after_reset": "0x80003",
+  "halted": false,
+  "lockup": true,
+  "sde": false,
+  "halt_latency_ms": 1000.2,
+  "ctrl_stat": "0xf0000040"
+}

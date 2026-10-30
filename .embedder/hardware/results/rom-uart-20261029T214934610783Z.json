@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-10-29T21:49:33.231179+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "baud": 115200,
+  "reset_before_sync": true,
+  "dtr": true,
+  "rts": false,
+  "break": false,
+  "scope": "UART synchronization and identification only; no erase/program/config/security writes",
+  "stage": "synchronize",
+  "success": false,
+  "usb_device": {
+    "vid": 1046,
+    "pid": 8196,
+    "product": "Nu_Link2 CMSIS_DAP",
+    "serial": "13010000003800F1047546CF0000065D",
+    "location": 1179648,
+    "interfaces": [
+      {
+        "bInterfaceNumber": 0,
+        "bInterfaceClass": 255,
+        "bInterfaceSubClass": 0,
+        "bInterfaceProtocol": 0
+      },
+      {
+        "bInterfaceNumber": 1,
+        "bInterfaceClass": 2,
+        "bInterfaceSubClass": 2,
+        "bInterfaceProtocol": 1
+      },
+      {
+        "bInterfaceNumber": 2,
+        "bInterfaceClass": 10,
+        "bInterfaceSubClass": 0,
+        "bInterfaceProtocol": 0
+      },
+      {
+        "bInterfaceNumber": 3,
+        "bInterfaceClass": 3,
+        "bInterfaceSubClass": 0,
+        "bInterfaceProtocol": 0
+      },
+      {
+        "bInterfaceNumber": 4,
+        "bInterfaceClass": 255,
+        "bInterfaceSubClass": 3,
+        "bInterfaceProtocol": 0
+      },
+      {
+        "bInterfaceNumber": 5,
+        "bInterfaceClass": 8,
+        "bInterfaceSubClass": 6,
+        "bInterfaceProtocol": 80
+      }
+    ],
+    "ports": [
+      "/dev/cu.usbmodem1202"
+    ]
+  },
+  "port": "/dev/cu.usbmodem1202",
+  "hardware_reset_completed": true,
+  "post_reset_delay_seconds": 0.0,
+  "probe_held_until_identification": true,
+  "error": "TimeoutError: UART response deadline exceeded"
+}

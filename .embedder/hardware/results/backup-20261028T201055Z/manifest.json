@@ -1,0 +1,13 @@
+{
+  "probe": "13010000003800F1047546CF0000065D",
+  "selected_pack_target": "m3351kicae",
+  "pack": "Nuvoton.NuMicroM33_DFP.1.0.6",
+  "pdid": "0x3302140",
+  "cpuid": "0x411fd210",
+  "bytes": 524288,
+  "sha256": "cdc14f595cf29c2877cc9b11bc564df62b66e3338a0a77ea35ba533aba0b93d3",
+  "sp": "0x20020000",
+  "reset_vector": "0x289",
+  "path": ".embedder/hardware/results/backup-20261028T201055Z",
+  "scope": "APROM only; not option words, LDROM, or security state"
+}

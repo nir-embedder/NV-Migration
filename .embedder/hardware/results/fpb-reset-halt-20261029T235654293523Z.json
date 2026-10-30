@@ -1,0 +1,57 @@
+{
+  "timestamp": "2026-10-29T23:56:54.175049+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "wait_ms": 50,
+  "method": "FPB breakpoint at APROM Reset_Handler; C_DEBUGEN; DP down during nRESET; DP up after wait",
+  "before": {
+    "DHCSR": "0x3140000",
+    "DEMCR": "0x100000",
+    "FP_CTRL": "0x10000080"
+  },
+  "vector": {
+    "sp": "0x2000d3c0",
+    "reset_handler": "0x29e5"
+  },
+  "armed": {
+    "DHCSR": "0x1140001",
+    "DEMCR": "0x100000",
+    "FP_CTRL": "0x10000081",
+    "FP_COMP0": "0x29e5"
+  },
+  "ctrl_stat_down": "0x40",
+  "DHCSR_after": "0x130003",
+  "halted": true,
+  "lockup": false,
+  "sde": true,
+  "FP_after": {
+    "FP_CTRL": "0x10000081",
+    "FP_COMP0": "0x29e5"
+  },
+  "DAUTHSTATUS": "0xff",
+  "regs": {
+    "sp": "0x2000d3c0",
+    "lr": "0x20003581",
+    "pc": "0x29e4",
+    "xpsr": "0x69000000",
+    "msp": "0x2000d3c0",
+    "psp": "0x20008000",
+    "ctrl_primask": "0x0",
+    "msplim_s": "0x0",
+    "psplim_s": "0x0"
+  },
+  "at_reset_handler": true,
+  "DSCSR": "0x30000",
+  "ISPSTS": {
+    "raw": "0x20000004",
+    "VECMAP": "0x0"
+  },
+  "CFSR_HFSR": [
+    "0x0",
+    "0x0"
+  ],
+  "FP_disarmed": {
+    "FP_CTRL": "0x10000080",
+    "FP_COMP0": "0x0"
+  },
+  "ctrl_stat": "0xf0000040"
+}

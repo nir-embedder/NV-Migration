@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-10-29T23:49:35.921643+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "method": "attach, no reset; DHCSR halt request only if requested",
+  "halt_requested": false,
+  "DHCSR": "0x3100000",
+  "S_LOCKUP": false,
+  "S_HALT": false,
+  "S_SDE": true,
+  "DAUTHSTATUS": "0xff",
+  "DEMCR": "0x100000",
+  "DSCSR": "0x30000",
+  "mem": {
+    "APROM0": "0x2000bbc0",
+    "APROM4": "0x29e5",
+    "SYS_PDID": "0x3302140",
+    "SYS_RSTSTS": "0x163",
+    "SRAM0": "0x17737",
+    "FMC_ISPSTS": "0x20000104",
+    "SCU_FNSADDR": "0x0"
+  },
+  "ctrl_stat": "0xf0000040"
+}

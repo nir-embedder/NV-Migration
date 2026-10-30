@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-10-29T23:18:15.451803+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "method": "DP power-down then reconnect; DHCSR reads only",
+  "wait_s": 3.0,
+  "steps": [
+    {
+      "tag": "initial (clears sticky)",
+      "DHCSR": "0x80003",
+      "S_RESET_ST": false,
+      "S_LOCKUP": true,
+      "S_HALT": false
+    },
+    {
+      "tag": "second read",
+      "DHCSR": "0x80003",
+      "S_RESET_ST": false,
+      "S_LOCKUP": true,
+      "S_HALT": false
+    },
+    {
+      "tag": "after reconnect (sticky since power-down)",
+      "DHCSR": "0x3080003",
+      "S_RESET_ST": true,
+      "S_LOCKUP": true,
+      "S_HALT": false
+    },
+    {
+      "tag": "after reconnect, second read",
+      "DHCSR": "0x80003",
+      "S_RESET_ST": false,
+      "S_LOCKUP": true,
+      "S_HALT": false
+    }
+  ],
+  "ctrl_stat_before_powerdown": "0xf0000040",
+  "ctrl_stat_after_powerdown": "0x40",
+  "ctrl_stat_after_reconnect": "0xf0000040",
+  "reset_seen_while_dp_down": true
+}

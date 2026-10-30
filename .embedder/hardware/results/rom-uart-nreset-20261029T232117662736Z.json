@@ -1,0 +1,72 @@
+{
+  "timestamp": "2026-10-29T23:21:13.168859+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "baud": 115200,
+  "attempts_requested": 6,
+  "hold_ms": 20,
+  "window_ms": 700,
+  "scope": "DP power-down, nRESET pin pulse, UART sync/identify/CONFIG read; no halt, no writes",
+  "stage": "sync",
+  "success": false,
+  "attempts": [
+    {
+      "attempt": 0,
+      "bursts_before": 14,
+      "released_ms": 30.4,
+      "bursts_after": 159,
+      "synced": false,
+      "rx_so_far": "",
+      "elapsed_ms": 734.7
+    },
+    {
+      "attempt": 1,
+      "bursts_before": 159,
+      "released_ms": 31.0,
+      "bursts_after": 296,
+      "synced": false,
+      "rx_so_far": "",
+      "elapsed_ms": 733.9
+    },
+    {
+      "attempt": 2,
+      "bursts_before": 296,
+      "released_ms": 22.6,
+      "bursts_after": 429,
+      "synced": false,
+      "rx_so_far": "",
+      "elapsed_ms": 725.9
+    },
+    {
+      "attempt": 3,
+      "bursts_before": 429,
+      "released_ms": 23.4,
+      "bursts_after": 565,
+      "synced": false,
+      "rx_so_far": "",
+      "elapsed_ms": 726.3
+    },
+    {
+      "attempt": 4,
+      "bursts_before": 565,
+      "released_ms": 30.7,
+      "bursts_after": 702,
+      "synced": false,
+      "rx_so_far": "",
+      "elapsed_ms": 737.1
+    },
+    {
+      "attempt": 5,
+      "bursts_before": 702,
+      "released_ms": 27.2,
+      "bursts_after": 839,
+      "synced": false,
+      "rx_so_far": "",
+      "elapsed_ms": 731.7
+    }
+  ],
+  "ctrl_stat_connected": "0xf0000040",
+  "ctrl_stat_powered_down": "0x40",
+  "port": "/dev/cu.usbmodem1202",
+  "synchronized": false,
+  "error": "TimeoutError: no 'A' from ROM after nRESET pulses"
+}

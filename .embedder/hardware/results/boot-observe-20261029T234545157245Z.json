@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-10-29T23:45:36.661026+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "stage": "done",
+  "vcom_port": "/dev/cu.usbmodem1202",
+  "release_exit": 0,
+  "release_stdout_tail": "{\n  \"timestamp\": \"2026-10-29T23:45:36.825008+00:00\",\n  \"probe\": \"13010000003800F1047546CF0000065D\",\n  \"method\": \"DHCSR resume + debug disable, DP power-down; no reset\",\n  \"before\": {\n    \"DHCSR\": \"0x130003\",\n    \"DEMCR\": \"0x100000\"\n  },\n  \"after\": {\n    \"DHCSR\": \"0x5140000\",\n    \"DEMCR\": \"0x100000\"\n  },\n  \"ctrl_stat_down\": \"0x40\"\n}\n",
+  "release_stderr_tail": "",
+  "uart_bytes": 0,
+  "uart_text": "",
+  "app_usb_device": {
+    "vid": 1046,
+    "pid": 45058,
+    "product": "NK-M3351 Modbus RTU + TCP",
+    "serial": "00010031047B4B1F00000003",
+    "location": 17825792,
+    "interfaces": [],
+    "ports": []
+  }
+}

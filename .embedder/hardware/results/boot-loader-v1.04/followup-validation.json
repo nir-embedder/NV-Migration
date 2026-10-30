@@ -1,0 +1,86 @@
+{
+  "timestamp_utc": "2026-10-29T18:16:12.864485+00:00",
+  "host_tests": {
+    "passed": 629,
+    "source_log": "/Users/embedder/.embedder/shell/f0d37af793f94e7b/task_mvtv6bie_3616c3.log"
+  },
+  "vendor_oracle": {
+    "path": ".embedder/hardware/results/boot-loader-v1.04/codec-differential.json",
+    "encode_cases": 1283,
+    "reader_cases": 100,
+    "false_success_transport_cases": 5
+  },
+  "source_sha256": {
+    "tools/flash.py": "c97b3c7c831de4ce0bee5fc6711b4760f540413e32790405c02e82b62a03e418",
+    "tools/bootloader_protocol.py": "52c7c36266461fe75474a654be85aa9b4f7d84828c573b4d52088bd0b535aa25",
+    "tests/tools/test_flash_script.py": "8efacafbfcf0dd4152101864d7320b6ba7d38a9a8f58beaff0fe910d485f0d3e",
+    "tests/tools/test_bootloader_protocol.py": "153d5f07c9145929af2be559aa69133a9cda213b180c08ae3b9301a2964fde37",
+    "docs/bootloader-protocol.md": "9003e00742f2760cae702b04f4a6ee167f232d68a94eed6b8003441d44fef462",
+    "docs/validation.md": "9a23295ce494dfab6ac062ff0c69e525f37262d0018a85b300d45e08551335e8",
+    "EMBEDDER.md": "da82f229671b077cb925463f3d774afee910c07690402ffb7192fcfa0be6f02d"
+  },
+  "physical_usb": "not tested; recovery stop remains in force",
+  "latest_passive_inventory": {
+    "devices": [],
+    "serial_callout_paths": [],
+    "source_log": "/Users/embedder/.embedder/shell/f0d37af793f94e7b/task_mvtv6bie_3616c3.log"
+  },
+  "target_actions": "none: no open, reset, erase, program, unlock, configuration or security change",
+  "stack_guard_followup": {
+    "timestamp_utc": "2026-10-29T18:26:57.371639+00:00",
+    "host_tests_passed": 649,
+    "host_tests_log": "/Users/embedder/.embedder/shell/f0d37af793f94e7b/task_mvtvkflc_b0862e.log",
+    "cortex_m33_simulation": {
+      "scope": "Host-only QEMU Cortex-M33; synthetic limits; exact vendor push only; no M3351 MMIO or physical hardware",
+      "vendor_push_hex": "f0b5",
+      "cases": {
+        "compatible": {
+          "limit": "0x0",
+          "guard": false,
+          "elf_sha256": "f952294c00a6bd72ec1ff195abbdc7b16152ad4eab485cfbcf5c345fd7243194",
+          "exit_code": 0,
+          "output": "PROLOGUE_RETURNED\n"
+        },
+        "inherited_high": {
+          "limit": "0x20007c00",
+          "guard": false,
+          "elf_sha256": "dfa7fff8159e5037264a79da6f6e70af372c431c0b020dac4ca105ad7dd55c16",
+          "exit_code": 0,
+          "output": "FAULT_AFTER_VENDOR_PUSH\nMSP=20007c00\nMSPLIM=20007c00\nCFSR=00100000\nHFSR=40000000\n"
+        },
+        "guarded_high": {
+          "limit": "0x20007c00",
+          "guard": true,
+          "elf_sha256": "e20d017e7d701f57d2e910547a5c624081831c17d7277b832c3603b91560429f",
+          "exit_code": 0,
+          "output": "GUARD_REFUSED_BEFORE_VENDOR_PUSH\n"
+        }
+      },
+      "compiler": "arm-zephyr-eabi-gcc (Zephyr SDK 1.0.1) 14.3.0",
+      "qemu": "QEMU emulator version 11.1.2"
+    },
+    "historical_root_cause": "unproven: exact vendor push faults with synthetic inherited high limit; historical limit not captured",
+    "source_sha256": {
+      "tools/flash.py": "63d6b6a0b8db63d925c33c788f62f4b2305a3e454f4199203c258e6b9bf8d63c",
+      "tests/tools/test_flash_script.py": "a9be7b6ead232623b5bd2a9a92e54875f6954c3607610bd9939faa441a12d472",
+      "tests/tools/run_flash_context.py": "147048da1f8fb685c9bf4d3a5e1b16ddb7f7a0ece92c9eb9e3e1501a79472d0a",
+      "docs/bootloader-protocol.md": "3d20de5b35369f4370d73b3f836458ac50173e6d3e93756c2fa268f0d10ddb7c",
+      "docs/validation.md": "80a427973d452f51cd1d0d82ecbf0d3b41b7aa4f6839c8fd7f11077a0f388fb7",
+      "EMBEDDER.md": "0f9622544e197635de50bb398b1861b8228324b0e295f32792f99be3d026bfa7"
+    },
+    "original_backup": {
+      "bytes": 524288,
+      "range_exclusive": [
+        0,
+        524288
+      ],
+      "sha256": "cdc14f595cf29c2877cc9b11bc564df62b66e3338a0a77ea35ba533aba0b93d3"
+    },
+    "passive_inventory_logs": [
+      "/Users/embedder/.embedder/shell/f0d37af793f94e7b/task_mvtvce31_dd0217.log",
+      "/Users/embedder/.embedder/shell/f0d37af793f94e7b/task_mvtvchpr_e55ef3.log"
+    ],
+    "physical_usb": "not tested: no OS-enumerated endpoint and no reviewed recovery entry",
+    "target_actions": "none"
+  }
+}

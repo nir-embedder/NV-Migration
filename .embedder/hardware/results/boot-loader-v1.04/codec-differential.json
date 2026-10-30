@@ -1,0 +1,571 @@
+{
+  "executable_sha256": "aed05e31a6a73c760076218dcfbd038e94e579b0287bb86bb2add7ba8daa35f0",
+  "scope": "Offline x86 emulation with memory-only libc/HID/serial stubs; no native execution or device I/O",
+  "encode_cases": 1283,
+  "reader_cases": 100,
+  "reader_length_boundaries": {
+    "0": {
+      "result": 0,
+      "payload_hex": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "1": {
+      "result": 0,
+      "payload_hex": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "12": {
+      "result": 0,
+      "payload_hex": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "63": {
+      "result": 0,
+      "payload_hex": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "64": {
+      "result": 1,
+      "payload_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f30313233"
+    }
+  },
+  "send_failures": [
+    {
+      "command": 160,
+      "payload_hex": "",
+      "sequence": 18,
+      "mode": 1,
+      "send_ok": false,
+      "transfers": [
+        "00a000b200120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 18,
+      "result": 0,
+      "closed": true
+    },
+    {
+      "command": 160,
+      "payload_hex": "",
+      "sequence": 18,
+      "mode": 2,
+      "send_ok": false,
+      "transfers": [
+        "a000b200120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 18,
+      "result": 0,
+      "closed": true
+    },
+    {
+      "command": 160,
+      "payload_hex": "",
+      "sequence": 18,
+      "mode": 3,
+      "send_ok": false,
+      "transfers": [
+        "00a003b200120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 18,
+      "result": 0,
+      "closed": true
+    },
+    {
+      "command": 160,
+      "payload_hex": "",
+      "sequence": 18,
+      "mode": 4,
+      "send_ok": false,
+      "transfers": [
+        "00a004b200120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 18,
+      "result": 0,
+      "closed": true
+    },
+    {
+      "command": 160,
+      "payload_hex": "",
+      "sequence": 18,
+      "mode": 5,
+      "send_ok": false,
+      "transfers": [
+        "00a005b200120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 18,
+      "result": 0,
+      "closed": true
+    }
+  ],
+  "vendor_stale_unchecked_accepted": true,
+  "vendor_stale_checked_rejected": true,
+  "configuration_false_success_cases": [
+    {
+      "mode": 1,
+      "original": {
+        "command": 209,
+        "payload_hex": "",
+        "sequence": 18,
+        "mode": 1,
+        "send_ok": false,
+        "transfers": [
+          "00d1008001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "next_sequence": 18,
+        "result": 1,
+        "closed": true
+      },
+      "repaired_in_emulator_only": {
+        "command": 209,
+        "payload_hex": "",
+        "sequence": 18,
+        "mode": 1,
+        "send_ok": false,
+        "transfers": [
+          "00d1008001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "next_sequence": 18,
+        "result": 0,
+        "closed": true
+      }
+    },
+    {
+      "mode": 2,
+      "original": {
+        "command": 209,
+        "payload_hex": "",
+        "sequence": 18,
+        "mode": 2,
+        "send_ok": false,
+        "transfers": [
+          "d1008001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "next_sequence": 18,
+        "result": 1,
+        "closed": true
+      },
+      "repaired_in_emulator_only": {
+        "command": 209,
+        "payload_hex": "",
+        "sequence": 18,
+        "mode": 2,
+        "send_ok": false,
+        "transfers": [
+          "d1008001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "next_sequence": 18,
+        "result": 0,
+        "closed": true
+      }
+    },
+    {
+      "mode": 3,
+      "original": {
+        "command": 209,
+        "payload_hex": "",
+        "sequence": 18,
+        "mode": 3,
+        "send_ok": false,
+        "transfers": [
+          "00d1038001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "next_sequence": 18,
+        "result": 1,
+        "closed": true
+      },
+      "repaired_in_emulator_only": {
+        "command": 209,
+        "payload_hex": "",
+        "sequence": 18,
+        "mode": 3,
+        "send_ok": false,
+        "transfers": [
+          "00d1038001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "next_sequence": 18,
+        "result": 0,
+        "closed": true
+      }
+    },
+    {
+      "mode": 4,
+      "original": {
+        "command": 209,
+        "payload_hex": "",
+        "sequence": 18,
+        "mode": 4,
+        "send_ok": false,
+        "transfers": [
+          "00d1048001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "next_sequence": 18,
+        "result": 1,
+        "closed": true
+      },
+      "repaired_in_emulator_only": {
+        "command": 209,
+        "payload_hex": "",
+        "sequence": 18,
+        "mode": 4,
+        "send_ok": false,
+        "transfers": [
+          "00d1048001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "next_sequence": 18,
+        "result": 0,
+        "closed": true
+      }
+    },
+    {
+      "mode": 5,
+      "original": {
+        "command": 209,
+        "payload_hex": "",
+        "sequence": 18,
+        "mode": 5,
+        "send_ok": false,
+        "transfers": [
+          "00d1058001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "next_sequence": 18,
+        "result": 1,
+        "closed": true
+      },
+      "repaired_in_emulator_only": {
+        "command": 209,
+        "payload_hex": "",
+        "sequence": 18,
+        "mode": 5,
+        "send_ok": false,
+        "transfers": [
+          "00d1058001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "next_sequence": 18,
+        "result": 0,
+        "closed": true
+      }
+    }
+  ],
+  "golden_vectors": [
+    {
+      "command": 0,
+      "payload_hex": "",
+      "sequence": 0,
+      "mode": 1,
+      "send_ok": true,
+      "transfers": [
+        "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 0,
+      "payload_hex": "",
+      "sequence": 0,
+      "mode": 2,
+      "send_ok": true,
+      "transfers": [
+        "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 0,
+      "payload_hex": "",
+      "sequence": 0,
+      "mode": 3,
+      "send_ok": true,
+      "transfers": [
+        "0000030000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 0,
+      "payload_hex": "",
+      "sequence": 0,
+      "mode": 4,
+      "send_ok": true,
+      "transfers": [
+        "0000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 0,
+      "payload_hex": "",
+      "sequence": 0,
+      "mode": 5,
+      "send_ok": true,
+      "transfers": [
+        "0000050000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 90,
+      "payload_hex": "8a22",
+      "sequence": 0,
+      "mode": 1,
+      "send_ok": true,
+      "transfers": [
+        "005a000601000000008a22000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 90,
+      "payload_hex": "8a22",
+      "sequence": 0,
+      "mode": 2,
+      "send_ok": true,
+      "transfers": [
+        "5a000601000000008a22000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 90,
+      "payload_hex": "8a22",
+      "sequence": 0,
+      "mode": 3,
+      "send_ok": true,
+      "transfers": [
+        "005a030601000000008a22000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 90,
+      "payload_hex": "8a22",
+      "sequence": 0,
+      "mode": 4,
+      "send_ok": true,
+      "transfers": [
+        "005a040601000000008a22000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 90,
+      "payload_hex": "8a22",
+      "sequence": 0,
+      "mode": 5,
+      "send_ok": true,
+      "transfers": [
+        "005a050601000000008a22000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 160,
+      "payload_hex": "",
+      "sequence": 0,
+      "mode": 1,
+      "send_ok": true,
+      "transfers": [
+        "00a000a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 160,
+      "payload_hex": "",
+      "sequence": 0,
+      "mode": 2,
+      "send_ok": true,
+      "transfers": [
+        "a000a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 160,
+      "payload_hex": "",
+      "sequence": 0,
+      "mode": 3,
+      "send_ok": true,
+      "transfers": [
+        "00a003a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 160,
+      "payload_hex": "",
+      "sequence": 0,
+      "mode": 4,
+      "send_ok": true,
+      "transfers": [
+        "00a004a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 160,
+      "payload_hex": "",
+      "sequence": 0,
+      "mode": 5,
+      "send_ok": true,
+      "transfers": [
+        "00a005a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 210,
+      "payload_hex": "b88b",
+      "sequence": 0,
+      "mode": 1,
+      "send_ok": true,
+      "transfers": [
+        "00d200150200000000b88b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 210,
+      "payload_hex": "b88b",
+      "sequence": 0,
+      "mode": 2,
+      "send_ok": true,
+      "transfers": [
+        "d200150200000000b88b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 210,
+      "payload_hex": "b88b",
+      "sequence": 0,
+      "mode": 3,
+      "send_ok": true,
+      "transfers": [
+        "00d203150200000000b88b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 210,
+      "payload_hex": "b88b",
+      "sequence": 0,
+      "mode": 4,
+      "send_ok": true,
+      "transfers": [
+        "00d204150200000000b88b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 210,
+      "payload_hex": "b88b",
+      "sequence": 0,
+      "mode": 5,
+      "send_ok": true,
+      "transfers": [
+        "00d205150200000000b88b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 255,
+      "payload_hex": "13409996005ce5055f4926a826310abca04bb9ede4b85564900cd3e3e5da827767e37d94402bb02da3a60736c2e0a95879e8054e3a710b32",
+      "sequence": 0,
+      "mode": 1,
+      "send_ok": true,
+      "transfers": [
+        "00ff00b21a0000000013409996005ce5055f4926a826310abca04bb9ede4b85564900cd3e3e5da827767e37d94402bb02da3a60736c2e0a95879e8054e3a710b32"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 255,
+      "payload_hex": "13409996005ce5055f4926a826310abca04bb9ede4b85564900cd3e3e5da827767e37d94402bb02da3a60736c2e0a95879e8054e3a710b32",
+      "sequence": 0,
+      "mode": 2,
+      "send_ok": true,
+      "transfers": [
+        "ff00b21a0000000013409996005ce5055f4926a826310abca04bb9ede4b85564900cd3e3e5da827767e37d94402bb02da3a60736c2e0a95879e8054e3a710b32"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 255,
+      "payload_hex": "13409996005ce5055f4926a826310abca04bb9ede4b85564900cd3e3e5da827767e37d94402bb02da3a60736c2e0a95879e8054e3a710b32",
+      "sequence": 0,
+      "mode": 3,
+      "send_ok": true,
+      "transfers": [
+        "00ff03b21a0000000013409996005ce5055f4926a826310abca04bb9ede4b85564900cd3e3e5da827767e37d94402bb02da3a60736c2e0a95879e8054e3a710b32"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 255,
+      "payload_hex": "13409996005ce5055f4926a826310abca04bb9ede4b85564900cd3e3e5da827767e37d94402bb02da3a60736c2e0a95879e8054e3a710b32",
+      "sequence": 0,
+      "mode": 4,
+      "send_ok": true,
+      "transfers": [
+        "00ff04b21a0000000013409996005ce5055f4926a826310abca04bb9ede4b85564900cd3e3e5da827767e37d94402bb02da3a60736c2e0a95879e8054e3a710b32"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    },
+    {
+      "command": 255,
+      "payload_hex": "13409996005ce5055f4926a826310abca04bb9ede4b85564900cd3e3e5da827767e37d94402bb02da3a60736c2e0a95879e8054e3a710b32",
+      "sequence": 0,
+      "mode": 5,
+      "send_ok": true,
+      "transfers": [
+        "00ff05b21a0000000013409996005ce5055f4926a826310abca04bb9ede4b85564900cd3e3e5da827767e37d94402bb02da3a60736c2e0a95879e8054e3a710b32"
+      ],
+      "next_sequence": 2,
+      "result": 1,
+      "closed": false
+    }
+  ]
+}

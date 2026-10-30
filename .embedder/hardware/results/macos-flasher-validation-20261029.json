@@ -1,0 +1,144 @@
+{
+  "timestamp_utc": "2026-10-29T13:55:00.694475+00:00",
+  "host": {
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "python": "3.12.16"
+  },
+  "scope": "offline artifact checks and passive IORegistry enumeration only; no probe or serial connection, reset, or programming",
+  "profiles": {
+    "server": {
+      "target": "m3351kjcae",
+      "pdid": "0x3302140",
+      "aprom_bytes": 1048576,
+      "image_bytes": 115064,
+      "image_sha256": "d5f161e7f8534747e2f4c7b148662f77e4974a4b44c1770acd4d08f52010b9ec",
+      "pack": "/Users/embedder/Desktop/Nuvoton/.deps/packs/Nuvoton.NuMicroM33_DFP.1.0.6.pack",
+      "pack_sha256": "0aae782356a261b976169fb677a5785c8647b5e0a0a93fa1632fb71a04b2dde2",
+      "flm_sha256": "6ad56e7e085dae4ed3f61abd6bcc2edde2ffd53424ca28a6fedc6d743b369717",
+      "planned_erase_interval_exclusive": [
+        0,
+        122880
+      ],
+      "trailing_sector_bytes_require_current_backup": 7816,
+      "hardware_verified": false
+    },
+    "client": {
+      "target": "m3351kjcae",
+      "pdid": "0x3302140",
+      "aprom_bytes": 1048576,
+      "image_bytes": 115936,
+      "image_sha256": "23fbe07c886e6fce4846fadb50d00b1048bd23da04ed82cc431745b6ba0daa4e",
+      "pack": "/Users/embedder/Desktop/Nuvoton/.deps/packs/Nuvoton.NuMicroM33_DFP.1.0.6.pack",
+      "pack_sha256": "0aae782356a261b976169fb677a5785c8647b5e0a0a93fa1632fb71a04b2dde2",
+      "flm_sha256": "6ad56e7e085dae4ed3f61abd6bcc2edde2ffd53424ca28a6fedc6d743b369717",
+      "planned_erase_interval_exclusive": [
+        0,
+        122880
+      ],
+      "trailing_sector_bytes_require_current_backup": 6944,
+      "hardware_verified": false
+    },
+    "separate": {
+      "target": "m3351kjcae",
+      "pdid": "0x3302140",
+      "aprom_bytes": 1048576,
+      "image_bytes": 115116,
+      "image_sha256": "25b745154e01f2b0f24c1337f8f3280827c35fca463d956e8dc7791cfa2cd890",
+      "pack": "/Users/embedder/Desktop/Nuvoton/.deps/packs/Nuvoton.NuMicroM33_DFP.1.0.6.pack",
+      "pack_sha256": "0aae782356a261b976169fb677a5785c8647b5e0a0a93fa1632fb71a04b2dde2",
+      "flm_sha256": "6ad56e7e085dae4ed3f61abd6bcc2edde2ffd53424ca28a6fedc6d743b369717",
+      "planned_erase_interval_exclusive": [
+        0,
+        122880
+      ],
+      "trailing_sector_bytes_require_current_backup": 7764,
+      "hardware_verified": false
+    },
+    "large": {
+      "target": "m3351kjcae",
+      "pdid": "0x3302140",
+      "aprom_bytes": 1048576,
+      "image_bytes": 115064,
+      "image_sha256": "dbf3401a31230d0da9b2c0f75cd7c084b9a135378de82581b3652c70ce753ba4",
+      "pack": "/Users/embedder/Desktop/Nuvoton/.deps/packs/Nuvoton.NuMicroM33_DFP.1.0.6.pack",
+      "pack_sha256": "0aae782356a261b976169fb677a5785c8647b5e0a0a93fa1632fb71a04b2dde2",
+      "flm_sha256": "6ad56e7e085dae4ed3f61abd6bcc2edde2ffd53424ca28a6fedc6d743b369717",
+      "planned_erase_interval_exclusive": [
+        0,
+        122880
+      ],
+      "trailing_sector_bytes_require_current_backup": 7816,
+      "hardware_verified": false
+    }
+  },
+  "usb_inventory": {
+    "method": "macOS IORegistry only; no device opened",
+    "devices": [
+      {
+        "vid": 1046,
+        "pid": 8196,
+        "product": "Nu_Link2 CMSIS_DAP",
+        "serial": "13010000003800F1047546CF0000065D",
+        "location": 1048576,
+        "interfaces": [
+          {
+            "bInterfaceNumber": 0,
+            "bInterfaceClass": 255,
+            "bInterfaceSubClass": 0,
+            "bInterfaceProtocol": 0
+          },
+          {
+            "bInterfaceNumber": 1,
+            "bInterfaceClass": 2,
+            "bInterfaceSubClass": 2,
+            "bInterfaceProtocol": 1
+          },
+          {
+            "bInterfaceNumber": 2,
+            "bInterfaceClass": 10,
+            "bInterfaceSubClass": 0,
+            "bInterfaceProtocol": 0
+          },
+          {
+            "bInterfaceNumber": 3,
+            "bInterfaceClass": 3,
+            "bInterfaceSubClass": 0,
+            "bInterfaceProtocol": 0
+          },
+          {
+            "bInterfaceNumber": 4,
+            "bInterfaceClass": 255,
+            "bInterfaceSubClass": 3,
+            "bInterfaceProtocol": 0
+          },
+          {
+            "bInterfaceNumber": 5,
+            "bInterfaceClass": 8,
+            "bInterfaceSubClass": 6,
+            "bInterfaceProtocol": 80
+          }
+        ],
+        "ports": [
+          "/dev/cu.usbmodem102"
+        ]
+      }
+    ]
+  },
+  "software_validation": {
+    "tests": 288,
+    "passed": 288,
+    "command": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest -q -p no:cacheprovider tests/tools",
+    "log": "/Users/embedder/.embedder/shell/f0d37af793f94e7b/task_mvtlu10t_a8d8a8.log",
+    "pip_check": "No broken requirements found.",
+    "physical_usb_tested": false,
+    "programming_tested": false
+  },
+  "blocker": "Preserving recovery entry and complete fresh device snapshots are not established. Existing stop on target connection/reset/programming remains.",
+  "source_sha256": {
+    "tools/flash.py": "0c7e6ff0d9527e0eba5221ba5549ad014320bbe66556eb3db7b040543e13e71c",
+    "tests/tools/test_flash_script.py": "1450d5749c2f655ecadea7ba9edb618e0820dbf996af3f4a98591d7617b56cd7",
+    "EMBEDDER.md": "ca0bd93000ea02103a13a146c929f7415a04078043246994fb21186b9f24d6ac",
+    "README.md": "4864912fbb2d501469ff0f28ec3cda93d3f7d12d3730b96d5d19ada869dcf882",
+    "docs/validation.md": "6242d53c92431a045054941497dad29ebc51acedff1ec05bfa48117bf78c01b3"
+  }
+}

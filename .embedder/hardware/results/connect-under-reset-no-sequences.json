@@ -1,0 +1,6 @@
+{
+  "mode": "under-reset",
+  "frequency": 100000,
+  "pack_sequences": false,
+  "error": "No cores were discovered!"
+}

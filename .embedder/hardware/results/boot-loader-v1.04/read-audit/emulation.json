@@ -1,0 +1,1297 @@
+{
+  "scope": "Offline allowlisted x86 emulation, memory-only libc and HID stubs; no native execution or hardware",
+  "executable_sha256": "aed05e31a6a73c760076218dcfbd038e94e579b0287bb86bb2add7ba8daa35f0",
+  "cases": {
+    "0x40a810_count_1": {
+      "entry": "0x40a810",
+      "count": 1,
+      "requested": 4,
+      "result": 1,
+      "events": [
+        {
+          "kind": "send",
+          "command": "0xa0",
+          "sequence": 18,
+          "timeout": 20,
+          "packet_hex": "a000b200120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "kind": "receive",
+          "timeout": 5000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 3,
+          "timeout": 20,
+          "packet_hex": "d2001801030000000000300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300000",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [
+        {
+          "offset": 0,
+          "size": 4
+        }
+      ],
+      "destination_hex": "00010203cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 5
+    },
+    "0x40a810_count_14": {
+      "entry": "0x40a810",
+      "count": 14,
+      "requested": 4,
+      "result": 1,
+      "events": [
+        {
+          "kind": "send",
+          "command": "0xa0",
+          "sequence": 18,
+          "timeout": 20,
+          "packet_hex": "a000b200120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "kind": "receive",
+          "timeout": 5000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 3,
+          "timeout": 20,
+          "packet_hex": "d2001801030000000000300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300000",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 5,
+          "timeout": 20,
+          "packet_hex": "d2001e01050000000400300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300004",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 7,
+          "timeout": 20,
+          "packet_hex": "d2002401070000000800300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300008",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 9,
+          "timeout": 20,
+          "packet_hex": "d2002a01090000000c00300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf30000c",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 11,
+          "timeout": 20,
+          "packet_hex": "d20030010b0000001000300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300010",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 13,
+          "timeout": 20,
+          "packet_hex": "d20036010d0000001400300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300014",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 15,
+          "timeout": 20,
+          "packet_hex": "d2003c010f0000001800300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300018",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 17,
+          "timeout": 20,
+          "packet_hex": "d2004201110000001c00300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf30001c",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 19,
+          "timeout": 20,
+          "packet_hex": "d2004801130000002000300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300020",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 21,
+          "timeout": 20,
+          "packet_hex": "d2004e01150000002400300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300024",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 23,
+          "timeout": 20,
+          "packet_hex": "d2005401170000002800300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300028",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 25,
+          "timeout": 20,
+          "packet_hex": "d2005a01190000002c00300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf30002c",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 27,
+          "timeout": 20,
+          "packet_hex": "d20060011b0000003000300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300030",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 29,
+          "timeout": 20,
+          "packet_hex": "d20066011d0000003400300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300034",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [
+        {
+          "offset": 0,
+          "size": 4
+        },
+        {
+          "offset": 4,
+          "size": 4
+        },
+        {
+          "offset": 8,
+          "size": 4
+        },
+        {
+          "offset": 12,
+          "size": 4
+        },
+        {
+          "offset": 16,
+          "size": 4
+        },
+        {
+          "offset": 20,
+          "size": 4
+        },
+        {
+          "offset": 24,
+          "size": 4
+        },
+        {
+          "offset": 28,
+          "size": 4
+        },
+        {
+          "offset": 32,
+          "size": 4
+        },
+        {
+          "offset": 36,
+          "size": 4
+        },
+        {
+          "offset": 40,
+          "size": 4
+        },
+        {
+          "offset": 44,
+          "size": 4
+        },
+        {
+          "offset": 48,
+          "size": 4
+        },
+        {
+          "offset": 52,
+          "size": 4
+        }
+      ],
+      "destination_hex": "0001020300010203000102030001020300010203000102030001020300010203000102030001020300010203000102030001020300010203cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 31
+    },
+    "0x40a810_count_18": {
+      "entry": "0x40a810",
+      "count": 18,
+      "requested": 4,
+      "result": 1,
+      "events": [
+        {
+          "kind": "send",
+          "command": "0xa0",
+          "sequence": 18,
+          "timeout": 20,
+          "packet_hex": "a000b200120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "kind": "receive",
+          "timeout": 5000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 3,
+          "timeout": 20,
+          "packet_hex": "d2001801030000000000300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300000",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 5,
+          "timeout": 20,
+          "packet_hex": "d2001e01050000000400300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300004",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 7,
+          "timeout": 20,
+          "packet_hex": "d2002401070000000800300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300008",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 9,
+          "timeout": 20,
+          "packet_hex": "d2002a01090000000c00300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf30000c",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 11,
+          "timeout": 20,
+          "packet_hex": "d20030010b0000001000300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300010",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 13,
+          "timeout": 20,
+          "packet_hex": "d20036010d0000001400300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300014",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 15,
+          "timeout": 20,
+          "packet_hex": "d2003c010f0000001800300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300018",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 17,
+          "timeout": 20,
+          "packet_hex": "d2004201110000001c00300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf30001c",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 19,
+          "timeout": 20,
+          "packet_hex": "d2004801130000002000300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300020",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 21,
+          "timeout": 20,
+          "packet_hex": "d2004e01150000002400300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300024",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 23,
+          "timeout": 20,
+          "packet_hex": "d2005401170000002800300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300028",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 25,
+          "timeout": 20,
+          "packet_hex": "d2005a01190000002c00300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf30002c",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 27,
+          "timeout": 20,
+          "packet_hex": "d20060011b0000003000300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300030",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 29,
+          "timeout": 20,
+          "packet_hex": "d20066011d0000003400300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300034",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 31,
+          "timeout": 20,
+          "packet_hex": "d2006c011f0000003800300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300038",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 33,
+          "timeout": 20,
+          "packet_hex": "d2007201210000003c00300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf30003c",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 35,
+          "timeout": 20,
+          "packet_hex": "d200b801230000008000300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300080",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 37,
+          "timeout": 20,
+          "packet_hex": "d200be01250000008400300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300084",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [
+        {
+          "offset": 0,
+          "size": 4
+        },
+        {
+          "offset": 4,
+          "size": 4
+        },
+        {
+          "offset": 8,
+          "size": 4
+        },
+        {
+          "offset": 12,
+          "size": 4
+        },
+        {
+          "offset": 16,
+          "size": 4
+        },
+        {
+          "offset": 20,
+          "size": 4
+        },
+        {
+          "offset": 24,
+          "size": 4
+        },
+        {
+          "offset": 28,
+          "size": 4
+        },
+        {
+          "offset": 32,
+          "size": 4
+        },
+        {
+          "offset": 36,
+          "size": 4
+        },
+        {
+          "offset": 40,
+          "size": 4
+        },
+        {
+          "offset": 44,
+          "size": 4
+        },
+        {
+          "offset": 48,
+          "size": 4
+        },
+        {
+          "offset": 52,
+          "size": 4
+        },
+        {
+          "offset": 56,
+          "size": 4
+        },
+        {
+          "offset": 60,
+          "size": 4
+        },
+        {
+          "offset": 128,
+          "size": 4
+        },
+        {
+          "offset": 132,
+          "size": 4
+        }
+      ],
+      "destination_hex": "00010203000102030001020300010203000102030001020300010203000102030001020300010203000102030001020300010203000102030001020300010203cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc0001020300010203cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 39
+    },
+    "0x40a8a0_count_1": {
+      "entry": "0x40a8a0",
+      "count": 1,
+      "requested": 4,
+      "result": 1,
+      "events": [
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 18,
+          "timeout": 20,
+          "packet_hex": "d2002b01120000000000300f08000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300000",
+          "length": 8
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [
+        {
+          "offset": 0,
+          "size": 8
+        }
+      ],
+      "destination_hex": "0001020304050607cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 20
+    },
+    "0x40a8a0_count_19": {
+      "entry": "0x40a8a0",
+      "count": 19,
+      "requested": 4,
+      "result": 1,
+      "events": [
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 18,
+          "timeout": 20,
+          "packet_hex": "d2002b01120000000000300f08000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300000",
+          "length": 8
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 20,
+          "timeout": 20,
+          "packet_hex": "d2003501140000000800300f08000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300008",
+          "length": 8
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 22,
+          "timeout": 20,
+          "packet_hex": "d2003f01160000001000300f08000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300010",
+          "length": 8
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 24,
+          "timeout": 20,
+          "packet_hex": "d2004901180000001800300f08000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300018",
+          "length": 8
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 26,
+          "timeout": 20,
+          "packet_hex": "d20053011a0000002000300f08000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300020",
+          "length": 8
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 28,
+          "timeout": 20,
+          "packet_hex": "d2005d011c0000002800300f08000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300028",
+          "length": 8
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 30,
+          "timeout": 20,
+          "packet_hex": "d20067011e0000003000300f08000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300030",
+          "length": 8
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 32,
+          "timeout": 20,
+          "packet_hex": "d2007101200000003800300f08000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300038",
+          "length": 8
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 34,
+          "timeout": 20,
+          "packet_hex": "d200bb01220000008000300f08000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300080",
+          "length": 8
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 36,
+          "timeout": 20,
+          "packet_hex": "d200c501240000008800300f08000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300088",
+          "length": 8
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [
+        {
+          "offset": 0,
+          "size": 8
+        },
+        {
+          "offset": 8,
+          "size": 8
+        },
+        {
+          "offset": 16,
+          "size": 8
+        },
+        {
+          "offset": 24,
+          "size": 8
+        },
+        {
+          "offset": 32,
+          "size": 8
+        },
+        {
+          "offset": 40,
+          "size": 8
+        },
+        {
+          "offset": 48,
+          "size": 8
+        },
+        {
+          "offset": 56,
+          "size": 8
+        },
+        {
+          "offset": 128,
+          "size": 8
+        },
+        {
+          "offset": 136,
+          "size": 8
+        }
+      ],
+      "destination_hex": "00010203040506070001020304050607000102030405060700010203040506070001020304050607000102030405060700010203040506070001020304050607cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc00010203040506070001020304050607cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 38
+    },
+    "0x40a8a0_count_0": {
+      "entry": "0x40a8a0",
+      "count": 0,
+      "requested": 4,
+      "result": 1,
+      "events": [],
+      "destination_copies": [],
+      "destination_hex": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "a0_failure_ignored": {
+      "entry": "0x40a810",
+      "count": 1,
+      "requested": 4,
+      "result": 1,
+      "events": [
+        {
+          "kind": "send",
+          "command": "0xa0",
+          "sequence": 18,
+          "timeout": 20,
+          "packet_hex": "a000b200120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "kind": "receive",
+          "timeout": 5000,
+          "returned": 64
+        },
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 20,
+          "timeout": 20,
+          "packet_hex": "d2002901140000000000300f04000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300000",
+          "length": 4
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [
+        {
+          "offset": 0,
+          "size": 4
+        }
+      ],
+      "destination_hex": "00010203cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 22
+    },
+    "d2_send_failure_false_success": {
+      "entry": "0x40a8a0",
+      "count": 1,
+      "requested": 4,
+      "result": 1,
+      "events": [
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 18,
+          "timeout": 20,
+          "packet_hex": "d2002b01120000000000300f08000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300000",
+          "length": 8
+        },
+        {
+          "kind": "host_close_stub"
+        }
+      ],
+      "destination_copies": [],
+      "destination_hex": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "d2_short_response_failure": {
+      "entry": "0x40a8a0",
+      "count": 1,
+      "requested": 4,
+      "result": 0,
+      "events": [
+        {
+          "kind": "send",
+          "command": "0xd2",
+          "sequence": 18,
+          "timeout": 20,
+          "packet_hex": "d2002b01120000000000300f08000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "address": "0xf300000",
+          "length": 8
+        },
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 63
+        }
+      ],
+      "destination_copies": [],
+      "destination_hex": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 20
+    },
+    "parser_requested_0": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 0,
+      "result": 1,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [],
+      "destination_hex": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "parser_requested_1": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 1,
+      "result": 1,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [
+        {
+          "offset": 0,
+          "size": 1
+        }
+      ],
+      "destination_hex": "00cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "parser_requested_4": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 4,
+      "result": 1,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [
+        {
+          "offset": 0,
+          "size": 4
+        }
+      ],
+      "destination_hex": "00010203cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "parser_requested_8": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 8,
+      "result": 1,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [
+        {
+          "offset": 0,
+          "size": 8
+        }
+      ],
+      "destination_hex": "0001020304050607cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "parser_requested_51": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 51,
+      "result": 1,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [
+        {
+          "offset": 0,
+          "size": 51
+        }
+      ],
+      "destination_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "parser_requested_52": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 52,
+      "result": 1,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [
+        {
+          "offset": 0,
+          "size": 52
+        }
+      ],
+      "destination_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f30313233cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "parser_requested_53": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 53,
+      "result": 1,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [
+        {
+          "offset": 0,
+          "size": 52
+        }
+      ],
+      "destination_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f30313233cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "parser_requested_56": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 56,
+      "result": 1,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [
+        {
+          "offset": 0,
+          "size": 52
+        }
+      ],
+      "destination_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f30313233cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "parser_requested_4294967295": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 4294967295,
+      "result": 1,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [
+        {
+          "offset": 0,
+          "size": 52
+        }
+      ],
+      "destination_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f30313233cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "parser_response_size_0": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 4,
+      "result": 0,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 0
+        }
+      ],
+      "destination_copies": [],
+      "destination_hex": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "parser_response_size_1": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 4,
+      "result": 0,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 1
+        }
+      ],
+      "destination_copies": [],
+      "destination_hex": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "parser_response_size_12": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 4,
+      "result": 0,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 12
+        }
+      ],
+      "destination_copies": [],
+      "destination_hex": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "parser_response_size_63": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 4,
+      "result": 0,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 63
+        }
+      ],
+      "destination_copies": [],
+      "destination_hex": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "parser_response_size_65": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 4,
+      "result": 0,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 65
+        }
+      ],
+      "destination_copies": [],
+      "destination_hex": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "parser_stale_checked_False": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 4,
+      "result": 1,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [
+        {
+          "offset": 0,
+          "size": 4
+        }
+      ],
+      "destination_hex": "00010203cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    },
+    "parser_stale_checked_True": {
+      "entry": "0x4098d0",
+      "count": 1,
+      "requested": 4,
+      "result": 0,
+      "events": [
+        {
+          "kind": "receive",
+          "timeout": 30000,
+          "returned": 64
+        }
+      ],
+      "destination_copies": [],
+      "destination_hex": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "final_sequence": 18
+    }
+  },
+  "passed_cases": 25,
+  "target_APROM_read_support_established": false
+}

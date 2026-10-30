@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-10-30T00:02:54.385157+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "method": "clear DEMCR/DHCSR debug enables, DP power-down, single nRESET pulse, no reconnect",
+  "before": {
+    "DHCSR": "0x3140000",
+    "DEMCR": "0x100000"
+  },
+  "after": {
+    "DHCSR": "0x1140000",
+    "DEMCR": "0x100000"
+  },
+  "ctrl_stat_down": "0x40",
+  "reset_pulsed": true
+}

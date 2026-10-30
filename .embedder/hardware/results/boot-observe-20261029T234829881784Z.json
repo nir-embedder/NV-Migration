@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-10-29T23:48:04.444508+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "stage": "done",
+  "vcom_port": "/dev/cu.usbmodem1202",
+  "release_exit": 0,
+  "release_stdout_tail": "{\n  \"timestamp\": \"2026-10-29T23:48:04.612085+00:00\",\n  \"probe\": \"13010000003800F1047546CF0000065D\",\n  \"method\": \"clear DEMCR/DHCSR debug enables, DP power-down, single nRESET pulse, no reconnect\",\n  \"before\": {\n    \"DHCSR\": \"0x3140000\",\n    \"DEMCR\": \"0x100000\"\n  },\n  \"after\": {\n    \"DHCSR\": \"0x1140000\",\n    \"DEMCR\": \"0x100000\"\n  },\n  \"ctrl_stat_down\": \"0x40\",\n  \"reset_pulsed\": true\n}\n",
+  "release_stderr_tail": "",
+  "uart_bytes": 459,
+  "uart_text": "*** Booting Zephyr OS build 5c71a7331104 ***\r\n[00:00:00.002,000] \u001b[0m<inf> app_network: USB network 192.168.77.2/24; no gateway\u001b[0m\r\n[00:00:00.002,000] \u001b[0m<inf> usbd_cdc_acm: USB configuration is not enabled or suspended\u001b[0m\r\n[00:00:00.003,000] \u001b[0m<inf> usbd_init: bNumInterfaces 4 wTotalLength 154\u001b[0m\r\n[00:00:00.003,000] \u001b[0m<inf> app: Modbus server ready: RTU id10, TCP id1 port502\u001b[0m\r\n[00:00:00.156,000] \u001b[0m<inf> usbd_core: Actual device speed 1\u001b[0m\r\n",
+  "app_usb_device": {
+    "vid": 1046,
+    "pid": 45058,
+    "product": "NK-M3351 Modbus RTU + TCP",
+    "serial": "00010031047B4B1F00000003",
+    "location": 17825792,
+    "interfaces": [],
+    "ports": []
+  }
+}

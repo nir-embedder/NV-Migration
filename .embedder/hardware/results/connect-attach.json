@@ -1,0 +1,6 @@
+{
+  "mode": "attach",
+  "frequency": 1000000,
+  "pack_sequences": true,
+  "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x40000000-0x40000003"
+}

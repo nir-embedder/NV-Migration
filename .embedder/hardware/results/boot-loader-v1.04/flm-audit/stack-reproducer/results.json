@@ -1,0 +1,29 @@
+{
+  "scope": "Host-only QEMU Cortex-M33; synthetic limits; exact vendor push only; no M3351 MMIO or physical hardware",
+  "vendor_push_hex": "f0b5",
+  "cases": {
+    "compatible": {
+      "limit": "0x0",
+      "guard": false,
+      "elf_sha256": "f952294c00a6bd72ec1ff195abbdc7b16152ad4eab485cfbcf5c345fd7243194",
+      "exit_code": 0,
+      "output": "PROLOGUE_RETURNED\n"
+    },
+    "inherited_high": {
+      "limit": "0x20007c00",
+      "guard": false,
+      "elf_sha256": "2c95554492c407e95fef2bb4f7f7f05f654d1bcfd763bce58ae0afd127185315",
+      "exit_code": 0,
+      "output": "FAULT_AFTER_VENDOR_PUSH\nMSP=20007c00\nMSPLIM=20007c00\nCFSR=00100000\nHFSR=40000000\n"
+    },
+    "guarded_high": {
+      "limit": "0x20007c00",
+      "guard": true,
+      "elf_sha256": "e20d017e7d701f57d2e910547a5c624081831c17d7277b832c3603b91560429f",
+      "exit_code": 0,
+      "output": "GUARD_REFUSED_BEFORE_VENDOR_PUSH\n"
+    }
+  },
+  "compiler": "arm-zephyr-eabi-gcc (Zephyr SDK 1.0.1) 14.3.0",
+  "qemu": "QEMU emulator version 11.1.2"
+}

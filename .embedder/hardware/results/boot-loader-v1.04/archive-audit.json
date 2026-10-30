@@ -1,0 +1,60 @@
+{
+  "archive": "/Users/embedder/.embedder/downloads/d98951d347462720/en-us--NuvoISP_BL_V1.04.zip",
+  "archive_sha256": "4a7cfe5cd0207fa99f052ee1038b85c9110684cab9fb9fda2f594867c80ff5a7",
+  "method": "Offline archive/PE header and string inspection only; executable was not run",
+  "members": [
+    {
+      "name": "RH_NuTool-Boot Loader ISP Tool_EN_Rev1.04.pdf",
+      "bytes": 292049,
+      "sha256": "21d6e2ab3a4978ee35d371705671b3d1a11e368dda2515765dcf8375feb3126e"
+    },
+    {
+      "name": "NuvoISP_BL_V1.04.exe",
+      "bytes": 2738688,
+      "sha256": "aed05e31a6a73c760076218dcfbd038e94e579b0287bb86bb2add7ba8daa35f0",
+      "machine": "0x14c",
+      "optional_header_magic": "0x10b",
+      "subsystem": 2,
+      "coff_timestamp": 1777367285,
+      "dll_strings": [
+        "ADVAPI32.dll",
+        "COMCTL32.dll",
+        "COMDLG32.dll",
+        "GDI32.dll",
+        "IMM32.dll",
+        "KERNEL32.dll",
+        "MSIMG32.dll",
+        "OLEACC.dll",
+        "OLEAUT32.dll",
+        "SETUPAPI.dll",
+        "SHELL32.dll",
+        "SHLWAPI.dll",
+        "USER32.dll",
+        "WINMM.dll",
+        "gdiplus.dll",
+        "hid.dll",
+        "ole32.dll"
+      ],
+      "m3351_strings": [
+        "CDialogChipSetting_CFG_M3351",
+        "M3351LJCAE",
+        "M3351YJCAE",
+        "M3351SJCAE",
+        "M3351VJCAE",
+        "M3351KJCAE",
+        "M3351LICAE",
+        "M3351YICAE",
+        "M3351SICAE",
+        "M3351VICAE",
+        "M3351KICAE",
+        ".?AVCDialogChipSetting_CFG_M3351@@"
+      ],
+      "version_label_strings": []
+    },
+    {
+      "name": "UM_NuTool-Boot Loader ISP Tool_EN_Rev1.04.pdf",
+      "bytes": 1250662,
+      "sha256": "9de17c166bb343a8f9b54104eb7ce14cd8ced67b829eb5390074c27a69e61f59"
+    }
+  ]
+}

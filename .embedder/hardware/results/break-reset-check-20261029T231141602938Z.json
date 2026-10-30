@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-10-29T23:11:40.873074+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "steps": [
+    {
+      "tag": "initial (clears sticky)",
+      "DHCSR": "0x3080003",
+      "S_RESET_ST": true,
+      "S_LOCKUP": true
+    },
+    {
+      "tag": "second read (should be clear)",
+      "DHCSR": "0x80003",
+      "S_RESET_ST": false,
+      "S_LOCKUP": true
+    },
+    {
+      "tag": "immediately after BREAK",
+      "DHCSR": "0x80003",
+      "S_RESET_ST": false,
+      "S_LOCKUP": true
+    },
+    {
+      "tag": "100 ms after BREAK",
+      "DHCSR": "0x80003",
+      "S_RESET_ST": false,
+      "S_LOCKUP": true
+    },
+    {
+      "tag": "before DTR toggle",
+      "DHCSR": "0x80003",
+      "S_RESET_ST": false,
+      "S_LOCKUP": true
+    },
+    {
+      "tag": "after DTR toggle",
+      "DHCSR": "0x80003",
+      "S_RESET_ST": false,
+      "S_LOCKUP": true
+    },
+    {
+      "tag": "after RTS toggle",
+      "DHCSR": "0x80003",
+      "S_RESET_ST": false,
+      "S_LOCKUP": true
+    }
+  ],
+  "uart_bytes_after_break": ""
+}

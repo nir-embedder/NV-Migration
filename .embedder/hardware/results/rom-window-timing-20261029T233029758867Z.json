@@ -1,0 +1,64 @@
+{
+  "timestamp": "2026-10-29T23:30:28.097395+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "method": "DP down during nRESET; DP power-up right after release; DHCSR polling",
+  "runs": [
+    {
+      "run": 0,
+      "rows": [
+        {
+          "t_ms": 4.65,
+          "dhcsr": "0x3080003"
+        },
+        {
+          "t_ms": 4.95,
+          "dhcsr": "0x80003"
+        }
+      ],
+      "dhcsr_before": "0x130003",
+      "ctrl_stat_down": "0x40",
+      "dp_up_ms": 4.18,
+      "samples": 1003,
+      "first_lockup_ms": 4.65,
+      "dauth_after": "0xaf"
+    },
+    {
+      "run": 1,
+      "rows": [
+        {
+          "t_ms": 6.96,
+          "dhcsr": "0x3130003"
+        },
+        {
+          "t_ms": 7.39,
+          "dhcsr": "0x130003"
+        }
+      ],
+      "dhcsr_before": "0x80003",
+      "ctrl_stat_down": "0x40",
+      "dp_up_ms": 6.37,
+      "samples": 857,
+      "first_lockup_ms": null,
+      "dauth_after": "0xff"
+    },
+    {
+      "run": 2,
+      "rows": [
+        {
+          "t_ms": 6.93,
+          "dhcsr": "0x3130003"
+        },
+        {
+          "t_ms": 7.32,
+          "dhcsr": "0x130003"
+        }
+      ],
+      "dhcsr_before": "0x130003",
+      "ctrl_stat_down": "0x40",
+      "dp_up_ms": 6.32,
+      "samples": 892,
+      "first_lockup_ms": null,
+      "dauth_after": "0xff"
+    }
+  ]
+}

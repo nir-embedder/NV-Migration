@@ -1,0 +1,14 @@
+FILE .embedder/hardware/results/passive-snapshot-20261028T211754816957Z.json SHA256 5508c2bb871f2c2286d91d95b44c7c3a311ce07986619f4cd879c4bec90ad8b8
+timestamp 2026-10-28T21:17:47.184896+00:00 method MEM-AP only; no core init/reset/halt
+CFSR 0x100001
+HFSR 0x40000000
+SFSR 0x0
+DHCSR 0x130003
+DAUTHSTATUS 0xff
+FMC_ISPADDR 0xe000
+FMC_ISPCMD 0x22
+FMC_ISPTRG 0x0
+FMC_ISPSTS 0x20000104
+aprom_sha256 043e238a765f7cfbc62596a50e53c8ffb6b188a99357b0ebede251725d67589f
+aprom_unchanged False
+0x0 ffffffffffffffffffffffffffffffff

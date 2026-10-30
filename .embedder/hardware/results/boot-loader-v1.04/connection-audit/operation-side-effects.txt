@@ -1,0 +1,151 @@
+SUPPLEMENT: UI / IDENTIFY / CONFIGURATION SIDE-EFFECT BOUNDARIES
+Offline static analysis of the same hash-verified executable. No hardware,
+source changes, packet implementation, or parent-owned edits were performed.
+Only connection-audit analysis artifacts were written. Encoding is intentionally
+left to the parent; command numbers below identify observed call paths only.
+
+1. Exact separation of Connect and Start
+
+The main UI virtual table resolves:
+  0x539b60 -> 0x407850 (post-identification GUI refresh)
+  0x539b64 -> 0x405d90 (Connect action)
+  0x539b68 -> 0x4072b0 (Start action)
+  Table base inferred from virtual dispatch is 0x5399cc.
+0x404670 dispatches virtual +0x198 (Connect).
+0x404680 dispatches virtual +0x19c (Start).
+The message-map entry ending at 0x53a2d4 is
+  {0x111, 0, 0x3f2, 0x3f2, 0x39, 0x404680}.
+Resource title at 0x5f52a8 gives control ID 0x3f2 as 'Start'.
+These values are saved in start-action-message-map.txt and
+main-dialog-control-labels.txt, not inferred from ordinary ISP command names.
+
+Start routine 0x4072b0:
+  0x4072e0..0x40731d checks whether any operation option is selected.
+  0x407323 uses an error string if all are zero; no operation is dispatched.
+  0x407363 locks the worker, 0x407368 requires current state 0x408090 (idle).
+  It validates selected APROM/LDROM file buffers before proceeding.
+  0x4074bb..0x4074c6 selects worker state 0x408540.
+By contrast, Connect 0x405d90 selects state 0x408210 at 0x405e8b.
+
+After Connect -> A0 -> identity:
+  0x4090dc..0x4090f0 copies cached config and sets status.
+  If worker+0x40 is non-NULL, 0x409112 selects idle 0x408090.
+  If worker+0x40 is NULL, 0x40913c selects operation dispatcher 0x408540.
+The recorded raw/call references to 0x408540 identify these two state-entry
+sites (Start and ownerless post-identification), not Connect directly.
+The GUI notification owner is supplied by constructor 0x40927c..0x40928b.
+Operation flags are initialized to zero at 0x409240..0x40926a.
+GUI callback 0x406ad1..0x406adb dispatches post-identification virtual +0x194,
+which resolves to 0x407850, rather than the Start virtual +0x19c.
+
+2. Proven GUI option -> worker field mapping
+
+Worker is embedded at GUI+0x1a8. DDX bindings in dialog-bindings.asm map:
+  resource ID 0x492 'Reset before connecting': GUI+0x2bc -> worker+0x114
+  resource ID 0x3f9 'APROM':                  GUI+0x2c0 -> worker+0x118
+  resource ID 0x3f8 'LDROM':                  GUI+0x2c4 -> worker+0x11c
+  resource ID 0x3fb 'Config':                 GUI+0x2c8 -> worker+0x120
+  resource ID 0x42b 'Erase All':              GUI+0x2cc -> worker+0x124
+  resource ID 0x07d 'Reset':                  GUI+0x2d0 -> worker+0x128
+  resource ID 0x081 'Speed':                  GUI+0x2d4 -> worker+0x12c
+  resource ID 0x083 'USBD ISP':               GUI+0x2d8 -> worker+0x130
+The separate 'Reset' operation must not be conflated with the connection
+checkbox. Turning off the connection checkbox does not disable the DTR-enable
+request in 0x415e90; see the corrected findings.txt lines 38 onward.
+
+3. Mutation-capable dispatcher 0x408540, in execution order
+
+A0 gate:
+  0x4085a0 invokes 0x40a6f0; failure sets status=2 and goes idle.
+
+Erase All, worker+0x124:
+  0x4085ce tests the flag.
+  Normally 0x4085f2 -> 0x40ad20 -> 0x40a3b0 sends command 0xe1.
+  0x40ad20 allows this only when protocol field +0xcc == 1.
+  Classification 0x42/0x43 instead branches at 0x4085dd/0x4085e6 to 0x408742,
+  builds an all-0xff buffer at 0x40876c..0x40877a, then issues repeated
+  0x40aac0 calls at 0x4087a0 and 0x40882b over two memory regions.
+  Thus the host's 'Erase All' option can send repeated programming requests,
+  not always one erase command. Device-side erase/program algorithm is unknown.
+  Other branches subsequently refresh config with A0/D2-style read helpers.
+
+Config, worker+0x120:
+  0x408661 tests the flag; zero skips writes.
+  Generic classification path: 0x4086a7 -> 0x40a930.
+  It takes base address worker+0x58, desired bytes worker+0xa8, and cached-current
+  bytes worker+0x5c. It emits command 0xd1 in 32+24-byte chunks covering 56 bytes
+  at base and base+32 (0x40a960..0x40aa07).
+  Classification 0x44: 0x4088ae..0x408918 compares 14 desired/current words;
+  changed words invoke 0x40a490(address, value) at 0x4088f5.
+  Classification 0x49/0x4a/0x4b: 0x408962..0x4089d4 invokes
+  0x40a5c0(address, value0, value1) at 0x4089ab for pairs among 19 words.
+  Addresses add an extra 0x40 for word indices >=16. The final odd partner is
+  passed as 0xffffffff. This pair path is not guarded by an equality check.
+  Both helpers also send command 0xd1; see commands-disassembly.asm.
+
+APROM, worker+0x118:
+  0x408aaf tests the flag; selected file content reaches 0x40aac0 at 0x408b3b.
+
+LDROM, worker+0x11c:
+  0x408b93 tests the flag; selected file content reaches 0x40aac0 at 0x408c1f.
+
+Reset, worker+0x128:
+  0x408c8f tests this independent operation flag. If set and worker+0x138 !=0,
+  0x408cb3 calls 0x40a2a0(worker+0x138, worker+0x13c), which sends command 0xb0
+  with two argument words and does not wait for a response in that wrapper.
+  0x408d51 then selects the close/disconnected worker 0x408030.
+  Host UI calls this 'Reset'; target-side interpretation of its source/address
+  arguments requires firmware evidence. If selected, this path returns before
+  the later USBD ISP / Speed paths.
+
+USBD ISP, worker+0x130:
+  0x408d8e tests the flag; 0x408d9c -> 0x40a2d0 sends command 0xc0.
+  It displays 'Set USBDISP OK!' at 0x408df0 then uses the same disconnected path.
+  The dispatcher does not test the wrapper's return value before reporting OK.
+
+Speed, worker+0x12c:
+  0x408dfa tests the flag; 0x408e13 -> 0x40a1b0(worker+0x134) sends command 0xc1.
+  String at 0x53a508 says 'Set Clock (%d) OK! Reconnect using new clock setting'.
+  Again the dispatcher does not test the wrapper return before reporting OK.
+  Persistence of C0/C1 state on the actual target is not established.
+
+4. Configuration 'verification' is not device readback
+
+Generic path 0x40a930:
+  The response is treated as an acknowledgement (minimum length and sequence).
+  No D2 readback is issued inside the write helper.
+  After acknowledgements, 0x40aa13..0x40aa1e copies 56 desired bytes directly
+  into the host cached-current buffer. 0x4086b7..0x4086dc then compares the first
+  four host words. This does not establish persistent target contents.
+  A failed send branches from 0x40a9b6 to 0x40aa02 without clearing the aggregate
+  success flag; acknowledgement failure does clear it. Thus even the host
+  success/cache-update conditions are weaker than 'every write completed'.
+
+Single/pair paths:
+  After returned success, 0x4088fe..0x40890e or 0x4089b4..0x4089cb overwrite
+  cached-current words with desired words. These are not received values.
+  0x408918..0x40892c and 0x4089d4..0x4089e2 then copy cached-current back onto
+  desired before comparing them. Their post-copy equality tests cannot prove
+  the original requested configuration reached the device.
+  0x40a490 and 0x40a5c0 initialize return state true and can return it when the
+  initial send fails (0x40a4d8 -> 0x40a534; 0x40a60e -> 0x40a66a).
+These are static observations, not exercised fault-injection results.
+
+5. Safety conclusion / exact unresolved boundaries
+
+Normal GUI Connect with notification owner does not enter 0x408540 or call the
+listed D1/E1/B0/C0/C1 operation paths merely because operation checkboxes remain
+selected. There is a distinct Start dispatch, plus the ownerless automatic
+operation branch. That distinction does not make Connect passive: DTR/BREAK
+and mode-dependent bridge 5A remain as previously documented.
+
+Unresolved from the host PE alone:
+- actual DTR/RTS/BREAK electrical routing and whether they reset this target;
+- bridge 5A semantics, reset pulse generation, and bridge persistent changes;
+- device implementation and nonvolatile side effects of A0 and D2;
+- target erase/program granularity, preservation, security effects, and atomicity;
+- exact B0 source/address semantics and persistence of C0/C1 settings;
+- runtime operation flags and notification owner for a different caller;
+- whether host acknowledgement corresponds to completed persistent writes.
+No readback, fault injection, or hardware acceptance is claimed. All mutation
+paths remain prohibited under the existing recovery stop.

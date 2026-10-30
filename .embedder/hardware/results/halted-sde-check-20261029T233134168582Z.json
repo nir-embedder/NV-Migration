@@ -1,0 +1,96 @@
+{
+  "timestamp": "2026-10-29T23:31:34.133085+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "method": "read-only check of reset-catch halted state; DP left powered",
+  "DHCSR": "0x130003",
+  "S_HALT": true,
+  "S_SDE": true,
+  "S_LOCKUP": false,
+  "DAUTHSTATUS": "0xff",
+  "DSCSR": "0x30000",
+  "DEMCR": "0x1100401",
+  "ICSR": "0x0",
+  "CPUID": "0x411fd210",
+  "core_regs": {
+    "r0": "0x2f800104",
+    "sp": "0x20000b68",
+    "lr": "0x20000d25",
+    "pc": "0x20000d74",
+    "xpsr": "0x29000000",
+    "msp": "0x20000b68",
+    "psp": "0x20000c00",
+    "ctrl_primask": "0x0",
+    "msp_ns": "0x0",
+    "psp_ns": "0xfffffffc",
+    "msplim_s": "0x0",
+    "control_s": "0x0"
+  },
+  "memory": {
+    "APROM0": [
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0"
+    ],
+    "APROM_E000": [
+      "0xb601",
+      "0x0",
+      "0xb601",
+      "0x0"
+    ],
+    "APROM_high": [
+      "0xffffffff",
+      "0xffffffff",
+      "0xffffffff",
+      "0xffffffff"
+    ],
+    "SRAM": [
+      "0xb50000",
+      "0xe7fee7fe",
+      "0x0",
+      "0x0"
+    ],
+    "SYS_PDID": [
+      "0x3302140",
+      "0x163",
+      "0x0",
+      "0x0"
+    ],
+    "SYS_RSTSTS": [
+      "0x163",
+      "0x0",
+      "0x0",
+      "0x0"
+    ],
+    "FMC_ISPCTL": [
+      "0x10009",
+      "0xf32020c",
+      "0xffffffff",
+      "0x0"
+    ],
+    "FMC_ISPSTS": [
+      "0x2f800104",
+      "0x0",
+      "0x0",
+      "0x6"
+    ],
+    "CONFIG0": "FAULT",
+    "CONFIG3": "FAULT",
+    "CONFIG11_SCRLOCK": "FAULT",
+    "CONFIG12_NSCBA": "FAULT",
+    "CONFIG13_ARLOCK": "FAULT",
+    "LDROM": [
+      "0xffffffff",
+      "0xffffffff",
+      "0xffffffff",
+      "0xffffffff"
+    ],
+    "SCU_FNSADDR": [
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0"
+    ]
+  },
+  "ctrl_stat": "0xf0000040"
+}

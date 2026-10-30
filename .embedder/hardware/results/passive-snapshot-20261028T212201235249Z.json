@@ -1,0 +1,116 @@
+{
+  "timestamp": "2026-10-28T21:22:01.203905+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "method": "MEM-AP only; no core init/reset/halt; standard reset vector catch then hardware reset",
+  "auth_before_reset": "0xaf",
+  "dp_idr": "0xbe12477",
+  "ap_idr": "0x14770015",
+  "csw": "0x3800052",
+  "registers": {
+    "SYS_PDID": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x40000000-0x40000003"
+    },
+    "SYS_RSTSTS": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x40000004-0x40000007"
+    },
+    "SYS_BODCTL": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x40000018-0x4000001b"
+    },
+    "SYS_SRAM_STATUS": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x400000c4-0x400000c7"
+    },
+    "SYS_SRAM_ERRADDR": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x400000c8-0x400000cb"
+    },
+    "SYS_SRAM_ECCEN": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x400000dc-0x400000df"
+    },
+    "SCU_SRAMNSSET": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4002f020-0x4002f023"
+    },
+    "SCU_FNSADDR": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4002f02c-0x4002f02f"
+    },
+    "SCU_SVINTSTS": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4002f034-0x4002f037"
+    },
+    "SCU_FLASHVSRC": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4002f040-0x4002f043"
+    },
+    "SCU_FLASHVA": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4002f044-0x4002f047"
+    },
+    "SCU_SRAM0VSRC": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4002f048-0x4002f04b"
+    },
+    "SCU_SRAM0VA": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4002f04c-0x4002f04f"
+    },
+    "SCU_SRAM1VSRC": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4002f050-0x4002f053"
+    },
+    "SCU_SRAM1VA": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4002f054-0x4002f057"
+    },
+    "FMC_ISPCTL": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c000-0x4000c003"
+    },
+    "FMC_ISPADDR": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c004-0x4000c007"
+    },
+    "FMC_ISPDAT": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c008-0x4000c00b"
+    },
+    "FMC_ISPCMD": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c00c-0x4000c00f"
+    },
+    "FMC_ISPTRG": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c010-0x4000c013"
+    },
+    "FMC_ISPSTS": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c040-0x4000c043"
+    },
+    "FMC_XOMSTS": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c0e0-0x4000c0e3"
+    },
+    "FMC_APWPROT0": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c110-0x4000c113"
+    },
+    "FMC_APWPROT1": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c114-0x4000c117"
+    },
+    "FMC_ECCCTL": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c130-0x4000c133"
+    },
+    "FMC_ECCSTS": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c134-0x4000c137"
+    },
+    "CPUID": "0x411fd210",
+    "CFSR": "0x0",
+    "HFSR": "0x0",
+    "SFSR": "0x0",
+    "DHCSR": "0x3080003",
+    "DEMCR": "0x1000001",
+    "DSCSR": "0x30001",
+    "DAUTHSTATUS": "0xaf",
+    "CONFIG0_direct": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x0f300000-0x0f300003"
+    },
+    "CONFIG12_direct": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x0f300030-0x0f300033"
+    }
+  },
+  "0x0": {
+    "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x00000000-0x0000000f"
+  },
+  "0x20000000": {
+    "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x20000000-0x2000000f"
+  },
+  "0x20003c00": {
+    "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x20003c00-0x20003c0f"
+  },
+  "0x30000000": {
+    "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x30000000-0x3000000f"
+  },
+  "aprom_read_error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x00000000-0x000003ff"
+}

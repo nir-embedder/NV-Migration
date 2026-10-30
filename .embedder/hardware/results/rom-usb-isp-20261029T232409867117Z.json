@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-10-29T23:24:00.731509+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "scope": "DP power-down, nRESET pulses, HID enumeration polling; identify only if requested",
+  "attempts": [
+    {
+      "attempt": 0,
+      "seen": [],
+      "elapsed_ms": 3037.7
+    },
+    {
+      "attempt": 1,
+      "seen": [],
+      "elapsed_ms": 3046.1
+    },
+    {
+      "attempt": 2,
+      "seen": [],
+      "elapsed_ms": 3032.7
+    }
+  ],
+  "stage": "pulse_and_poll",
+  "success": false,
+  "identify_requested": false,
+  "ctrl_stat_powered_down": "0x40",
+  "hid_before": [],
+  "usb_isp_device": null,
+  "error": "RuntimeError: no ROM USB ISP HID device appeared after nRESET pulses"
+}

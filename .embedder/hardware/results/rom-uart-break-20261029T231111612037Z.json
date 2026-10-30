@@ -1,0 +1,148 @@
+{
+  "timestamp": "2026-10-29T23:11:04.004511+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "baud": 115200,
+  "attempts_requested": 19,
+  "stream": false,
+  "scope": "VCOM BREAK reset + UART sync + identify + CONFIG read; no SWD, no writes",
+  "stage": "serial_open",
+  "success": false,
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "sync",
+      "delay_ms": 5.0,
+      "response": "",
+      "elapsed_ms": 343.2
+    },
+    {
+      "attempt": 1,
+      "stage": "sync",
+      "delay_ms": 10.0,
+      "response": "",
+      "elapsed_ms": 344.7
+    },
+    {
+      "attempt": 2,
+      "stage": "sync",
+      "delay_ms": 15.0,
+      "response": "",
+      "elapsed_ms": 360.1
+    },
+    {
+      "attempt": 3,
+      "stage": "sync",
+      "delay_ms": 20.0,
+      "response": "",
+      "elapsed_ms": 367.5
+    },
+    {
+      "attempt": 4,
+      "stage": "sync",
+      "delay_ms": 25.0,
+      "response": "",
+      "elapsed_ms": 361.1
+    },
+    {
+      "attempt": 5,
+      "stage": "sync",
+      "delay_ms": 30.0,
+      "response": "",
+      "elapsed_ms": 373.9
+    },
+    {
+      "attempt": 6,
+      "stage": "sync",
+      "delay_ms": 35.0,
+      "response": "",
+      "elapsed_ms": 377.8
+    },
+    {
+      "attempt": 7,
+      "stage": "sync",
+      "delay_ms": 40.0,
+      "response": "",
+      "elapsed_ms": 386.9
+    },
+    {
+      "attempt": 8,
+      "stage": "sync",
+      "delay_ms": 45.0,
+      "response": "",
+      "elapsed_ms": 394.8
+    },
+    {
+      "attempt": 9,
+      "stage": "sync",
+      "delay_ms": 50.0,
+      "response": "",
+      "elapsed_ms": 395.1
+    },
+    {
+      "attempt": 10,
+      "stage": "sync",
+      "delay_ms": 55.0,
+      "response": "",
+      "elapsed_ms": 399.7
+    },
+    {
+      "attempt": 11,
+      "stage": "sync",
+      "delay_ms": 60.0,
+      "response": "",
+      "elapsed_ms": 410.2
+    },
+    {
+      "attempt": 12,
+      "stage": "sync",
+      "delay_ms": 65.0,
+      "response": "",
+      "elapsed_ms": 414.8
+    },
+    {
+      "attempt": 13,
+      "stage": "sync",
+      "delay_ms": 70.0,
+      "response": "",
+      "elapsed_ms": 406.9
+    },
+    {
+      "attempt": 14,
+      "stage": "sync",
+      "delay_ms": 75.0,
+      "response": "",
+      "elapsed_ms": 423.0
+    },
+    {
+      "attempt": 15,
+      "stage": "sync",
+      "delay_ms": 80.0,
+      "response": "",
+      "elapsed_ms": 424.9
+    },
+    {
+      "attempt": 16,
+      "stage": "sync",
+      "delay_ms": 85.0,
+      "response": "",
+      "elapsed_ms": 432.5
+    },
+    {
+      "attempt": 17,
+      "stage": "sync",
+      "delay_ms": 90.0,
+      "response": "",
+      "elapsed_ms": 416.1
+    },
+    {
+      "attempt": 18,
+      "stage": "sync",
+      "delay_ms": 95.0,
+      "response": "",
+      "elapsed_ms": 436.6
+    }
+  ],
+  "port": "/dev/cu.usbmodem1202",
+  "synchronized": false,
+  "error": "TimeoutError: no 'A' from ROM on any attempt"
+}

@@ -1,0 +1,92 @@
+{
+  "timestamp_utc": "2026-10-28T22:16:26.744122+00:00",
+  "method": "IORegistry only; no device opened, reset or control-line changes",
+  "usb": [
+    {
+      "name": "AppleT8142USBXHCI",
+      "parent": "Root",
+      "locationID": 16777216
+    },
+    {
+      "name": "AppleT8142USBXHCI",
+      "parent": "Root",
+      "locationID": 0
+    },
+    {
+      "name": "USB3.1 Hub",
+      "parent": "AppleT8142USBXHCI",
+      "idVendor": 1507,
+      "idProduct": 1574,
+      "USB Product Name": "USB3.1 Hub",
+      "USB Vendor Name": "GenesysLogic",
+      "locationID": 2097152,
+      "bDeviceClass": 9,
+      "bDeviceSubClass": 0,
+      "bDeviceProtocol": 3,
+      "bcdDevice": 1635
+    },
+    {
+      "name": "AX88179B",
+      "parent": "USB3.1 Hub",
+      "idVendor": 2965,
+      "idProduct": 6032,
+      "USB Product Name": "AX88179B",
+      "USB Vendor Name": "ASIX",
+      "USB Serial Number": "0000000000BA0C",
+      "locationID": 2293760,
+      "bDeviceClass": 0,
+      "bDeviceSubClass": 0,
+      "bDeviceProtocol": 0,
+      "bcdDevice": 512
+    },
+    {
+      "name": "USB2.1 Hub",
+      "parent": "AppleT8142USBXHCI",
+      "idVendor": 1507,
+      "idProduct": 1552,
+      "USB Product Name": "USB2.1 Hub",
+      "USB Vendor Name": "GenesysLogic",
+      "locationID": 1048576,
+      "bDeviceClass": 9,
+      "bDeviceSubClass": 0,
+      "bDeviceProtocol": 1,
+      "bcdDevice": 1635
+    },
+    {
+      "name": "Nu-Link2 CMSIS-DAP",
+      "parent": "USB2.1 Hub",
+      "idVendor": 1046,
+      "idProduct": 8196,
+      "USB Product Name": "Nu_Link2 CMSIS_DAP",
+      "USB Vendor Name": "Nuvoton",
+      "USB Serial Number": "13010000003800F1047546CF0000065D",
+      "locationID": 1114112,
+      "bDeviceClass": 239,
+      "bDeviceSubClass": 2,
+      "bDeviceProtocol": 1,
+      "bcdDevice": 0
+    },
+    {
+      "name": "AppleT8142USBXHCI",
+      "parent": "Root",
+      "locationID": 50331648
+    }
+  ],
+  "serial": [
+    {
+      "IOCalloutDevice": "/dev/cu.debug-console",
+      "IODialinDevice": "/dev/tty.debug-console",
+      "IOTTYDevice": "debug-console"
+    },
+    {
+      "IOCalloutDevice": "/dev/cu.usbmodem1102",
+      "IODialinDevice": "/dev/tty.usbmodem1102",
+      "IOTTYDevice": "usbmodem1102"
+    },
+    {
+      "IOCalloutDevice": "/dev/cu.Bluetooth-Incoming-Port",
+      "IODialinDevice": "/dev/tty.Bluetooth-Incoming-Port",
+      "IOTTYDevice": "Bluetooth-Incoming-Port"
+    }
+  ]
+}

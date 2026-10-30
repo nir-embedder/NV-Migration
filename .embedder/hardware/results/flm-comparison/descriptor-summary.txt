@@ -1,0 +1,20 @@
+Flash/M3351_AP_512.FLM
+version=0x101, name=M3351 APROM 512kB, type=1
+device_start=0x0
+device_size=0x80000
+page_size=0x2000
+reserved=0x0
+program_timeout_ms=0x3e8
+erase_timeout_ms=0xbb8
+erased_value=0xff, sectors=(8192, 0, 4294967295, 4294967295)
+
+Flash/M3351_AP_1M.FLM
+version=0x101, name=M3351 APROM 1MB, type=1
+device_start=0x0
+device_size=0x100000
+page_size=0x2000
+reserved=0x0
+program_timeout_ms=0x3e8
+erase_timeout_ms=0xbb8
+erased_value=0xff, sectors=(8192, 0, 4294967295, 4294967295)
+

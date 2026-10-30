@@ -1,0 +1,263 @@
+PACK MEMBER Library/Device/Nuvoton/M3351/Include/fmc_reg.h SHA256 d36d249ec09083c3d1c82684ffd1d1059eaabae9c4f65a427a3520170e03af62
+30:      * @var FMC_T::ISPCTL
+31:      * Offset: 0x00  ISP Control Register
+32:      * ---------------------------------------------------------------------------------------------------
+33:      * |Bits    |Field     |Descriptions
+34:      * | :----: | :----:   | :---- |
+35:      * |[0]     |ISPEN     |ISP Enable Bit (Write Protect)
+36:      * |        |          |1 = ISP function Enabled.
+37:      * |        |          |Note: This bit is write protected
+38:      * |        |          |The write protection is effective only when both SYS_REGLCTL at SYS_BA and SYS_BA_
+39:      * |        |          |NS are in locked state.
+40:      * |[3]     |APUEN     |APROM Update Enable Bit
+41:      * |        |          |0 = APROM cannot be updated when the chip runs in APROM.
+42:      * |        |          |1 = APROM can be updated when the chip runs in APROM.
+43:      * |        |          |Note: This bit is write protected. Refer to the SYS_REGLCTL register.
+44:      * |[4]     |CFGUEN    |CONFIG Update Enable Bit (Write Protect)
+45:      * |        |          |0 = CONFIG cannot be updated.
+46:      * |        |          |1 = CONFIG can be updated.
+47:      * |        |          |Note: This bit is write protected. Refer to the SYS_REGLCTL register.
+48:      * |[5]     |LDUEN     |LDROM Update Enable Bit (Write Protect)
+49:      * |        |          |0 = LDROM cannot be updated.
+50:      * |        |          |1 = LDROM can be updated.
+51:      * |        |          |Note: This bit is write protected. Refer to the SYS_REGLCTL register.
+52:      * |[6]     |ISPFF     |ISP Fail Flag (Write Protect)
+53:      * |        |          |This bit is set by hardware when a triggered ISP meets any of the following conditions:
+54:      * |        |          |This bit needs to be cleared by writing 1 to it.
+55:      * |        |          |· APROM writes to itself if APUEN is set to 0.
+56:      * |        |          |· LDROM writes to itself if LDUEN is set to 0.
+57:      * |        |          |· Data Flash writes to itself if DFUEN is set to 0.
+58:      * |        |          |· CONFIG is erased/programmed if CFGUEN is set to 0.
+59:      * |        |          |· Page Erase command at LOCK mode with ICE connection
+60:      * |        |          |· Erase or Program command at brown-out detected
+61:      * |        |          |· Destination address is illegal, such as over an available range.
+62:      * |        |          |· Invalid ISP commands
+63:      * |        |          |· Read any content of boot loader with ICE connection
+64:      * |        |          |· The address of block erase and bank erase is not in APROM
+65:      * |        |          |· ISP CMD in XOM region, except mass erase, page erase and chksum command
+66:      * |        |          |· The wrong setting of page erase ISP CMD in XOM
+67:      * |        |          |· Violate XOM setting one time protection
+68:      * |        |          |· Page erase ISP CMD in Secure/Non-secure region setting page
+69:      * |        |          |· Mass erase when MERASE (CFG0[13]) is disabled
+70:      * |        |          |· Page erase, mass erase, 64-bit word program in OTP
+71:      * |        |          |· ISP conflict error
+72:      * |        |          |Note: This bit is write protected. Refer to the SYS_REGLCTL register.
+73:      * |[7]     |DFUEN     |Date Flash Update Enable Bit (Write Protect)
+74:      * |        |          |0 = Data flash cannot be updated.
+75:      * |        |          |1 = Data flash can be updated.
+76:      * |        |          |Note: This bit is write protected. Refer to the SYS_REGLCTL register.
+77:      * |[24]    |INTEN     |Secure ISP INT Enable Bit (Write Protect)
+78:      * |        |          |0= ISP INT Disabled.
+79:      * |        |          |1= ISP INT Enabled.
+80:      * |        |          |Note: This bit is write protected
+81:      * |        |          |The write protection is effective only when both SYS_REGLCTL at SYS_BA and SYS_BA_NS are in locked state
+82:      * |        |          |Before using INT, user needs to clear the INTFLAG(FMC_ISPSTS[24]) make sure INT happen at correct time.
+142:      * @var FMC_T::ISPSTS
+143:      * Offset: 0x40  ISP Status Register
+144:      * ---------------------------------------------------------------------------------------------------
+145:      * |Bits    |Field     |Descriptions
+146:      * | :----: | :----:   | :---- |
+147:      * |[0]     |ISPBUSY   |ISP Busy Flag (Read Only)
+148:      * |        |          |Write 1 to start ISP operation and this bit will be cleared to 0 by hardware automatically when ISP operation is finished.
+149:      * |        |          |This bit is the mirror of ISPGO(FMC_ISPTRG[0]).
+150:      * |        |          |0 = ISP operation is finished.
+151:      * |        |          |1 = ISP is progressed.
+152:      * |[4]     |SCFF      |Secure Conceal Fail Flag (Write Protect)
+153:      * |        |          |This bit is set by hardware if any ISP command acceesses secure region when secure conceal function is enable.
+154:      * |        |          |This bit needs to be cleared by writing 1 to it.
+155:      * |        |          |0 = ISP is not accessed secure conceal region.
+156:      * |        |          |1 = ISP is accessed secure conceal region.
+157:      * |[5]     |CFGWEFF   |Config Word Erase fail Flag(Read Only)
+158:      * |        |          |Last time CFG word erase function after initial status
+159:      * |        |          |If CFGWEFF is set to 1, user needs to erase CFG region again.
+160:      * |        |          |0 = Success.
+161:      * |        |          |1 = Fail.
+162:      * |[6]     |ISPFF     |ISP Fail Flag
+163:      * |        |          |This bit is the mirror of ISPFF (FMC_ISPCTL[6]), it needs to be cleared by writing 1 to FMC_ISPCTL[6] or FMC_ISPSTS[6]
+164:      * |        |          |This bit is set by hardware when a triggered ISP meets any of the following conditions:
+165:      * |        |          |· APROM writes to itself if APUEN is set to 0.
+166:      * |        |          |· LDROM writes to itself if LDUEN is set to 0.
+167:      * |        |          |· Data Flash writes to itself if DFUEN is set to 0.
+168:      * |        |          |· CONFIG is erased/programmed if CFGUEN is set to 0.
+169:      * |        |          |· Page Erase command at LOCK mode with ICE connection
+170:      * |        |          |· Erase or Program command at brown-out detected
+171:      * |        |          |· Destination address is illegal, such as over an available range.
+172:      * |        |          |· Invalid ISP commands
+173:      * |        |          |· Read any content of boot loader with ICE connection
+174:      * |        |          |· The address of block erase and bank erase is not in APROM
+175:      * |        |          |· ISP CMD in XOM region, except mass erase, page erase and chksum command
+176:      * |        |          |· The wrong setting of page erase ISP CMD in XOM
+177:      * |        |          |· Violate XOM setting one time protection
+178:      * |        |          |· Page erase ISP CMD in Secure/Non-secure region setting page
+179:      * |        |          |· Mass erase when MERASE (CFG0[13]) is disabled
+180:      * |        |          |· Page erase, mass erase, 64-bit word program in OTP
+181:      * |        |          |· ISP conflict error
+182:      * |        |          |Note: This bit is write protected. Refer to the SYS_REGLCTL register.
+183:      * |[7]     |ALLONE    |Flash All-one Verification Flag (Write Protect)
+184:      * |        |          |This bit is set by hardware if all of Flash bits are 1, and cleared if Flash bits are not all 1 after "Run Flash All-One Verification" is complete; this bit also can be cleared by writing 1
+185:      * |        |          |0 = Flash bits are not all 1 after "Run Flash All-One Verification" complete.
+186:      * |        |          |1 = All of Flash bits are 1 after "Run Flash All-One Verification" complete.
+187:      * |[8]     |INTFLAG   |ISP Interrupt Flag (Write Protect)
+188:      * |        |          |This bit shows when FMC occurs interrupt, it needs to be cleared by writing 1 to FMC_ISPSTS[8].
+189:      * |        |          |0 = ISP Not Finished.
+190:      * |        |          |1 = ISP done or ISPFF set.
+191:      * |        |          |Note: This function needs to be enabled by FMC_ISPCTRL[24].
+192:      * |[27:10] |VECMAP    |Vector Page Mapping Address (Read Only)
+193:      * |        |          |All access to 0x0000_0000~0x0000_03FF is remapped to the Flash memory address {VECMAP[17:0], 10'h000} ~ {VECMAP[17:0], 10'h3FF}
+194:      * |[28]    |ISPCERR   |ISP Conflict Error
+195:      * |        |          |This bit shows when FMC is doing ISP operation, it needs to be cleared by writing 1 to FMC_ISPSTS[28]
+196:      * |        |          |User cannot access FMC_ISP_ADDR,FMC_ISPDAT,FMC_ISPCMD,FMC_ISPTRG
+197:      * |        |          |It would cause ISPFF.
+198:      * |[29]    |MIRBOUND  |Mirror Boundary (Read Only)
+199:      * |        |          |0 = Mirror Boundary Disabled.
+200:      * |        |          |1 = Mirror Boundary Enabled.
+201:      * |[30]    |FBS       |Flash Bank Selection (Read Only)
+202:      * |        |          |This bit indicate which bank is selected to boot.
+203:      * |        |          |0 = Booting from BANK0.
+205:      * @var FMC_T::CYCCTL
+206:      * Offset: 0x4C  Flash Access Cycle Control Register
+207:      * ---------------------------------------------------------------------------------------------------
+208:      * |Bits    |Field     |Descriptions
+209:      * | :----: | :----:   | :---- |
+210:      * |[3:0]   |CYCLE     |Flash Access Cycle Control (Write Protect)
+211:      * |        |          |This register is updated by software.User needs to check the speed of HCLK and set the cycle >0.
+212:      * |        |          |0001 = CPU access with one wait cycle; Flash access cycle is 1;.
+213:      * |        |          |The HCLK working frequency range range is<25 MHz
+214:      * |        |          |0010 = CPU access with two wait cycles; Flash access cycle is 2;.
+215:      * |        |          |The optimized HCLK working frequency range is 26~50 MHz
+216:      * |        |          |0011 = CPU access with three wait cycles; Flash access cycle is 3;.
+217:      * |        |          |The optimized HCLK working frequency range is 51~75 MHz
+218:      * |        |          |0100 = CPU access with four wait cycles; Flash access cycle is 4;.
+219:      * |        |          |The optimized HCLK working frequency range is 76~100 MHz
+220:      * |        |          |0101 = CPU access with five wait cycles; Flash access cycle is 5;.
+221:      * |        |          |The optimized HCLK working frequency range is 101~125 MHz
+222:      * |        |          |0110 = CPU access with six wait cycles; Flash access cycle is 6;.
+223:      * |        |          |The optimized HCLK working frequency range is 126~144 MHz
+224:      * |        |          |Note: This bit is write protected. Refer to the SYS_REGLCTL register.
+597:     __IO uint32_t ISPCTL;                /*!< [0x0000] ISP Control Register                                             */
+598:     __IO uint32_t ISPADDR;               /*!< [0x0004] ISP Address Register                                             */
+599:     __IO uint32_t ISPDAT;                /*!< [0x0008] ISP Data Register                                                */
+600:     __IO uint32_t ISPCMD;                /*!< [0x000c] ISP Command Register                                             */
+601:     __IO uint32_t ISPTRG;                /*!< [0x0010] ISP Trigger Control Register                                     */
+602:     __I  uint32_t RESERVE0[11];
+603:     __IO uint32_t ISPSTS;                /*!< [0x0040] ISP Status Register                                              */
+604:     __I  uint32_t RESERVE1[2];
+605:     __IO uint32_t CYCCTL;                /*!< [0x004c] Flash Access Cycle Control Register                              */
+606:     __I  uint32_t RESERVE2[12];
+607:     __IO uint32_t MPDAT0;                /*!< [0x0080] ISP Data0 Register                                               */
+608:     __IO uint32_t MPDAT1;                /*!< [0x0084] ISP Data1 Register                                               */
+PACK MEMBER Library/Device/Nuvoton/M3351/Include/clk_reg.h SHA256 bddbfe6ee23c80c4c4b8d1742f51ccd2a5ce4aaf8a7fd4ab0f8618ab735eee76
+1388: #define CLK_PWRCTL_HXTEN_Msk             (0x1ul << CLK_PWRCTL_HXTEN_Pos)                   /*!< CLK_T::PWRCTL: HXTEN Mask              */
+1389: 
+1390: #define CLK_PWRCTL_LXTEN_Pos             (1)                                               /*!< CLK_T::PWRCTL: LXTEN Position          */
+1391: #define CLK_PWRCTL_LXTEN_Msk             (0x1ul << CLK_PWRCTL_LXTEN_Pos)                   /*!< CLK_T::PWRCTL: LXTEN Mask              */
+1392: 
+1393: #define CLK_PWRCTL_HIRCEN_Pos            (2)                                               /*!< CLK_T::PWRCTL: HIRCEN Position         */
+1394: #define CLK_PWRCTL_HIRCEN_Msk            (0x1ul << CLK_PWRCTL_HIRCEN_Pos)                  /*!< CLK_T::PWRCTL: HIRCEN Mask             */
+1395: 
+1396: #define CLK_PWRCTL_LIRCEN_Pos            (3)                                               /*!< CLK_T::PWRCTL: LIRCEN Position         */
+1420: #define CLK_AHBCLK0_PDMA0CKEN_Pos        (1)                                               /*!< CLK_T::AHBCLK0: PDMA0CKEN Position     */
+1421: #define CLK_AHBCLK0_PDMA0CKEN_Msk        (0x1ul << CLK_AHBCLK0_PDMA0CKEN_Pos)              /*!< CLK_T::AHBCLK0: PDMA0CKEN Mask         */
+1422: 
+1423: #define CLK_AHBCLK0_ISPCKEN_Pos          (2)                                               /*!< CLK_T::AHBCLK0: ISPCKEN Position       */
+1424: #define CLK_AHBCLK0_ISPCKEN_Msk          (0x1ul << CLK_AHBCLK0_ISPCKEN_Pos)                /*!< CLK_T::AHBCLK0: ISPCKEN Mask           */
+1441: #define CLK_AHBCLK0_CRPTCKEN_Pos         (12)                                              /*!< CLK_T::AHBCLK0: CRPTCKEN Position      */
+1442: #define CLK_AHBCLK0_CRPTCKEN_Msk         (0x1ul << CLK_AHBCLK0_CRPTCKEN_Pos)               /*!< CLK_T::AHBCLK0: CRPTCKEN Mask          */
+1443: 
+1444: #define CLK_AHBCLK0_DFMCCKEN_Pos         (14)                                              /*!< CLK_T::AHBCLK0: DFMCCKEN Position      */
+1445: #define CLK_AHBCLK0_DFMCCKEN_Msk         (0x1ul << CLK_AHBCLK0_DFMCCKEN_Pos)               /*!< CLK_T::AHBCLK0: DFMCCKEN Mask          */
+1609: #define CLK_CLKSEL0_HCLKSEL_Pos          (0)                                               /*!< CLK_T::CLKSEL0: HCLKSEL Position       */
+1610: #define CLK_CLKSEL0_HCLKSEL_Msk          (0x7ul << CLK_CLKSEL0_HCLKSEL_Pos)                /*!< CLK_T::CLKSEL0: HCLKSEL Mask           */
+1611: 
+1711: #define CLK_CLKDIV0_HCLKDIV_Pos          (0)                                               /*!< CLK_T::CLKDIV0: HCLKDIV Position       */
+1712: #define CLK_CLKDIV0_HCLKDIV_Msk          (0xful << CLK_CLKDIV0_HCLKDIV_Pos)                /*!< CLK_T::CLKDIV0: HCLKDIV Mask           */
+1713: 
+1837: #define CLK_STATUS_LIRCSTB_Pos           (3)                                               /*!< CLK_T::STATUS: LIRCSTB Position        */
+1838: #define CLK_STATUS_LIRCSTB_Msk           (0x1ul << CLK_STATUS_LIRCSTB_Pos)                 /*!< CLK_T::STATUS: LIRCSTB Mask            */
+1839: 
+1840: #define CLK_STATUS_HIRCSTB_Pos           (4)                                               /*!< CLK_T::STATUS: HIRCSTB Position        */
+1841: #define CLK_STATUS_HIRCSTB_Msk           (0x1ul << CLK_STATUS_HIRCSTB_Pos)                 /*!< CLK_T::STATUS: HIRCSTB Mask            */
+PACK MEMBER Library/Device/Nuvoton/M3351/Include/dfmc_reg.h SHA256 683f6b2962a4411cbdaf96545614c5bbb29501315937469111389ab282f10c37
+80:      * @var DFMC_T::ISPCMD
+81:      * Offset: 0x0C  ISP Command Register
+82:      * ---------------------------------------------------------------------------------------------------
+83:      * |Bits    |Field     |Descriptions
+84:      * | :----: | :----:   | :---- |
+85:      * |[6:0]   |CMD       |ISP Command
+86:      * |        |          |ISP command table is shown below:
+87:      * |        |          |0x00= Data FLASH Read.
+88:      * |        |          |0x08= Read Data Flash All-One Result.
+89:      * |        |          |0x0B= Read Company ID.
+90:      * |        |          |0x0C= Read Device ID.
+91:      * |        |          |0x0D= Read Checksum.
+92:      * |        |          |0x21= Data FLASH 32-bit Program.
+93:      * |        |          |0x22= Data FLASH Page Erase. Erase any page in Data Flash.
+94:      * |        |          |0x26= Data FLASH Mass Erase. Erase all pages in Data Flash.
+95:      * |        |          |0x28= Run Data Flash All-One Verification.
+96:      * |        |          |0x2D= Run Checksum Calculation.
+97:      * |        |          |0x30 = EEPROM emulation read
+98:      * |        |          |0x31= EEPROM emulation 8 bit program
+99:      * |        |          |0x32 = EEPROM emulation 32 bit program
+100:      * |        |          |0x33 = EEPROM emulation initial read
+101:      * |        |          |The other commands are invalid.
+102:      * @var DFMC_T::ISPTRG
+103:      * Offset: 0x10  ISP Trigger Control Register
+115:      * |Bits    |Field     |Descriptions
+116:      * | :----: | :----:   | :---- |
+117:      * |[0]     |ISPBUSY   |ISP Busy Flag (Read Only)
+118:      * |        |          |Write 1 to start ISP operation and this bit will be cleared to 0 by hardware automatically when ISP operation is finished.
+119:      * |        |          |This bit is the mirror of ISPGO(DFMC_ISPTRG[0]).
+120:      * |        |          |0 = ISP operation is finished.
+121:      * |        |          |1 = ISP is progressed.
+122:      * |[6]     |ISPFF     |ISP Fail Flag (Write Protect)
+123:      * |        |          |This bit is the mirror of ISPFF (DFMC_ISPCTL[6]), it needs to be cleared by writing 1 to DFMC_ISPCTL[6] or DFMC_ISPSTS[6]
+124:      * |        |          |This bit is set by hardware when a triggered ISP meets any of the following conditions:
+125:      * |        |          |l Data Flash writes to itself if DATAEN is set to 0.
+126:      * |        |          |l Erase or Program command at brown-out detected
+127:      * |        |          |l Destination address is illegal, such as over an available range.
+128:      * |        |          |l Invalid ISP commands
+129:      * |        |          |l Violate the load code read protection
+130:      * |        |          |l Checksum or Flash All One Verification is not executed in their valid range
+131:      * |        |          |l Mass erase is not executed in Data Flash
+132:      * |        |          |Note: This bit is write protected. Refer to the SYS_REGLCTL register.
+133:      * |[7]     |ALLONE    |Data Flash All-one Verification Flag
+134:      * |        |          |This bit is set by hardware if all of Flash bits are 1, and clear if Flash bits are not all 1 after "Run Data Flash All-One Verification" complete; this bit also can be clear by writing 1
+135:      * |        |          |0 = Data Flash bits are not all 1 after "Run Data Flash All-One Verification" is complete.
+136:      * |        |          |1 = All of Data Flash bits are 1 after "Run Data Flash All-One Verification" is complete.
+137:      * |[8]     |EEP_PGFULL|EEPROM Emulation in the page full processing
+138:      * |        |          |This bit is set by hardware if EEPROM program and flash page full
+139:      * |        |          |EEPROM emulation will automatic start the page full processing it need program current EEPPROM emulation SRAM data to next page and Erase current page.
+140:      * |        |          |0: Not in page full processing
+141:      * |        |          |1: in the page full processing
+142:      * |[9]     |EEP_INIT  |EEPROM Emulation in the initial processing
+143:      * |[10]    |EEP_SPE   |EEPROM Emulation SRAM Parity check error. (Write Protect)
+144:      * |[11]    |EEP_SECOK |EEPROM Emulation Active and Secure Region Status (Read Only)
+145:      * |        |          |This bit is set by hardware when EEPROM emulation is enabled and the region is marked as Secure.
+146:      * |        |          |0 = Not in EEPROM Secure Mode
+147:      * |        |          |1 = In EEPROM Secure Mode
+148:      * |[24]    |ISPIF     |ISP Interrupt Flag (Write Protect)
+149:      * |        |          |0 = ISP command not finish or ISP fail flag is 0.
+150:      * |        |          |1 = ISP command finish or ISP fail is 1.
+151:      * |        |          |Note: Write 1 to clear this bit.
+152:      * @var DFMC_T::CYCCTL
+153:      * Offset: 0x4C  Data Flash Access Cycle Control Register
+154:      * ---------------------------------------------------------------------------------------------------
+PACK MEMBER Library/Device/Nuvoton/M3351/StdDriver/inc/fmc.h SHA256 4e26adc6443bd6e7d821c147649a92555cad9335930d8a3c5b701402c89d6d90
+106: #define FMC_ISPCMD_READ         0x00UL          /*!< ISP Command: Read flash word           \hideinitializer */
+107: #define FMC_ISPCMD_READ_UID     0x04UL          /*!< ISP Command: Read Unique ID            \hideinitializer */
+108: #define FMC_ISPCMD_READ_ALL1    0x08UL          /*!< ISP Command: Read all-one result       \hideinitializer */
+109: #define FMC_ISPCMD_READ_CID     0x0BUL          /*!< ISP Command: Read Company ID           \hideinitializer */
+110: #define FMC_ISPCMD_READ_DID     0x0CUL          /*!< ISP Command: Read Device ID            \hideinitializer */
+111: #define FMC_ISPCMD_READ_CKS     0x0DUL          /*!< ISP Command: Read checksum             \hideinitializer */
+112: #define FMC_ISPCMD_PROGRAM      0x21UL          /*!< ISP Command: Write flash word          \hideinitializer */
+113: #define FMC_ISPCMD_PAGE_ERASE   0x22UL          /*!< ISP Command: Page Erase Flash          \hideinitializer */
+114: #define FMC_ISPCMD_CFG_ERASE    0x24UL          /*!< ISP Command: Erase config word         \hideinitializer */
+115: #define FMC_ISPCMD_RUN_ALL1     0x28UL          /*!< ISP Command: Run all-one verification  \hideinitializer */
+116: #define FMC_ISPCMD_BANK_REMAP   0x2CUL          /*!< ISP Command: Bank Remap                \hideinitializer */
+117: #define FMC_ISPCMD_RUN_CKS      0x2DUL          /*!< ISP Command: Run checksum calculation  \hideinitializer */
+118: #define FMC_ISPCMD_VECMAP       0x2EUL          /*!< ISP Command: Vector Page Remap         \hideinitializer */
+119: #define FMC_ISPCMD_READ_64      0x40UL          /*!< ISP Command: Read double flash word    \hideinitializer */
+120: #define FMC_ISPCMD_PROGRAM_64   0x61UL          /*!< ISP Command: Write double flash word   \hideinitializer */
+121: #define FMC_ISPCMD_READ_NO_ECC  0x60UL          /*!< ISP Command: Read double flash word    \hideinitializer */
+122: #define FMC_ISPCMD_PROGRAM_ECC  0x41UL          /*!< ISP Command: Write double flash word   \hideinitializer */
+123: /* FMC_ISPCMD_BANK_ERASE is is NOT supported on M3351. Use FMC_EraseBank() instead.                          */

@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-10-29T23:12:33.007514+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "baud": 115200,
+  "attempts_requested": 6,
+  "stream": true,
+  "scope": "VCOM BREAK reset + UART sync + identify + CONFIG read; no SWD, no writes",
+  "stage": "serial_open",
+  "success": false,
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "stream",
+      "delay_ms": 5.0,
+      "bursts": 86,
+      "response": "",
+      "elapsed_ms": 530.0
+    },
+    {
+      "attempt": 1,
+      "stage": "stream",
+      "delay_ms": 10.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 526.5
+    },
+    {
+      "attempt": 2,
+      "stage": "stream",
+      "delay_ms": 15.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 530.6
+    },
+    {
+      "attempt": 3,
+      "stage": "stream",
+      "delay_ms": 20.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 532.0
+    },
+    {
+      "attempt": 4,
+      "stage": "stream",
+      "delay_ms": 25.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 526.6
+    },
+    {
+      "attempt": 5,
+      "stage": "stream",
+      "delay_ms": 30.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 532.9
+    }
+  ],
+  "port": "/dev/cu.usbmodem1202",
+  "synchronized": false,
+  "error": "TimeoutError: no 'A' from ROM on any attempt"
+}

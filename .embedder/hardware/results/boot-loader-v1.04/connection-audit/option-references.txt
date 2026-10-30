@@ -1,0 +1,37 @@
+0040438c lea eax, [esi + 0x2bc]
+00404557 cmp ecx, dword ptr [esi + 0x20c]
+004082a1 mov edx, dword ptr [esi + 0x114]
+00408317 mov eax, dword ptr [esi + 0x114]
+0040923a mov dword ptr [esi + 0x114], edi
+0040b3be lea edx, [esi + 0x20c]
+0040bd38 mov eax, dword ptr [esi + 0x20c]
+0040c0ac lea ecx, [esi + 0x20c]
+0040c292 lea edx, [esi + 0x20c]
+0040c4b4 mov dword ptr [esi + 0x20c], eax
+0040c5c7 lea ecx, [esi + 0x20c]
+0040d82a lea eax, [esi + 0x20c]
+0040df0a mov eax, dword ptr [esi + 0x20c]
+0040e2c8 lea ecx, [esi + 0x20c]
+0040e534 mov dword ptr [esi + 0x20c], eax
+0040e660 lea ecx, [esi + 0x20c]
+0040f106 mov dword ptr [esi + 0x114], ecx
+0040f265 mov dword ptr [esi + 0x114], eax
+0040f685 mov ecx, dword ptr [esi + 0x114]
+0040fa88 test byte ptr [esi + 0x114], 1
+0040fb3a mov dword ptr [esi + 0x114], 1
+0040fbbf test byte ptr [esi + 0x114], 1
+0040fca8 test byte ptr [esi + 0x114], 1
+0040ff1b test byte ptr [esi + 0x114], 1
+0040ffc3 test byte ptr [esi + 0x114], 1
+0041061a mov ecx, dword ptr [esi + 0x20c]
+0041173f test byte ptr [esi + 0x114], 1
+00411762 test byte ptr [esi + 0x114], 2
+004117e8 mov ecx, dword ptr [esi + 0x114]
+004118fa mov dword ptr [esi + 0x114], 3
+00411a2a test byte ptr [esi + 0x114], 1
+00411b46 test byte ptr [esi + 0x114], 2
+00411c9a test dword ptr [esi + 0x114], eax
+00411d81 test dword ptr [esi + 0x114], ebx
+00411fb6 mov dword ptr [esi + 0x114], edx
+004120b4 mov dword ptr [esi + 0x114], eax
+00412440 mov eax, dword ptr [esi + 0x114]

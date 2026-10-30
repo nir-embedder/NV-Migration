@@ -1,0 +1,84 @@
+005f4b00 id=unresolved 'in run-time' prefix=67 00 65 00 64 00 20 00
+005f4b1e id=unresolved 'MS Sans Serif' prefix=00 00 08 00 00 00 00 01
+005f4b4c id=unresolved 'p1z' prefix=07 00 00 50 08 00 14 00
+005f4b58 id=0x7a 'Connection Interface' prefix=7a 00 00 00 ff ff 80 00
+005f4b92 id=unresolved '23<|' prefix=00 00 03 00 21 50 11 00
+005f4bb2 id=unresolved ' b<{' prefix=00 00 03 00 21 50 11 00
+005f4be0 id=0x3fc 'Status' prefix=fc 03 00 00 ff ff 80 00
+005f4c0c id=0x3f0 'Connect' prefix=f0 03 00 00 ff ff 80 00
+005f4c3c id=0x3fd 'Status' prefix=fd 03 00 00 ff ff 82 00
+005f4c68 id=0x492 'Reset before connecting' prefix=92 04 00 00 ff ff 80 00
+005f4cb8 id=0xffffffff 'Part No.' prefix=ff ff ff ff ff ff 82 00
+005f4d08 id=0x3ff 'Status' prefix=ff 03 00 00 ff ff 82 00
+005f4d34 id=0x400 'Load File' prefix=00 04 00 00 ff ff 80 00
+005f4d68 id=0x3f5 'Browse' prefix=f5 03 00 00 ff ff 80 00
+005f4d84 id=unresolved 'KU)' prefix=00 00 00 00 00 00 02 50
+005f4d94 id=0x401 'Write File:' prefix=01 04 00 00 ff ff 82 00
+005f4dec id=0x405 'File not load.' prefix=05 04 00 00 ff ff 82 00
+005f4e28 id=0x4f6 'Base Address: 0x' prefix=f6 04 00 00 ff ff 82 00
+005f4e88 id=0x3f4 'Browse' prefix=f4 03 00 00 ff ff 80 00
+005f4ea4 id=unresolved 'Ku)' prefix=00 00 00 00 00 00 02 50
+005f4eb4 id=0x402 'Read File:' prefix=02 04 00 00 ff ff 82 00
+005f4f08 id=0x404 'File not load.' prefix=04 04 00 00 ff ff 82 00
+005f4f44 id=0xc15 'Base Address: 0x' prefix=15 0c 00 00 ff ff 82 00
+005f4fa4 id=0xbbf 'Config Bits' prefix=bf 0b 00 00 ff ff 80 00
+005f4fdc id=0x3f1 'Setting' prefix=f1 03 00 00 ff ff 80 00
+005f500c id=0x159e 'Config 0-3:' prefix=9e 15 00 00 ff ff 82 00
+005f5044 id=0x665 '0x00000000' prefix=65 06 00 00 ff ff 82 00
+005f5078 id=0x667 '0x00000000' prefix=67 06 00 00 ff ff 82 00
+005f50ac id=0x669 '0x00000000' prefix=69 06 00 00 ff ff 82 00
+005f50e0 id=0x66b '0x00000000' prefix=6b 06 00 00 ff ff 82 00
+005f5110 id=unresolved 'SysTabControl32' prefix=76 01 49 00 20 04 00 00
+005f5130 id=unresolved 'Tab1' prefix=6c 00 33 00 32 00 00 00
+005f5158 id=0x40e 'File Data' prefix=0e 04 00 00 ff ff 80 00
+005f518c id=0x410 'Programming' prefix=10 04 00 00 ff ff 80 00
+005f51c4 id=0x3f9 'APROM' prefix=f9 03 00 00 ff ff 80 00
+005f51f0 id=0x3f8 'LDROM' prefix=f8 03 00 00 ff ff 80 00
+005f521c id=0x3fb 'Config' prefix=fb 03 00 00 ff ff 80 00
+005f5248 id=0x42b 'Erase All' prefix=2b 04 00 00 ff ff 80 00
+005f527c id=0x7d 'Reset' prefix=7d 00 00 00 ff ff 80 00
+005f52a8 id=0x3f2 'Start' prefix=f2 03 00 00 ff ff 80 00
+005f52d0 id=unresolved 'msctls_progress32' prefix=33 01 0d 00 ee 03 00 00
+005f5314 id=0x413 'Version Info' prefix=13 04 00 00 ff ff 82 00
+005f533c id=unresolved 'G2,<~' prefix=00 00 00 00 03 00 21 50
+005f536c id=0xffffffff 'Speed' prefix=ff ff ff ff ff ff 80 00
+005f53b8 id=0xffffffff 'Reset' prefix=ff ff ff ff ff ff 80 00
+005f53e4 id=0xffffffff 'Reboot Source' prefix=ff ff ff ff ff ff 82 00
+005f5440 id=0xffffffff 'Address: 0x' prefix=ff ff ff ff ff ff 82 00
+005f5498 id=0x81 'Speed' prefix=81 00 00 00 ff ff 80 00
+005f54c4 id=0x83 'USBD ISP' prefix=83 00 00 00 ff ff 80 00
+005f54f6 id=unresolved 'Title is changed in run-time' prefix=c2 01 09 01 00 00 00 00
+005f5536 id=unresolved 'MS Sans Serif' prefix=00 00 08 00 00 00 00 01
+005f5570 id=0x5dc 'Image Generation' prefix=dc 05 00 00 ff ff 80 00
+005f55b0 id=0x5dd 'Key Generation' prefix=dd 05 00 00 ff ff 80 00
+005f55dc id=unresolved '!*?<' prefix=00 00 00 00 03 00 21 50
+005f55fc id=unresolved '#F<' prefix=00 00 00 00 03 00 01 50
+005f560c id=0x436 'Public Key (*.c)' prefix=36 04 00 00 ff ff 80 00
+005f563c id=unresolved '!S@' prefix=00 00 00 00 00 00 01 50
+005f564c id=0x5df 'Generate' prefix=df 05 00 00 ff ff 80 00
+005f567c id=0x5e0 'Image Signing' prefix=e0 05 00 00 ff ff 80 00
+005f56b8 id=0x5e1 'Key File' prefix=e1 05 00 00 ff ff 80 00
+005f5708 id=0x5e3 'Image File' prefix=e3 05 00 00 ff ff 80 00
+005f575c id=0x5e5 'Sign' prefix=e5 05 00 00 ff ff 80 00
+005f5784 id=0x437 'Public Key (*.c)' prefix=37 04 00 00 ff ff 80 00
+005f57b6 id=unresolved 'op2z' prefix=00 00 07 00 00 50 08 00
+005f57c4 id=0x7a 'Connection Interface' prefix=7a 00 00 00 ff ff 80 00
+005f5800 id=unresolved '3<|' prefix=03 00 21 50 11 00 8d 00
+005f581e id=unresolved '{b<{' prefix=00 00 03 00 21 50 11 00
+005f584c id=0x3fc 'Status' prefix=fc 03 00 00 ff ff 80 00
+005f5878 id=0x3f0 'Connect' prefix=f0 03 00 00 ff ff 80 00
+005f58a8 id=0x3fd 'Status' prefix=fd 03 00 00 ff ff 82 00
+005f58d4 id=0xffffffff 'Part No.' prefix=ff ff ff ff ff ff 82 00
+005f5924 id=0x3ff 'Status' prefix=ff 03 00 00 ff ff 82 00
+005f5950 id=0x410 'Programming' prefix=10 04 00 00 ff ff 80 00
+005f5988 id=0x5e8 'Image File' prefix=e8 05 00 00 ff ff 80 00
+005f59dc id=0x4f6 'Base Address: 0x' prefix=f6 04 00 00 ff ff 82 00
+005f5a3c id=0x5e6 'ROTPK File' prefix=e6 05 00 00 ff ff 80 00
+005f5a90 id=0x3f9 'APROM' prefix=f9 03 00 00 ff ff 80 00
+005f5abc id=0x5ea 'ROTPK' prefix=ea 05 00 00 ff ff 80 00
+005f5ae8 id=0x3f2 'Start' prefix=f2 03 00 00 ff ff 80 00
+005f5b10 id=unresolved 'msctls_progress32' prefix=22 01 0d 00 ee 03 00 00
+005f5b54 id=0x413 'Version Info' prefix=13 04 00 00 ff ff 82 00
+005f5b80 id=unresolved ',<~' prefix=03 00 21 50 47 00 8d 00
+005f5bae id=unresolved 'Title is changed in run-time' prefix=50 01 9d 00 00 00 00 00
+005f5bee id=unresolved 'MS Sans S' prefix=00 00 08 00 00 00 00 00

@@ -1,0 +1,6 @@
+PASS: KI/KJ PrgCode and PrgData byte-identical
+PrgCode SHA256 92fe8010b78cca2f21758e07a0bb184dfa12252f2a5b9493e60d6fabac06c14f size 1544
+PASS: complete code disassembled; no CPSID/CPSIE/MSR/MRS instructions
+PASS: saved 16-byte SRAM sample @0x20003c00 matches PrgCode offset 0x20c
+Caveat: conditional on the separately saved layout; this is not a full runtime image verification.
+PASS: saved CFSR=IACCVIOL|STKOF; HFSR=FORCED (CMSIS core_cm33.h bit definitions)

@@ -1,0 +1,644 @@
+{
+  "pack": {
+    "path": "/Users/embedder/.embedder/downloads/799943d72f89b55f/Nuvoton.NuMicroM33_DFP.1.0.6.pack",
+    "sha256": "0aae782356a261b976169fb677a5785c8647b5e0a0a93fa1632fb71a04b2dde2"
+  },
+  "flms": {
+    "Flash/M3351_AP_512.FLM": {
+      "sha256": "8729859484afaa838c46bc7094fdcd6f4f29f908cadac5b3d6d901cb6928d473",
+      "file_size": 19108,
+      "sections": {
+        "": {
+          "size": 0,
+          "image_address": "0x0",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "PrgCode": {
+          "size": 1544,
+          "image_address": "0x0",
+          "sha256": "92fe8010b78cca2f21758e07a0bb184dfa12252f2a5b9493e60d6fabac06c14f"
+        },
+        "PrgData": {
+          "size": 4,
+          "image_address": "0x608",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        "DevDscr": {
+          "size": 4256,
+          "image_address": "0x60c",
+          "sha256": "d2e8d4b8493ddcb80e2f030f2d1855fcc1a1cdd5e1dbc10fc745035cd41e6247"
+        },
+        ".debug_abbrev": {
+          "size": 535,
+          "image_address": "0x0",
+          "sha256": "f0e5a8f94d13283c4a149046787dca92aec8c57af2675022d2e7232cd9d2c8ec"
+        },
+        ".debug_frame": {
+          "size": 168,
+          "image_address": "0x0",
+          "sha256": "eb63359ab7f3ba08193d19b322440aa7f20eec9add3ce20d360d06927168fbbc"
+        },
+        ".debug_info": {
+          "size": 4711,
+          "image_address": "0x0",
+          "sha256": "1df6d8c61068073de30a4a51988950a7f2b4d7d5ba06df4903332930afc3c48c"
+        },
+        ".debug_line": {
+          "size": 1697,
+          "image_address": "0x0",
+          "sha256": "a6b24e1902f4ad5455b6d95e8a42f7333d4fac306898e2e82f6b377d4a6e760d"
+        },
+        ".debug_loc": {
+          "size": 1967,
+          "image_address": "0x0",
+          "sha256": "572e84e76533989ac44c3070b1251bc60bdffba22d48fcf33dfd6b6f0ab3bf85"
+        },
+        ".debug_ranges": {
+          "size": 152,
+          "image_address": "0x0",
+          "sha256": "958123eef3ffd6e2806fe6999951cc53284c1f3a4783f94206e72e6cb9b94abb"
+        },
+        ".debug_str": {
+          "size": 2207,
+          "image_address": "0x0",
+          "sha256": "2ca32efe3c26cae663ed1e0e310956c4258e32fc5053ee63fbddf7744d739b02"
+        },
+        ".symtab": {
+          "size": 224,
+          "image_address": "0x0",
+          "sha256": "bab59fcc9290334f2a0129012306a112974697926491ff0c57bb5f03a7d3ad7a"
+        },
+        ".strtab": {
+          "size": 260,
+          "image_address": "0x0",
+          "sha256": "608852793269f529d858451cb370ca6445654ca82a792acfef0a99345ff03ea0"
+        },
+        ".note": {
+          "size": 28,
+          "image_address": "0x0",
+          "sha256": "450bd8dfa408f91e56f85119ea38add861c1ad3fdad237f4451dd7a266182b18"
+        },
+        ".comment": {
+          "size": 440,
+          "image_address": "0x0",
+          "sha256": "48999affa5649cb28866c2ff746c1b6f2cbe0cf4f4849e2bebb9dbde7b439203"
+        },
+        ".shstrtab": {
+          "size": 156,
+          "image_address": "0x0",
+          "sha256": "5eba6aa3b78a5efbd5e134a71c2d8e1872a0557d7d9d85dcbd6bb0ee0ada8e43"
+        }
+      },
+      "symbols": {
+        "Init": {
+          "image_thumb": "0x1",
+          "size": 204,
+          "runtime_thumb": "0x200039f5"
+        },
+        "UnInit": {
+          "image_thumb": "0xcd",
+          "size": 54,
+          "runtime_thumb": "0x20003ac1"
+        },
+        "EraseSector": {
+          "image_thumb": "0x103",
+          "size": 186,
+          "runtime_thumb": "0x20003af7"
+        },
+        "EraseSectorEx": {
+          "image_thumb": "0x1bd",
+          "size": 248,
+          "runtime_thumb": "0x20003bb1"
+        },
+        "ProgramPage": {
+          "image_thumb": "0x2b5",
+          "size": 584,
+          "runtime_thumb": "0x20003ca9"
+        },
+        "Verify": {
+          "image_thumb": "0x4fd",
+          "size": 268,
+          "runtime_thumb": "0x20003ef1"
+        }
+      },
+      "geometry": {
+        "start": "0x0",
+        "size": "0x80000",
+        "page_size": "0x2000",
+        "sector_sizes": [
+          [
+            0,
+            8192
+          ]
+        ],
+        "descriptor": "Flash Device:\n  name=b'M3351 APROM 512kB'\n  version=0x101\n  type=1\n  start=0x0\n  size=0x80000\n  page_size=0x2000\n  value_empty=0xff\n  prog_timeout_ms=1000\n  erase_timeout_ms=3000\n  sectors:\n    start=0x0, size=0x2000\n"
+      },
+      "pyocd_layout": {
+        "load_address": "0x200039f0",
+        "pc_init": "0x200039f5",
+        "pc_unInit": "0x20003ac1",
+        "pc_eraseAll": "0xffffffff",
+        "pc_erase_sector": "0x20003af7",
+        "pc_program_page": "0x20003ca9",
+        "page_buffers": [
+          "0x200019f0"
+        ],
+        "begin_stack": "0x200019f0",
+        "end_stack": "0x20000000",
+        "static_base": "0x20003ffc",
+        "min_program_length": "0x2000",
+        "analyzer_supported": false
+      },
+      "loaded_blob_sha256": "b5dfba4c4dbd18cd1d385ec6736296a6aa6269c100558b0603b06a4d33315348",
+      "embedded_source": [
+        {
+          "DW_AT_producer": "b'Component: Arm Compiler for Embedded 6.19 Tool: armclang [5e73cb00]'",
+          "DW_AT_name": "b'FlashDev.c'",
+          "DW_AT_comp_dir": "b'C:\\\\YCChiang2\\\\Trunk\\\\software\\\\SW_ICE\\\\WinApp\\\\KeilDll_Installer\\\\Flash_Src\\\\NuMicro_KEIL1\\\\M3351'"
+        },
+        {
+          "DW_AT_producer": "b'Component: Arm Compiler for Embedded 6.19 Tool: armclang [5e73cb00]'",
+          "DW_AT_name": "b'FlashPrg.c'",
+          "DW_AT_comp_dir": "b'C:\\\\YCChiang2\\\\Trunk\\\\software\\\\SW_ICE\\\\WinApp\\\\KeilDll_Installer\\\\Flash_Src\\\\NuMicro_KEIL1\\\\M3351'"
+        }
+      ]
+    },
+    "Flash/M3351_AP_1M.FLM": {
+      "sha256": "6ad56e7e085dae4ed3f61abd6bcc2edde2ffd53424ca28a6fedc6d743b369717",
+      "file_size": 19108,
+      "sections": {
+        "": {
+          "size": 0,
+          "image_address": "0x0",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "PrgCode": {
+          "size": 1544,
+          "image_address": "0x0",
+          "sha256": "92fe8010b78cca2f21758e07a0bb184dfa12252f2a5b9493e60d6fabac06c14f"
+        },
+        "PrgData": {
+          "size": 4,
+          "image_address": "0x608",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        "DevDscr": {
+          "size": 4256,
+          "image_address": "0x60c",
+          "sha256": "afb30fcdbebf4768cb37ec2699d2b3a92b18c56b60d4c763a68fde84e741325f"
+        },
+        ".debug_abbrev": {
+          "size": 535,
+          "image_address": "0x0",
+          "sha256": "f0e5a8f94d13283c4a149046787dca92aec8c57af2675022d2e7232cd9d2c8ec"
+        },
+        ".debug_frame": {
+          "size": 168,
+          "image_address": "0x0",
+          "sha256": "eb63359ab7f3ba08193d19b322440aa7f20eec9add3ce20d360d06927168fbbc"
+        },
+        ".debug_info": {
+          "size": 4711,
+          "image_address": "0x0",
+          "sha256": "1df6d8c61068073de30a4a51988950a7f2b4d7d5ba06df4903332930afc3c48c"
+        },
+        ".debug_line": {
+          "size": 1697,
+          "image_address": "0x0",
+          "sha256": "a6b24e1902f4ad5455b6d95e8a42f7333d4fac306898e2e82f6b377d4a6e760d"
+        },
+        ".debug_loc": {
+          "size": 1967,
+          "image_address": "0x0",
+          "sha256": "572e84e76533989ac44c3070b1251bc60bdffba22d48fcf33dfd6b6f0ab3bf85"
+        },
+        ".debug_ranges": {
+          "size": 152,
+          "image_address": "0x0",
+          "sha256": "958123eef3ffd6e2806fe6999951cc53284c1f3a4783f94206e72e6cb9b94abb"
+        },
+        ".debug_str": {
+          "size": 2207,
+          "image_address": "0x0",
+          "sha256": "2ca32efe3c26cae663ed1e0e310956c4258e32fc5053ee63fbddf7744d739b02"
+        },
+        ".symtab": {
+          "size": 224,
+          "image_address": "0x0",
+          "sha256": "bab59fcc9290334f2a0129012306a112974697926491ff0c57bb5f03a7d3ad7a"
+        },
+        ".strtab": {
+          "size": 260,
+          "image_address": "0x0",
+          "sha256": "608852793269f529d858451cb370ca6445654ca82a792acfef0a99345ff03ea0"
+        },
+        ".note": {
+          "size": 28,
+          "image_address": "0x0",
+          "sha256": "450bd8dfa408f91e56f85119ea38add861c1ad3fdad237f4451dd7a266182b18"
+        },
+        ".comment": {
+          "size": 440,
+          "image_address": "0x0",
+          "sha256": "5a160794921764a97a686283f3091a826abba45c31331e0a1e34a9a6c4461524"
+        },
+        ".shstrtab": {
+          "size": 156,
+          "image_address": "0x0",
+          "sha256": "5eba6aa3b78a5efbd5e134a71c2d8e1872a0557d7d9d85dcbd6bb0ee0ada8e43"
+        }
+      },
+      "symbols": {
+        "Init": {
+          "image_thumb": "0x1",
+          "size": 204,
+          "runtime_thumb": "0x200039f5"
+        },
+        "UnInit": {
+          "image_thumb": "0xcd",
+          "size": 54,
+          "runtime_thumb": "0x20003ac1"
+        },
+        "EraseSector": {
+          "image_thumb": "0x103",
+          "size": 186,
+          "runtime_thumb": "0x20003af7"
+        },
+        "EraseSectorEx": {
+          "image_thumb": "0x1bd",
+          "size": 248,
+          "runtime_thumb": "0x20003bb1"
+        },
+        "ProgramPage": {
+          "image_thumb": "0x2b5",
+          "size": 584,
+          "runtime_thumb": "0x20003ca9"
+        },
+        "Verify": {
+          "image_thumb": "0x4fd",
+          "size": 268,
+          "runtime_thumb": "0x20003ef1"
+        }
+      },
+      "geometry": {
+        "start": "0x0",
+        "size": "0x100000",
+        "page_size": "0x2000",
+        "sector_sizes": [
+          [
+            0,
+            8192
+          ]
+        ],
+        "descriptor": "Flash Device:\n  name=b'M3351 APROM 1MB'\n  version=0x101\n  type=1\n  start=0x0\n  size=0x100000\n  page_size=0x2000\n  value_empty=0xff\n  prog_timeout_ms=1000\n  erase_timeout_ms=3000\n  sectors:\n    start=0x0, size=0x2000\n"
+      },
+      "pyocd_layout": {
+        "load_address": "0x200039f0",
+        "pc_init": "0x200039f5",
+        "pc_unInit": "0x20003ac1",
+        "pc_eraseAll": "0xffffffff",
+        "pc_erase_sector": "0x20003af7",
+        "pc_program_page": "0x20003ca9",
+        "page_buffers": [
+          "0x200019f0"
+        ],
+        "begin_stack": "0x200019f0",
+        "end_stack": "0x20000000",
+        "static_base": "0x20003ffc",
+        "min_program_length": "0x2000",
+        "analyzer_supported": false
+      },
+      "loaded_blob_sha256": "b5dfba4c4dbd18cd1d385ec6736296a6aa6269c100558b0603b06a4d33315348",
+      "embedded_source": [
+        {
+          "DW_AT_producer": "b'Component: Arm Compiler for Embedded 6.19 Tool: armclang [5e73cb00]'",
+          "DW_AT_name": "b'FlashDev.c'",
+          "DW_AT_comp_dir": "b'C:\\\\YCChiang2\\\\Trunk\\\\software\\\\SW_ICE\\\\WinApp\\\\KeilDll_Installer\\\\Flash_Src\\\\NuMicro_KEIL1\\\\M3351'"
+        },
+        {
+          "DW_AT_producer": "b'Component: Arm Compiler for Embedded 6.19 Tool: armclang [5e73cb00]'",
+          "DW_AT_name": "b'FlashPrg.c'",
+          "DW_AT_comp_dir": "b'C:\\\\YCChiang2\\\\Trunk\\\\software\\\\SW_ICE\\\\WinApp\\\\KeilDll_Installer\\\\Flash_Src\\\\NuMicro_KEIL1\\\\M3351'"
+        }
+      ]
+    }
+  },
+  "section_differences": {
+    "": {
+      "equal": true,
+      "different_byte_offsets": []
+    },
+    "PrgCode": {
+      "equal": true,
+      "different_byte_offsets": []
+    },
+    "PrgData": {
+      "equal": true,
+      "different_byte_offsets": []
+    },
+    "DevDscr": {
+      "equal": false,
+      "different_byte_offsets": [
+        "0xe",
+        "0xf",
+        "0x10",
+        "0x11",
+        "0x12",
+        "0x8a"
+      ]
+    },
+    ".debug_abbrev": {
+      "equal": true,
+      "different_byte_offsets": []
+    },
+    ".debug_frame": {
+      "equal": true,
+      "different_byte_offsets": []
+    },
+    ".debug_info": {
+      "equal": true,
+      "different_byte_offsets": []
+    },
+    ".debug_line": {
+      "equal": true,
+      "different_byte_offsets": []
+    },
+    ".debug_loc": {
+      "equal": true,
+      "different_byte_offsets": []
+    },
+    ".debug_ranges": {
+      "equal": true,
+      "different_byte_offsets": []
+    },
+    ".debug_str": {
+      "equal": true,
+      "different_byte_offsets": []
+    },
+    ".symtab": {
+      "equal": true,
+      "different_byte_offsets": []
+    },
+    ".strtab": {
+      "equal": true,
+      "different_byte_offsets": []
+    },
+    ".note": {
+      "equal": true,
+      "different_byte_offsets": []
+    },
+    ".comment": {
+      "equal": false,
+      "different_byte_offsets": [
+        "0xd5",
+        "0xd6",
+        "0xd7",
+        "0xd8",
+        "0xd9",
+        "0xda",
+        "0xdb",
+        "0xdc",
+        "0xde",
+        "0xdf",
+        "0xe0",
+        "0xe1",
+        "0xe2",
+        "0xe3",
+        "0xe4",
+        "0xe5",
+        "0xe6",
+        "0xe7",
+        "0xe8",
+        "0xe9",
+        "0xea",
+        "0xeb",
+        "0xec",
+        "0xed",
+        "0xee",
+        "0xef",
+        "0xf0",
+        "0xf2",
+        "0xf3",
+        "0xf4",
+        "0xf5",
+        "0xf6",
+        "0xf7",
+        "0xf8",
+        "0xf9",
+        "0xfa",
+        "0xfb",
+        "0xfc",
+        "0xfd",
+        "0xfe",
+        "0xff",
+        "0x100",
+        "0x101",
+        "0x102",
+        "0x103",
+        "0x104",
+        "0x105",
+        "0x106",
+        "0x107",
+        "0x108",
+        "0x109",
+        "0x10a",
+        "0x10b",
+        "0x10c",
+        "0x10d",
+        "0x10e",
+        "0x10f",
+        "0x110",
+        "0x111",
+        "0x112",
+        "0x113",
+        "0x114",
+        "0x115",
+        "0x116",
+        "0x117",
+        "0x118",
+        "0x119",
+        "0x11a",
+        "0x11b",
+        "0x11c",
+        "0x11d",
+        "0x11e",
+        "0x11f",
+        "0x120",
+        "0x121",
+        "0x122",
+        "0x123",
+        "0x124",
+        "0x125",
+        "0x126",
+        "0x127",
+        "0x128",
+        "0x129",
+        "0x12b",
+        "0x12c",
+        "0x12d",
+        "0x12e",
+        "0x12f",
+        "0x130",
+        "0x131",
+        "0x133",
+        "0x134",
+        "0x135",
+        "0x136",
+        "0x137",
+        "0x138",
+        "0x13a",
+        "0x13b",
+        "0x13c",
+        "0x13d",
+        "0x13e",
+        "0x13f",
+        "0x140",
+        "0x142",
+        "0x143",
+        "0x144",
+        "0x145",
+        "0x146",
+        "0x147",
+        "0x148",
+        "0x149",
+        "0x14a",
+        "0x14b",
+        "0x14c",
+        "0x14d",
+        "0x14e",
+        "0x14f",
+        "0x150",
+        "0x151",
+        "0x152",
+        "0x153",
+        "0x154",
+        "0x155",
+        "0x156",
+        "0x157",
+        "0x158",
+        "0x159",
+        "0x15a",
+        "0x15b",
+        "0x15c",
+        "0x15d",
+        "0x15e",
+        "0x15f",
+        "0x160",
+        "0x161",
+        "0x162",
+        "0x163",
+        "0x164",
+        "0x165",
+        "0x166",
+        "0x167",
+        "0x168",
+        "0x169",
+        "0x16a",
+        "0x16b",
+        "0x16c",
+        "0x16d",
+        "0x16e",
+        "0x170",
+        "0x171",
+        "0x172",
+        "0x173",
+        "0x174",
+        "0x175",
+        "0x176",
+        "0x178",
+        "0x179",
+        "0x17a",
+        "0x17b",
+        "0x17c",
+        "0x17d",
+        "0x17e",
+        "0x17f",
+        "0x180",
+        "0x181",
+        "0x182",
+        "0x183",
+        "0x184",
+        "0x185",
+        "0x186",
+        "0x187",
+        "0x188",
+        "0x189",
+        "0x18a",
+        "0x18b",
+        "0x18c",
+        "0x18d",
+        "0x18e",
+        "0x18f",
+        "0x190",
+        "0x191",
+        "0x192",
+        "0x194",
+        "0x195",
+        "0x196",
+        "0x197",
+        "0x198",
+        "0x199",
+        "0x19a",
+        "0x19b",
+        "0x19c",
+        "0x19d",
+        "0x19e",
+        "0x19f",
+        "0x1a0",
+        "0x1a1",
+        "0x1a2",
+        "0x1a3",
+        "0x1a4",
+        "0x1a5",
+        "0x1a6",
+        "0x1a7",
+        "0x1a8",
+        "0x1a9",
+        "0x1aa",
+        "0x1ab",
+        "0x1ac",
+        "0x1ad",
+        "0x1ae",
+        "0x1af",
+        "0x1b0",
+        "0x1b1",
+        "0x1b2",
+        "0x1b3",
+        "0x1b4"
+      ]
+    },
+    ".shstrtab": {
+      "equal": true,
+      "different_byte_offsets": []
+    }
+  },
+  "snapshot_comparisons": {
+    "post-failed-flash.json": {
+      "sha256": "cef5570d1e1d5a8757302f225e904ff8df8c64ef86ae5485146b90b8819c491c",
+      "sample_0x20003c00": "74fa3868c003fcd51d48f86038688003",
+      "PrgCode_match_offset": null
+    },
+    "passive-snapshot-20261028T211754816957Z.json": {
+      "sha256": "5508c2bb871f2c2286d91d95b44c7c3a311ce07986619f4cd879c4bec90ad8b8",
+      "sample_0x20003c00": "4ef20006cef6ff764cf200070025c4f2",
+      "PrgCode_match_offset": "0x20c"
+    }
+  },
+  "source_hashes": {
+    "tools/flash.py": "afc9cd13137e5aaa2bdc671116767180c26f190ad2fbace0ee2ccb1402df8c3c",
+    "tools/pyocd_attach.py": "dfcef5096e4b7c6b244b1c314fcb67f64ada64060c7df082918f035505bc7c5e",
+    ".venv/lib/python3.12/site-packages/pyocd/flash/flash.py": "fd05324875b1ec80530c7129634f8c8324d893469e8cf3dd9aae6baf0621e08f",
+    ".venv/lib/python3.12/site-packages/pyocd/target/pack/flash_algo.py": "3154a246eb7f6ab4c5f227880828c3e13f7e770ad8529032274dc86ea192bae0",
+    ".venv/lib/python3.12/site-packages/pyocd/coresight/cortex_m.py": "e2ad5fb760c772f1b8a2e00241af68d104284aa332e923bcd01c0a6083c6f6ec"
+  },
+  "tool_versions": {
+    "pyocd": "0.46.0",
+    "pyelftools": "0.33",
+    "capstone": "5.0.9"
+  },
+  "checks": {
+    "all_1544_code_bytes_disassembled": true,
+    "PrgCode_and_PrgData_identical": true,
+    "no_msr_cpsid_cpsie_bl_blx_instructions": true
+  }
+}

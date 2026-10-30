@@ -1,0 +1,147 @@
+[
+  {
+    "mode": 1,
+    "original": {
+      "command": 209,
+      "payload_hex": "",
+      "sequence": 18,
+      "mode": 1,
+      "send_ok": false,
+      "transfers": [
+        "00d1008001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 18,
+      "result": 1,
+      "closed": true
+    },
+    "corrected_in_emulator_only": {
+      "command": 209,
+      "payload_hex": "",
+      "sequence": 18,
+      "mode": 1,
+      "send_ok": false,
+      "transfers": [
+        "00d1008001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 18,
+      "result": 0,
+      "closed": true
+    }
+  },
+  {
+    "mode": 2,
+    "original": {
+      "command": 209,
+      "payload_hex": "",
+      "sequence": 18,
+      "mode": 2,
+      "send_ok": false,
+      "transfers": [
+        "d1008001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 18,
+      "result": 1,
+      "closed": true
+    },
+    "corrected_in_emulator_only": {
+      "command": 209,
+      "payload_hex": "",
+      "sequence": 18,
+      "mode": 2,
+      "send_ok": false,
+      "transfers": [
+        "d1008001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 18,
+      "result": 0,
+      "closed": true
+    }
+  },
+  {
+    "mode": 3,
+    "original": {
+      "command": 209,
+      "payload_hex": "",
+      "sequence": 18,
+      "mode": 3,
+      "send_ok": false,
+      "transfers": [
+        "00d1038001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 18,
+      "result": 1,
+      "closed": true
+    },
+    "corrected_in_emulator_only": {
+      "command": 209,
+      "payload_hex": "",
+      "sequence": 18,
+      "mode": 3,
+      "send_ok": false,
+      "transfers": [
+        "00d1038001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 18,
+      "result": 0,
+      "closed": true
+    }
+  },
+  {
+    "mode": 4,
+    "original": {
+      "command": 209,
+      "payload_hex": "",
+      "sequence": 18,
+      "mode": 4,
+      "send_ok": false,
+      "transfers": [
+        "00d1048001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 18,
+      "result": 1,
+      "closed": true
+    },
+    "corrected_in_emulator_only": {
+      "command": 209,
+      "payload_hex": "",
+      "sequence": 18,
+      "mode": 4,
+      "send_ok": false,
+      "transfers": [
+        "00d1048001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 18,
+      "result": 0,
+      "closed": true
+    }
+  },
+  {
+    "mode": 5,
+    "original": {
+      "command": 209,
+      "payload_hex": "",
+      "sequence": 18,
+      "mode": 5,
+      "send_ok": false,
+      "transfers": [
+        "00d1058001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 18,
+      "result": 1,
+      "closed": true
+    },
+    "corrected_in_emulator_only": {
+      "command": 209,
+      "payload_hex": "",
+      "sequence": 18,
+      "mode": 5,
+      "send_ok": false,
+      "transfers": [
+        "00d1058001120000000000300f040000005a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "next_sequence": 18,
+      "result": 0,
+      "closed": true
+    }
+  }
+]

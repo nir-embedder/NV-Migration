@@ -1,0 +1,53 @@
+{
+  "executable_sha256": "aed05e31a6a73c760076218dcfbd038e94e579b0287bb86bb2add7ba8daa35f0",
+  "archive_sha256": "4a7cfe5cd0207fa99f052ee1038b85c9110684cab9fb9fda2f594867c80ff5a7",
+  "raw_E8_calls_to_encoder": [
+    "0x40a1c4",
+    "0x40a2bf",
+    "0x40a2e4",
+    "0x40a3c4",
+    "0x40a4d1",
+    "0x40a607",
+    "0x40a714",
+    "0x40a794",
+    "0x40a862",
+    "0x40a8f2",
+    "0x40a9af",
+    "0x40ab25",
+    "0x40ac20"
+  ],
+  "raw_D2_pushes": [
+    "0x40a851",
+    "0x40a8e1"
+  ],
+  "linear_scan_range": [
+    "0x401000",
+    "0x537814"
+  ],
+  "relevant_immediates_and_direct_calls": [
+    "00408657 call     0x40a810",
+    "00408709 call     0x40a8a0",
+    "004090ab call     0x40a810",
+    "004090d0 call     0x40a8a0",
+    "0040a1c4 call     0x40a040",
+    "0040a2bf call     0x40a040",
+    "0040a2e4 call     0x40a040",
+    "0040a3c4 call     0x40a040",
+    "0040a4d1 call     0x40a040",
+    "0040a607 call     0x40a040",
+    "0040a714 call     0x40a040",
+    "0040a729 call     0x4098d0",
+    "0040a794 call     0x40a040",
+    "0040a7ac call     0x4098d0",
+    "0040a851 push     0xd2",
+    "0040a862 call     0x40a040",
+    "0040a87a call     0x4098d0",
+    "0040a8e1 push     0xd2",
+    "0040a8f2 call     0x40a040",
+    "0040a90a call     0x4098d0",
+    "0040a9af call     0x40a040",
+    "0040ab25 call     0x40a040",
+    "0040ac20 call     0x40a040"
+  ],
+  "absolute_encoder_pointers_in_file": []
+}

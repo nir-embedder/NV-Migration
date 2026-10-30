@@ -1,0 +1,143 @@
+{
+  "mode": "under-reset",
+  "frequency": 100000,
+  "pack_sequences": true,
+  "disabled_sequences": [
+    "DebugPortStart"
+  ],
+  "state_before_halt": "State.LOCKUP",
+  "auth_before_halt": "0xaf",
+  "state": "State.LOCKUP",
+  "DHCSR": "0x80001",
+  "DAUTHSTATUS": "0xaf",
+  "DSCSR": "0x30001",
+  "SYS_PDID": {
+    "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x40000000-0x40000003"
+  },
+  "SYS_RSTSTS": {
+    "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x40000004-0x40000007"
+  },
+  "SYS_SRAM_STATUS": {
+    "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x400000c4-0x400000c7"
+  },
+  "SCU_FNSADDR": {
+    "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4002f02c-0x4002f02f"
+  },
+  "FMC_APWPROT0": {
+    "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c110-0x4000c113"
+  },
+  "memory_map": [
+    {
+      "name": "IROM1",
+      "start": "0x0",
+      "length": "0x80000"
+    },
+    {
+      "name": "IROM2",
+      "start": "0xf100000",
+      "length": "0x4000"
+    },
+    {
+      "name": "IROM3",
+      "start": "0x10000000",
+      "length": "0x80000"
+    },
+    {
+      "name": "IRAM1",
+      "start": "0x20000000",
+      "length": "0x20000"
+    },
+    {
+      "name": "IRAM2",
+      "start": "0x30000000",
+      "length": "0x20000"
+    }
+  ]
+}
+{"success": false, "summary": "Non-erasing exact-target connection diagnostic, mode=under-reset"}
+DEBUG:pyocd.core.session:Project directory: /Users/embedder/Desktop/Nuvoton
+DEBUG:pyocd.core.session:Loading config from: /Users/embedder/Desktop/Nuvoton/pyocd.yaml
+DEBUG:pyocd.core.session:Project directory: /Users/embedder/Desktop/Nuvoton
+DEBUG:pyocd.core.session:Loading config from: /Users/embedder/Desktop/Nuvoton/pyocd.yaml
+DEBUG:pyocd.probe.pydapaccess.dap_access_cmsis_dap:CMSIS-DAP v2 probe 13010000003800F1047546CF0000065D: protocol version 2.1.0
+INFO:pyocd.board.board:Target type is m3351kicae
+DEBUG:pyocd.probe.cmsis_dap_probe:Board: Nuvoton (no name)
+DEBUG:pyocd.probe.cmsis_dap_probe:Target: Nuvoton (no name)
+DEBUG:pyocd.utility.sequencer:Running task load_svd
+DEBUG:pyocd.utility.sequencer:Running task pre_connect
+INFO:pyocd.coresight.coresight_target:Asserting reset prior to connect
+DEBUG:pyocd.target.pack.pack_target:Running debug sequence 'ResetHardwareAssert' (Cortex-M33)
+DEBUG:pyocd.utility.sequencer:Running task dp_init
+DEBUG:pyocd.utility.sequencer:Running task lock_probe
+DEBUG:pyocd.utility.sequencer:Running task get_probe_capabilities
+DEBUG:pyocd.utility.sequencer:Running task connect
+DEBUG:pyocd.coresight.dap:Default wire protocol selected; using SWD
+DEBUG:pyocd.target.pack.pack_target:Running debug sequence 'DebugPortSetup' (Cortex-M33)
+INFO:pyocd.coresight.dap:DP IDR = 0x0be12477 (v2 MINDP rev0)
+DEBUG:pyocd.utility.sequencer:Running task clear_sticky_err
+DEBUG:pyocd.utility.sequencer:Running task power_up_debug
+DEBUG:pyocd.target.pack.pack_target:Not running debug sequence 'DebugPortStart' (Cortex-M33) because it was manually disabled
+DEBUG:pyocd.utility.sequencer:Running task check_version
+DEBUG:pyocd.utility.sequencer:Running task unlock_probe
+DEBUG:pyocd.utility.sequencer:Running task unlock_device
+DEBUG:pyocd.utility.sequencer:Running task create_discoverer
+DEBUG:pyocd.utility.sequencer:Running task discovery
+DEBUG:pyocd.utility.sequencer:Running task find_aps
+DEBUG:pyocd.utility.sequencer:Running task create_aps
+DEBUG:pyocd.utility.sequencer:Running task create_ap.0
+DEBUG:pyocd.coresight.ap:AHB5-AP#0 default HPROT=3 HNONSEC=0
+DEBUG:pyocd.coresight.ap:AHB5-AP#0 implemented HPROT=f HNONSEC=1
+INFO:pyocd.coresight.discovery:AHB5-AP#0 IDR = 0x14770015 (AHB5-AP var1 rev1)
+DEBUG:pyocd.utility.sequencer:Running task find_components
+DEBUG:pyocd.utility.sequencer:Running task init_ap.0
+INFO:pyocd.coresight.rom_table:AHB5-AP#0 Class 0x1 ROM table #0 @ 0xe00fe000 (designer=000 part=000)
+INFO:pyocd.coresight.rom_table:[0]<e00ff000:ROM class=1 designer=43b:Arm part=4c9>
+INFO:pyocd.coresight.rom_table:  AHB5-AP#0 Class 0x1 ROM table #1 @ 0xe00ff000 (designer=43b:Arm part=4c9)
+INFO:pyocd.coresight.rom_table:  [0]<e000e000:SCS M33 class=9 designer=43b:Arm part=d21 devtype=00 archid=2a04 devid=0:0:0>
+INFO:pyocd.coresight.rom_table:  [1]<e0001000:DWT M33 class=9 designer=43b:Arm part=d21 devtype=00 archid=1a02 devid=0:0:0>
+INFO:pyocd.coresight.rom_table:  [2]<e0002000:BPU M33 class=9 designer=43b:Arm part=d21 devtype=00 archid=1a03 devid=0:0:0>
+INFO:pyocd.coresight.rom_table:  [3]<e0000000:ITM M33 class=9 designer=43b:Arm part=d21 devtype=43 archid=1a01 devid=0:0:0>
+DEBUG:pyocd.coresight.rom_table:  [4]<fff41002 not present>
+DEBUG:pyocd.coresight.rom_table:  [5]<fff42002 not present>
+DEBUG:pyocd.coresight.rom_table:  [6]<fff43002 not present>
+DEBUG:pyocd.coresight.rom_table:  [7]<fff44002 not present>
+INFO:pyocd.coresight.rom_table:[1]<e0040000:TPIU M33 class=9 designer=43b:Arm part=d21 devtype=11 archid=0000 devid=ca0:0:0>
+DEBUG:pyocd.coresight.rom_table:[2]<1ff02002 not present>
+DEBUG:pyocd.coresight.rom_table:[3]<1ff02002 not present>
+DEBUG:pyocd.utility.sequencer:Running task create_cores
+DEBUG:pyocd.coresight.discovery:Creating SCS component
+DEBUG:pyocd.core.soc_target:selected core #0
+DEBUG:pyocd.target.pack.pack_target:Running debug sequence 'DebugCoreStart' (Cortex-M33)
+INFO:pyocd.coresight.cortex_m:CPU core #0: Cortex-M33 r1p0, v8.0-M architecture
+INFO:pyocd.coresight.cortex_m:  Extensions: [DSP, FPU, FPU_V5, MPU, SEC]
+INFO:pyocd.coresight.cortex_m:  FPU present: FPv5-SP-D16-M
+DEBUG:pyocd.utility.sequencer:Running task update_processor_name
+DEBUG:pyocd.utility.sequencer:Running task create_components
+DEBUG:pyocd.coresight.discovery:Creating DWT component
+INFO:pyocd.coresight.dwt:4 hardware watchpoints
+DEBUG:pyocd.coresight.discovery:Creating BPU component
+INFO:pyocd.coresight.fpb:8 hardware breakpoints, 0 literal comparators
+DEBUG:pyocd.coresight.fpb:fpb has been disabled
+DEBUG:pyocd.coresight.discovery:Creating ITM component
+DEBUG:pyocd.coresight.discovery:Creating TPIU component
+DEBUG:pyocd.utility.sequencer:Running task check_for_cores
+DEBUG:pyocd.utility.sequencer:Running task halt_on_connect
+DEBUG:pyocd.coresight.coresight_target:Setting reset catch
+DEBUG:pyocd.coresight.cortex_m:set reset catch, core 0
+DEBUG:pyocd.debug.breakpoints.manager:removing all breakpoints before reset
+DEBUG:pyocd.target.pack.pack_target:Running debug sequence 'ResetCatchSet' (Cortex-M33)
+DEBUG:pyocd.utility.sequencer:Running task post_connect
+INFO:pyocd.coresight.coresight_target:Deasserting reset post connect
+DEBUG:pyocd.target.pack.pack_target:Running debug sequence 'ResetHardwareDeassert' (Cortex-M33)
+DEBUG:pyocd.coresight.coresight_target:Clearing reset catch
+DEBUG:pyocd.coresight.cortex_m:clear reset catch, core 0
+DEBUG:pyocd.target.pack.pack_target:Running debug sequence 'ResetCatchClear' (Cortex-M33)
+DEBUG:pyocd.debug.breakpoints.manager:disabling hardware breakpoints after reset
+DEBUG:pyocd.utility.sequencer:Running task post_connect_hook
+DEBUG:pyocd.utility.sequencer:Running task create_flash
+DEBUG:pyocd.target.pack.flash_algo:flash algo: [stack=0x200019f0; 0x19f0 b] [b1=0x200019f0,+0x19f0] [code=0x200039f0,+0x39f0,0x610 b] (ram=0x20000000, 0x4000 b)
+DEBUG:pyocd.target.pack.flash_algo:flash algo: [stack=0x200019f0; 0x19f0 b] [b1=0x200019f0,+0x19f0] [code=0x200039f0,+0x39f0,0x610 b] (ram=0x20000000, 0x4000 b)
+DEBUG:pyocd.target.pack.flash_algo:flash algo: [stack=0x200017d0; 0x17d0 b] [b1=0x200017d0,+0x17d0] [code=0x200037d4,+0x37d4,0x82c b] (ram=0x20000000, 0x4000 b)
+DEBUG:pyocd.utility.sequencer:Running task notify
+DEBUG:pyocd.core.session:uninit session <pyocd.core.session.Session object at 0x105cc0b00>
+DEBUG:pyocd.board.board:uninit board <pyocd.board.board.Board object at 0x105a73560>

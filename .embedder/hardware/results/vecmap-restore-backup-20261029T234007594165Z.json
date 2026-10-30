@@ -1,0 +1,102 @@
+{
+  "timestamp": "2026-10-29T23:39:36.013801+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "method": "volatile FMC VECMAP(0x2E)->0x0; guards; fresh full backups; no erase/program/config/reset/resume",
+  "DHCSR": "0x130003",
+  "DAUTHSTATUS": "0xff",
+  "ISPSTS_before": {
+    "raw": "0x2f800104",
+    "VECMAP": "0x3e000",
+    "remap_base": "0xf800000",
+    "ISPFF": 0,
+    "ISPBUSY": 0,
+    "FBS": 0,
+    "MIRBOUND": 1
+  },
+  "ISPCTL_before": "0x10009",
+  "page0_before_remap": [
+    "0xffffffff",
+    "0xffffffff",
+    "0xffffffff",
+    "0xffffffff"
+  ],
+  "stage": "done",
+  "ISPSTS_after": {
+    "raw": "0x20000104",
+    "VECMAP": "0x0",
+    "remap_base": "0x0",
+    "ISPFF": 0,
+    "ISPBUSY": 0,
+    "FBS": 0,
+    "MIRBOUND": 1
+  },
+  "ISPCTL_after": "0x10009",
+  "page0_after_remap": [
+    "0xffffffff",
+    "0xffffffff",
+    "0xffffffff",
+    "0xffffffff"
+  ],
+  "config": {
+    "0xf300000": "0xffffffff",
+    "0xf300004": "0xffffffff",
+    "0xf300008": "0xffffffff",
+    "0xf30000c": "0xffffffff",
+    "0xf300010": "0xffffffff",
+    "0xf300014": "0xffffffff",
+    "0xf300018": "0xffffffff",
+    "0xf300020": "0xffffffff",
+    "0xf300024": "0xffffffff",
+    "0xf300028": "0xffffffff",
+    "0xf30002c": "0xffffff5a",
+    "0xf300030": "0xffffffff",
+    "0xf300034": "0xffffff5a",
+    "0xf300038": "0xffffffff",
+    "0xf300080": "0xffffffff",
+    "0xf300084": "0xffffffff",
+    "0xf300088": "0xffffffff"
+  },
+  "guards": {
+    "flash_guards": "ok",
+    "sram_scratch": "ok"
+  },
+  "backups": {
+    "aprom": {
+      "path": ".embedder/backups/m3351kjcae-aprom-a501ba24ed6a5b6ce87864aad47f8cad824d481e09c865bc5682eac75fe4d4ee.bin",
+      "bytes": 1048576,
+      "sha256": "a501ba24ed6a5b6ce87864aad47f8cad824d481e09c865bc5682eac75fe4d4ee",
+      "first_words": [
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff"
+      ],
+      "nonff_bytes": 12508
+    },
+    "ldrom": {
+      "path": ".embedder/backups/m3351kjcae-ldrom-0fbba07a833d4dcfc7024eaf313661a0ba8f80a05c6d29b8801c612e10e60dee.bin",
+      "bytes": 16384,
+      "sha256": "0fbba07a833d4dcfc7024eaf313661a0ba8f80a05c6d29b8801c612e10e60dee",
+      "first_words": [
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff"
+      ],
+      "nonff_bytes": 0
+    },
+    "data-flash": {
+      "path": ".embedder/backups/m3351kjcae-data-flash-4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe.bin",
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "first_words": [
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "nonff_bytes": 16384
+    }
+  },
+  "DHCSR_final": "0x130003"
+}

@@ -1,0 +1,90 @@
+{
+  "mode": "under-reset",
+  "frequency": 100000,
+  "pack_sequences": false,
+  "error": "No cores were discovered!"
+}
+{"success": false, "summary": "Non-erasing exact-target connection diagnostic, mode=under-reset"}
+DEBUG:pyocd.core.session:Project directory: /Users/embedder/Desktop/Nuvoton
+DEBUG:pyocd.core.session:Loading config from: /Users/embedder/Desktop/Nuvoton/pyocd.yaml
+DEBUG:pyocd.core.session:Project directory: /Users/embedder/Desktop/Nuvoton
+DEBUG:pyocd.core.session:Loading config from: /Users/embedder/Desktop/Nuvoton/pyocd.yaml
+DEBUG:pyocd.probe.pydapaccess.dap_access_cmsis_dap:CMSIS-DAP v2 probe 13010000003800F1047546CF0000065D: protocol version 2.1.0
+INFO:pyocd.board.board:Target type is m3351kicae
+DEBUG:pyocd.probe.cmsis_dap_probe:Board: Nuvoton (no name)
+DEBUG:pyocd.probe.cmsis_dap_probe:Target: Nuvoton (no name)
+DEBUG:pyocd.utility.sequencer:Running task load_svd
+DEBUG:pyocd.utility.sequencer:Running task pre_connect
+INFO:pyocd.coresight.coresight_target:Asserting reset prior to connect
+DEBUG:pyocd.target.pack.pack_target:Not running debug sequence 'ResetHardwareAssert' (Cortex-M33) because all sequences are disabled
+DEBUG:pyocd.utility.sequencer:Running task dp_init
+DEBUG:pyocd.utility.sequencer:Running task lock_probe
+DEBUG:pyocd.utility.sequencer:Running task get_probe_capabilities
+DEBUG:pyocd.utility.sequencer:Running task connect
+DEBUG:pyocd.coresight.dap:Default wire protocol selected; using SWD
+DEBUG:pyocd.target.pack.pack_target:Not running debug sequence 'DebugPortSetup' (Cortex-M33) because all sequences are disabled
+INFO:pyocd.coresight.dap:DP IDR = 0x0be12477 (v2 MINDP rev0)
+DEBUG:pyocd.utility.sequencer:Running task clear_sticky_err
+DEBUG:pyocd.utility.sequencer:Running task power_up_debug
+DEBUG:pyocd.target.pack.pack_target:Not running debug sequence 'DebugPortStart' (Cortex-M33) because all sequences are disabled
+DEBUG:pyocd.utility.sequencer:Running task check_version
+DEBUG:pyocd.utility.sequencer:Running task unlock_probe
+DEBUG:pyocd.utility.sequencer:Running task unlock_device
+DEBUG:pyocd.utility.sequencer:Running task create_discoverer
+DEBUG:pyocd.utility.sequencer:Running task discovery
+DEBUG:pyocd.utility.sequencer:Running task find_aps
+ERROR:pyocd.coresight.discovery:Error probing AP#0: Memory transfer fault (SWD/JTAG communication failure (FAULT ACK))
+Traceback (most recent call last):
+  File "/Users/embedder/Desktop/Nuvoton/.venv/lib/python3.12/site-packages/pyocd/probe/cmsis_dap_probe.py", line 602, in read_ap_result_callback
+    value = result()
+            ^^^^^^^^
+  File "/Users/embedder/Desktop/Nuvoton/.venv/lib/python3.12/site-packages/pyocd/probe/pydapaccess/dap_access_cmsis_dap.py", line 1082, in read_reg_cb
+    res = transfer.get_result()
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/embedder/Desktop/Nuvoton/.venv/lib/python3.12/site-packages/pyocd/probe/pydapaccess/dap_access_cmsis_dap.py", line 161, in get_result
+    self.daplink.flush()
+  File "/Users/embedder/Desktop/Nuvoton/.venv/lib/python3.12/site-packages/pyocd/utility/concurrency.py", line 29, in _locking
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/embedder/Desktop/Nuvoton/.venv/lib/python3.12/site-packages/pyocd/probe/pydapaccess/dap_access_cmsis_dap.py", line 887, in flush
+    self._read_packet()
+  File "/Users/embedder/Desktop/Nuvoton/.venv/lib/python3.12/site-packages/pyocd/utility/concurrency.py", line 29, in _locking
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/embedder/Desktop/Nuvoton/.venv/lib/python3.12/site-packages/pyocd/probe/pydapaccess/dap_access_cmsis_dap.py", line 1168, in _read_packet
+    decoded_data = cmd.decode_data(raw_data)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/embedder/Desktop/Nuvoton/.venv/lib/python3.12/site-packages/pyocd/probe/pydapaccess/dap_access_cmsis_dap.py", line 486, in decode_data
+    data = self._decode_transfer_data(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/embedder/Desktop/Nuvoton/.venv/lib/python3.12/site-packages/pyocd/probe/pydapaccess/dap_access_cmsis_dap.py", line 392, in _decode_transfer_data
+    self._check_response(data[2])
+  File "/Users/embedder/Desktop/Nuvoton/.venv/lib/python3.12/site-packages/pyocd/probe/pydapaccess/dap_access_cmsis_dap.py", line 368, in _check_response
+    raise DAPAccessIntf.TransferFaultError("SWD/JTAG communication failure (FAULT ACK)")
+pyocd.probe.pydapaccess.dap_access_api.DAPAccessIntf.TransferFaultError: SWD/JTAG communication failure (FAULT ACK)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/embedder/Desktop/Nuvoton/.venv/lib/python3.12/site-packages/pyocd/coresight/discovery.py", line 134, in _find_aps
+    isValid = AccessPort.probe(self.dp, apsel)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/embedder/Desktop/Nuvoton/.venv/lib/python3.12/site-packages/pyocd/coresight/ap.py", line 354, in probe
+    idr = dp.read_ap((ap_num << APSEL_SHIFT) | AP_IDR)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/embedder/Desktop/Nuvoton/.venv/lib/python3.12/site-packages/pyocd/coresight/dap.py", line 954, in read_ap
+    return read_ap_cb()
+           ^^^^^^^^^^^^
+  File "/Users/embedder/Desktop/Nuvoton/.venv/lib/python3.12/site-packages/pyocd/coresight/dap.py", line 941, in read_ap_cb
+    result = result_cb()
+             ^^^^^^^^^^^
+  File "/Users/embedder/Desktop/Nuvoton/.venv/lib/python3.12/site-packages/pyocd/probe/cmsis_dap_probe.py", line 607, in read_ap_result_callback
+    raise self._convert_exception(error) from error
+pyocd.core.exceptions.TransferFaultError: Memory transfer fault (SWD/JTAG communication failure (FAULT ACK))
+DEBUG:pyocd.utility.sequencer:Running task create_aps
+DEBUG:pyocd.utility.sequencer:Running task find_components
+DEBUG:pyocd.utility.sequencer:Running task create_cores
+DEBUG:pyocd.utility.sequencer:Running task update_processor_name
+DEBUG:pyocd.utility.sequencer:Running task create_components
+DEBUG:pyocd.utility.sequencer:Running task check_for_cores
+DEBUG:pyocd.core.session:uninit session <pyocd.core.session.Session object at 0x102d41400>

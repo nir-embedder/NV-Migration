@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-10-29T23:45:36.825008+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "method": "DHCSR resume + debug disable, DP power-down; no reset",
+  "before": {
+    "DHCSR": "0x130003",
+    "DEMCR": "0x100000"
+  },
+  "after": {
+    "DHCSR": "0x5140000",
+    "DEMCR": "0x100000"
+  },
+  "ctrl_stat_down": "0x40"
+}

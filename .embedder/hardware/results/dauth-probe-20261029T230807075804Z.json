@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-10-29T23:08:07.059778+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "method": "MEM-AP only; no core init/reset/halt; read-only except CSW HNONSEC test",
+  "ap_idr": "0x14770015",
+  "csw_initial": "0x3800052",
+  "regs": {
+    "DHCSR": "0x80003",
+    "DEMCR": "0x1000401",
+    "DAUTHCTRL": "0x0",
+    "DSCSR": "0x30001",
+    "DAUTHSTATUS": "0xaf",
+    "CPUID": "0x411fd210",
+    "ICSR": "0x803",
+    "VTOR": "0x0",
+    "AIRCR": "0xfa050000",
+    "SHCSR": "0x0",
+    "CFSR": "0x0",
+    "HFSR": "0x0",
+    "SFSR": "0x0",
+    "SFAR": "0x0",
+    "SAU_CTRL": "0x0",
+    "SAU_TYPE": "0x0",
+    "MPU_CTRL": "0x0",
+    "DFSR": "0x9",
+    "CPACR": "0x0",
+    "NSACR": "0x0",
+    "DCRSR": "0x0",
+    "DCRDR": "0xf9000000",
+    "ROM_PIDR4": "0x0",
+    "DWT_CTRL": "0x40000001",
+    "FPB_CTRL": "0x10000080",
+    "ITM_TCR": "0x0",
+    "CTI_CTRL": "0x0",
+    "SCS_PIDR0": "0x21"
+  },
+  "csw_tests": {
+    "hnonsec=0": {
+      "written": "0x3000012",
+      "readback": "0x3000012",
+      "bit30_readback": 0
+    },
+    "hnonsec=1": {
+      "written": "0x43000012",
+      "readback": "0x43000012",
+      "bit30_readback": 1
+    }
+  },
+  "dp_ctrl_stat": "0xf0000040"
+}

@@ -1,0 +1,66 @@
+{
+  "timestamp_utc": "2026-10-29T21:03:11.413441+00:00",
+  "scope": "Passive host inventory and local file hashing. No device opened or target action.",
+  "usb_inventory": {
+    "method": "macOS IORegistry only; no device opened",
+    "devices": []
+  },
+  "controllers": [
+    {
+      "IOObjectClass": "AppleT8142USBXHCI",
+      "IORegistryEntryName": "AppleT8142USBXHCI",
+      "locationID": 16777216
+    },
+    {
+      "IOObjectClass": "AppleT8142USBXHCI",
+      "IORegistryEntryName": "AppleT8142USBXHCI",
+      "locationID": 0
+    },
+    {
+      "IOObjectClass": "AppleT8142USBXHCI",
+      "IORegistryEntryName": "AppleT8142USBXHCI",
+      "locationID": 50331648
+    }
+  ],
+  "profiler_usb_types": [
+    "SPUSBHostDataType"
+  ],
+  "profiler": {
+    "SPUSBHostDataType": {
+      "SPUSBHostDataType": [
+        {
+          "_name": "USB 3.1 Bus",
+          "Driver": "AppleT8142USBXHCI",
+          "USBKeyHardwareType": "Built-in",
+          "USBKeyLocationID": "0x01000000"
+        },
+        {
+          "_name": "USB 3.1 Bus",
+          "Driver": "AppleT8142USBXHCI",
+          "USBKeyHardwareType": "Built-in",
+          "USBKeyLocationID": "0x00000000"
+        },
+        {
+          "_name": "USB 3.1 Bus",
+          "Driver": "AppleT8142USBXHCI",
+          "USBKeyHardwareType": "Built-in",
+          "USBKeyLocationID": "0x03000000"
+        }
+      ]
+    }
+  },
+  "backup": {
+    "bytes": 524288,
+    "range_exclusive": [
+      0,
+      524288
+    ],
+    "sha256": "cdc14f595cf29c2877cc9b11bc564df62b66e3338a0a77ea35ba533aba0b93d3",
+    "not_backed_up": "APROM [0x80000,0x100000), LDROM, Data Flash and CONFIG"
+  },
+  "host_regression": {
+    "passed": 649,
+    "log": "/Users/embedder/.embedder/shell/f0d37af793f94e7b/task_mvu14nbg_0b81e7.log"
+  },
+  "physical_usb": "not run: no enumerated target or probe"
+}

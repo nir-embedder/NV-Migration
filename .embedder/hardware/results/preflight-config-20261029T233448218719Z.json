@@ -1,0 +1,54 @@
+{
+  "timestamp": "2026-10-29T23:34:48.168534+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "method": "halted-in-ROM pre-flight; FMC READ of CONFIG, guards reported individually",
+  "DHCSR": "0x130003",
+  "DAUTHSTATUS": "0xff",
+  "PDID": "0x3302140",
+  "RSTSTS": "0x163",
+  "FNSADDR": "0x100000",
+  "ISPSTS": {
+    "raw": "0x2f800104",
+    "FBS": 0,
+    "MIRBOUND": 1,
+    "ISPCERR": 0,
+    "VECMAP": "0x3e000",
+    "remap_base": "0xf800000",
+    "ISPFF": 0,
+    "ISPBUSY": 0
+  },
+  "ISPCTL": "0x10009",
+  "REGLCTL": "0x1",
+  "protection_regs": {
+    "0x4000c110": "0x0",
+    "0x4000c114": "0x0",
+    "0x4000c11c": "0x0",
+    "0x4000c0e0": "0x0"
+  },
+  "stage": "done",
+  "config": {
+    "0xf300000": "0xffffffff",
+    "0xf300004": "0xffffffff",
+    "0xf300008": "0xffffffff",
+    "0xf30000c": "0xffffffff",
+    "0xf300010": "0xffffffff",
+    "0xf300014": "0xffffffff",
+    "0xf300018": "0xffffffff",
+    "0xf300020": "0xffffffff",
+    "0xf300024": "0xffffffff",
+    "0xf300028": "0xffffffff",
+    "0xf30002c": "0xffffff5a",
+    "0xf300030": "0xffffffff",
+    "0xf300034": "0xffffff5a",
+    "0xf300038": "0xffffffff",
+    "0xf300080": "0xffffffff",
+    "0xf300084": "0xffffffff",
+    "0xf300088": "0xffffffff"
+  },
+  "guards": {
+    "flash_guards": "FAIL: Unexpected bank/vector mapping",
+    "sram_scratch": "ok"
+  },
+  "DHCSR_after": "0x130003",
+  "ISPSTS_after": "0x2f800104"
+}

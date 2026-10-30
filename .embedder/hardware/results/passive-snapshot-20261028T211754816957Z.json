@@ -1,0 +1,58 @@
+{
+  "timestamp": "2026-10-28T21:17:47.184896+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "method": "MEM-AP only; no core init/reset/halt",
+  "dp_idr": "0xbe12477",
+  "ap_idr": "0x14770015",
+  "csw": "0x3800052",
+  "registers": {
+    "SYS_PDID": "0x3302140",
+    "SYS_RSTSTS": "0x163",
+    "SYS_BODCTL": "0xf8380",
+    "SYS_SRAM_STATUS": "0x0",
+    "SYS_SRAM_ERRADDR": "0x0",
+    "SYS_SRAM_ECCEN": "0x1",
+    "SCU_SRAMNSSET": "0x0",
+    "SCU_FNSADDR": "0x100000",
+    "SCU_SVINTSTS": "0x2",
+    "SCU_FLASHVSRC": "0x0",
+    "SCU_FLASHVA": "0x0",
+    "SCU_SRAM0VSRC": "0x2",
+    "SCU_SRAM0VA": "0x30000000",
+    "SCU_SRAM1VSRC": "0x0",
+    "SCU_SRAM1VA": "0x0",
+    "FMC_ISPCTL": "0xa9",
+    "FMC_ISPADDR": "0xe000",
+    "FMC_ISPDAT": "0x0",
+    "FMC_ISPCMD": "0x22",
+    "FMC_ISPTRG": "0x0",
+    "FMC_ISPSTS": "0x20000104",
+    "FMC_XOMSTS": "0x0",
+    "FMC_APWPROT0": "0x0",
+    "FMC_APWPROT1": "0x0",
+    "FMC_ECCCTL": "0x0",
+    "FMC_ECCSTS": "0x0",
+    "CPUID": "0x411fd210",
+    "CFSR": "0x100001",
+    "HFSR": "0x40000000",
+    "SFSR": "0x0",
+    "DHCSR": "0x130003",
+    "DEMCR": "0x1100000",
+    "DSCSR": "0x30000",
+    "DAUTHSTATUS": "0xff",
+    "CONFIG0_direct": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x0f300000-0x0f300003"
+    },
+    "CONFIG12_direct": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x0f300030-0x0f300033"
+    }
+  },
+  "0x0": "ffffffffffffffffffffffffffffffff",
+  "0x20000000": "0df0adde000000000000000060000000",
+  "0x20003c00": "4ef20006cef6ff764cf200070025c4f2",
+  "0x30000000": {
+    "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x30000000-0x3000000f"
+  },
+  "aprom_sha256": "043e238a765f7cfbc62596a50e53c8ffb6b188a99357b0ebede251725d67589f",
+  "aprom_unchanged": false
+}

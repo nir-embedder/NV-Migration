@@ -1,0 +1,854 @@
+{
+  "timestamp": "2026-10-29T22:56:21.506470+00:00",
+  "reset": "pin",
+  "frequency": 1000000,
+  "spam_halt": false,
+  "scope": "debug-register writes and reset only; no flash/config/security/RAM writes; not resumed",
+  "dp_idr": "0xbe12477",
+  "before": {
+    "DHCSR": "0x3080000",
+    "DEMCR": "0x1000000",
+    "DAUTHSTATUS": "0xaf",
+    "DSCSR": "0x30001",
+    "CFSR": "0x0",
+    "HFSR": "0x0",
+    "SFSR": "0x0",
+    "SYS_PDID": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x40000000-0x40000003"
+    },
+    "SYS_RSTSTS": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x40000004-0x40000007"
+    },
+    "FMC_ISPCTL": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c000-0x4000c003"
+    },
+    "FMC_ISPSTS": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c040-0x4000c043"
+    },
+    "SCU_FNSADDR": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4002f02c-0x4002f02f"
+    },
+    "SCU_SRAMNSSET": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4002f020-0x4002f023"
+    },
+    "APROM_0": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x00000000-0x00000003"
+    },
+    "APROM_4": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x00000004-0x00000007"
+    },
+    "SRAM_0": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x20000000-0x20000003"
+    },
+    "CONFIG0_direct": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x0f300000-0x0f300003"
+    },
+    "dp_ctrl_stat": "0xf0000000",
+    "csw": "0x3800052"
+  },
+  "phase_a_idle": {
+    "samples": 60,
+    "elapsed_ms": 33.674,
+    "counts": {
+      "reset_st": 0,
+      "retire_st": 0,
+      "lockup": 60,
+      "halt": 0,
+      "errors": 0
+    },
+    "rows": [
+      {
+        "i": 0,
+        "t_ms": 0.631,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 1,
+        "t_ms": 1.202,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 2,
+        "t_ms": 1.766,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 3,
+        "t_ms": 2.328,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 4,
+        "t_ms": 2.89,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 5,
+        "t_ms": 3.449,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 6,
+        "t_ms": 4.026,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 7,
+        "t_ms": 4.574,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 8,
+        "t_ms": 5.149,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 9,
+        "t_ms": 5.701,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 10,
+        "t_ms": 6.259,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 11,
+        "t_ms": 6.836,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 12,
+        "t_ms": 7.386,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 13,
+        "t_ms": 7.951,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 14,
+        "t_ms": 8.51,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 15,
+        "t_ms": 9.085,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 16,
+        "t_ms": 9.648,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 17,
+        "t_ms": 10.198,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 18,
+        "t_ms": 10.759,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 19,
+        "t_ms": 11.332,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 20,
+        "t_ms": 11.884,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 21,
+        "t_ms": 12.444,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 22,
+        "t_ms": 13.007,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 23,
+        "t_ms": 13.569,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 24,
+        "t_ms": 14.132,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 25,
+        "t_ms": 14.703,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 26,
+        "t_ms": 15.251,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 27,
+        "t_ms": 15.816,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 28,
+        "t_ms": 16.364,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 29,
+        "t_ms": 16.921,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 30,
+        "t_ms": 17.468,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 31,
+        "t_ms": 18.017,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 32,
+        "t_ms": 18.568,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 33,
+        "t_ms": 19.129,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 34,
+        "t_ms": 19.692,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 35,
+        "t_ms": 20.24,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 36,
+        "t_ms": 20.796,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 37,
+        "t_ms": 21.356,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 38,
+        "t_ms": 21.921,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 39,
+        "t_ms": 22.483,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 40,
+        "t_ms": 23.041,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 41,
+        "t_ms": 23.59,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 42,
+        "t_ms": 24.142,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 43,
+        "t_ms": 24.693,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 44,
+        "t_ms": 25.242,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 45,
+        "t_ms": 25.799,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 46,
+        "t_ms": 26.359,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 47,
+        "t_ms": 26.922,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 48,
+        "t_ms": 27.484,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 49,
+        "t_ms": 28.05,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 50,
+        "t_ms": 28.61,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 51,
+        "t_ms": 29.174,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 52,
+        "t_ms": 29.738,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 53,
+        "t_ms": 30.301,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 54,
+        "t_ms": 30.855,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 55,
+        "t_ms": 31.424,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 56,
+        "t_ms": 31.991,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 57,
+        "t_ms": 32.552,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 58,
+        "t_ms": 33.116,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 59,
+        "t_ms": 33.674,
+        "dhcsr": "0x80000",
+        "dauth": "0xaf"
+      }
+    ],
+    "halted": false
+  },
+  "under_reset": {
+    "asserted": true,
+    "dp_reconnect": "ok",
+    "read": {
+      "DHCSR": "0x2000000",
+      "DEMCR": "0x1000000",
+      "DAUTHSTATUS": "0xaf"
+    },
+    "write": "ok",
+    "readback": {
+      "DHCSR": "0x2000001",
+      "DEMCR": "0x1000401",
+      "DAUTHSTATUS": "0xaf"
+    },
+    "release_ms": 0.102
+  },
+  "phase_b_after_pin_release": {
+    "samples": 400,
+    "elapsed_ms": 241.144,
+    "counts": {
+      "reset_st": 2,
+      "retire_st": 1,
+      "lockup": 399,
+      "halt": 0,
+      "errors": 0
+    },
+    "rows": [
+      {
+        "i": 0,
+        "t_ms": 0.608,
+        "dhcsr": "0x2000001",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 1,
+        "t_ms": 1.226,
+        "dhcsr": "0x3080003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 2,
+        "t_ms": 1.834,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 3,
+        "t_ms": 2.45,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 4,
+        "t_ms": 3.07,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 5,
+        "t_ms": 3.687,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 6,
+        "t_ms": 4.308,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 7,
+        "t_ms": 4.93,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 8,
+        "t_ms": 5.553,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 9,
+        "t_ms": 6.178,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 10,
+        "t_ms": 6.802,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 11,
+        "t_ms": 7.428,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 12,
+        "t_ms": 8.052,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 13,
+        "t_ms": 8.678,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 14,
+        "t_ms": 9.304,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 15,
+        "t_ms": 9.929,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 16,
+        "t_ms": 10.553,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 17,
+        "t_ms": 11.177,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 18,
+        "t_ms": 11.803,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 19,
+        "t_ms": 12.427,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 20,
+        "t_ms": 13.053,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 21,
+        "t_ms": 13.678,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 22,
+        "t_ms": 14.304,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 23,
+        "t_ms": 14.927,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 24,
+        "t_ms": 15.553,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 25,
+        "t_ms": 16.177,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 26,
+        "t_ms": 16.803,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 27,
+        "t_ms": 17.426,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 28,
+        "t_ms": 18.053,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 29,
+        "t_ms": 18.675,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 30,
+        "t_ms": 19.304,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 31,
+        "t_ms": 19.927,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 32,
+        "t_ms": 20.523,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 33,
+        "t_ms": 21.133,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 34,
+        "t_ms": 21.723,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 35,
+        "t_ms": 22.297,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 36,
+        "t_ms": 22.926,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 37,
+        "t_ms": 23.531,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 38,
+        "t_ms": 24.123,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 39,
+        "t_ms": 24.738,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 40,
+        "t_ms": 25.343,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 41,
+        "t_ms": 25.945,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 42,
+        "t_ms": 26.564,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 43,
+        "t_ms": 27.17,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 44,
+        "t_ms": 27.78,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 45,
+        "t_ms": 28.391,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 46,
+        "t_ms": 29.012,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 47,
+        "t_ms": 29.626,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 48,
+        "t_ms": 30.237,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 49,
+        "t_ms": 30.857,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 50,
+        "t_ms": 31.488,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 51,
+        "t_ms": 32.11,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 52,
+        "t_ms": 32.738,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 53,
+        "t_ms": 33.359,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 54,
+        "t_ms": 33.988,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 55,
+        "t_ms": 34.61,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 56,
+        "t_ms": 35.239,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 57,
+        "t_ms": 35.861,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 58,
+        "t_ms": 36.492,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      },
+      {
+        "i": 59,
+        "t_ms": 37.11,
+        "dhcsr": "0x80003",
+        "dauth": "0xaf"
+      }
+    ],
+    "halted": false
+  },
+  "after": {
+    "DHCSR": "0x80003",
+    "DEMCR": "0x1000401",
+    "DAUTHSTATUS": "0xaf",
+    "DSCSR": "0x30001",
+    "CFSR": "0x0",
+    "HFSR": "0x0",
+    "SFSR": "0x0",
+    "SYS_PDID": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x40000000-0x40000003"
+    },
+    "SYS_RSTSTS": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x40000004-0x40000007"
+    },
+    "FMC_ISPCTL": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c000-0x4000c003"
+    },
+    "FMC_ISPSTS": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4000c040-0x4000c043"
+    },
+    "SCU_FNSADDR": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4002f02c-0x4002f02f"
+    },
+    "SCU_SRAMNSSET": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x4002f020-0x4002f023"
+    },
+    "APROM_0": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x00000000-0x00000003"
+    },
+    "APROM_4": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x00000004-0x00000007"
+    },
+    "SRAM_0": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x20000000-0x20000003"
+    },
+    "CONFIG0_direct": {
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x0f300000-0x0f300003"
+    },
+    "dp_ctrl_stat": "0xf0000000",
+    "csw": "0x3800052"
+  }
+}

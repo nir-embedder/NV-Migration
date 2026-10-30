@@ -1,0 +1,195 @@
+OFFLINE CONNECTION AUDIT — NuvoISP_BL_V1.04.exe
+
+Evidence scope
+- Existing audit_exe.py reads the cached ZIP, verifies executable SHA256
+  aed05e31a6a73c760076218dcfbd038e94e579b0287bb86bb2add7ba8daa35f0,
+  and disassembles PE32 bytes. No native executable or hardware operation ran.
+- All new artifacts are in this connection-audit directory. No source, cached
+  executable, archive, or documentation was edited.
+- VAs below refer to this exact PE. Jump tables are DATA, not the nonsensical
+  x86 instructions produced by linear disassembly across those tables.
+  tables-and-strings.txt contains raw decoded jump-table entries.
+
+1. Normal GUI connect call graph
+405d90 GUI action -> 405cc0 stores mode/path/baud -> 4081d0 selects 408210.
+408210 closes any old handle (40826c -> 409e30), opens (408291 -> 409be0),
+performs UART-only synchronization (4082c2 -> 409f70), then calls
+409f40(false), rechecks open, and invokes 40ad40(reset_flag, 0x28) at 40832d.
+Successful 40ad40 selects identity worker 408f40 at 40834c.
+409f40(false) closes/reopens ONLY mode 2 (UART); nonzero argument forces all
+modes to close/reopen. Reopening does not send an explicit target-reset
+command and does not reset the packet sequence, but UART line transitions
+can still reset an attached target depending on wiring. 409e30 only closes
+the selected HID/serial host handle and clears the connected flag; it does
+not send an application-level command.
+
+Mode numbers are proven by the GUI insertion order at 404892..4048f3 and the
+index+1 assignment at 405e75..405e7d:
+  1 USB; 2 UART; 3 SPI; 4 I2C; 5 CAN.
+
+2. Opening a transport: 409be0..409f40
+- Existing open flag at this+0xb0 causes immediate success.
+- Mode 1: 409c8b attempts VID 0416 / PID 2000, then PID 200c, with filter -1.
+- Mode 2: 409cfe calls 415e90(path, this+0xc8 baud).
+- Modes 3/4/5: 409d51 attempts VID 0416 / PID 200a, then PID 2007,
+  with interface-number filter 4 (comparison of enumerate-record +0x1c).
+- 413d20 -> 413c20 -> hid_enumerate (416f00), hid_open_path (4173f0), and
+  hid_set_nonblocking(handle, 0). This layer does not call the packet encoder.
+- UART 415e90 opens the host port read/write, changes timeouts/DCB, sets
+  a communication event mask/buffers, and purges queues (415f19..415ffa).
+  DCB explicitly selects 8-bit/no-parity/one-stop. CORRECTION to the initial
+  audit: (flags & 0xffffffdd) | 0x11 at 415fba..415fbe forces DCB bits 4..5
+  to 01, i.e. fDtrControl = DTR_CONTROL_ENABLE, not inherited DTR control.
+  This requests enabled DTR at SetCommState (415fce), independently of the
+  reset checkbox. RTS-control bits remain inherited from GetCommState.
+  GetCommState/SetCommState return values are not checked by this routine;
+  it returns success at 41601f after a successful CreateFile regardless of
+  those configuration-call failures. Thus the code proves a DTR-enable
+  request, not successful physical assertion or target reset. Reopen can
+  repeat this request. Neither open nor close is electrically passive.
+  DCB layout/value verification: Microsoft winbase.h DCB documentation,
+  https://learn.microsoft.com/en-us/windows/win32/api/winbase/ns-winbase-dcb .
+  Actual attached circuitry, RTS initial state, and driver behavior remain
+  unknown; no observation of a live line or target was performed.
+
+3. Reset option and the actual initial traffic
+The checkbox resource at VA 5f4c68 is 'Reset before connecting', ID 0x492
+(resource-reset.txt). DDX at 40438c..404399 binds it to GUI+0x2bc, which equals
+worker+0x114. Constructor 40923a initializes worker+0x114 to 1. This is the
+constructor default, not proof of the checkbox's runtime state after UI input.
+
+UART synchronization 409f70:
+  Only active for protocol field this+0xcc in {1,2}, mode=2.
+  If reset_flag: 415de0 calls SetCommBreak, waits 10 ms, calls ClearCommBreak,
+  then waits 5*((attempt % 19)+1) ms.
+  Writes exactly 62 bytes of 0x61 ('a') using 415d40, with timeout argument 10.
+  Expects a one-byte 0x41 ('A') response via 415c90, timeout 10.
+  The buffer is initialized by memset(this+0x45, 0x61, 0x41) at 409ab0..409ac1.
+  This is unframed synchronization, not an encoded command packet, and does
+  not increment packet sequence. UART is then closed/reopened by 409f40(false).
+  Break is real line signaling; whether firmware treats it as reset is unknown.
+
+40ad40(reset_flag, unused_second_argument):
+  Rejects this+0xcc outside {1,2}; otherwise:
+    USB/UART: no 0x5a command.
+    SPI: 40a760(1000000, 0x0a0a0a0a, 0x50505050,
+                 reset_flag ? 4000 : 12000, reset_flag)
+    I2C: 40a760(400000, 0xaa, 0xaa,
+                 reset_flag ? 12000 : 40000, reset_flag)
+    CAN: 40a760(250000, 0x7812, 0xaa, 0, reset_flag)
+  Then 40a6f0(), but only if the preceding 0x5a transaction succeeded.
+These are exact numeric arguments. Clock/timing units and bridge electrical
+meaning are not proved by these host instructions. In particular, the final
+reset_flag is sent even when zero; do not substitute a guessed reset command.
+
+40a760 sends command 0x5a with five LE32 payload words in that argument order,
+20-byte payload, send-timeout 20, receive-timeout 5000. It receives four payload
+bytes through 4098d0(..., check_sequence=0), requiring equality to argument 3
+(0x50505050 for SPI, 0xaa for I2C/CAN). This is bridge setup/control traffic,
+not merely opening the host HID handle. No bridge firmware source is present
+in this audit, so its persistent effects cannot be excluded.
+
+40a6f0 sends command 0xa0, zero payload, send-timeout 20; reads 52 payload bytes
+with timeout 5000 through 4098d0(..., check_sequence=0). Requires payload word
+12 == 0x13572468 (this+0x104) and sets this+0x88 sequence to 3 after success.
+Constructor 409a00 initializes sequence to 0x12 (18), NOT 1. Open/close does
+not reinitialize it. On a fresh object USB/UART first framed command is A0
+with sequence 18. SPI/I2C/CAN first framed command is 5A sequence 18, followed
+by A0 sequence 20 after successful setup. Retries inherit increments until a
+successful A0 sets 3; do not assume every reconnect starts at 18.
+
+Important encoder boundary for parent investigation: 40a143..40a150 writes
+mode number into this+6 (packet[1]) AFTER checksum construction for modes 3,
+4,5; USB and UART do not do this. Parent owns full encoding interpretation.
+
+4. Identification and automatic reads
+408f40 obtains cached A0 words via 4098b0(index) at 408fcd..409050:
+ index 0 -> worker+0x54; index 1 -> +0x50; index 2 -> +0x104;
+ index 3 -> +0x10c; indices 5..8 -> +0x5c..+0x68.
+Index 0 is used as device-ID lookup key: worker+0x54 equals GUI+0x1fc;
+407893..4078a2 passes that into 4080f0 -> 40b100 -> 40af10 -> 40ae50,
+which searches the embedded device table. Thus device identification comes
+from A0 payload word 0, not a separately guessed LDROM get-device-ID command.
+4098d0 copies response payload from this+0x11, i.e. protocol response offset
+12 after the host-side report-ID placeholder. The 52-byte A0 block therefore
+occupies response bytes 12..63. No response-checksum verification is visible
+in 4098d0. Sequence verification is conditional and disabled by these callers.
+
+408f40 additionally reads config-like words via D2:
+- Existing device-family classification 3d/40 skips these additional reads.
+- Classification 49/4a/4b: 40a8a0(buffer,19), pairs of words, i=0,2,...,18.
+- Other classification: 40a810(buffer,14), one word at a time, i=0..13.
+- Up to three tries while the aggregate read reports failure.
+- 40a810 first invokes 40a6f0 again (without checking its return); 40a8a0
+  does not. Thus some connect paths transmit an additional A0 before D2.
+- D2 payload is {address, size}, size=4 or 8, address =
+  0x0f300000 + 4*(i + (i>=16 ? 16 : 0)). The same sparse offset is used in
+  the destination buffer; it is NOT a dense 19-word array for the pair case.
+- Send timeout=20, receive timeout=30000, no sequence validation in 4098d0.
+- 40a810/40a8a0 do not set aggregate failure when send itself fails; therefore
+  their returned success is not strong evidence every config word was read.
+The initial classification is queried before GUI device-table refresh; this
+is a literal host branch, not proof every fresh device selects the correct
+family. This audit does not establish M3351 support or its response contents.
+
+5. Persistence and safety conclusions
+Normal GUI connect (non-null worker+0x40 notification owner) reaches the idle
+408090 state at 409112 after identity/config reads. No D1 write, erase, or
+run/reset application command appears on that traced path. A0 and D2 naming
+here describes host usage; without device firmware it does NOT prove those
+commands are intrinsically side-effect free. Most importantly, default reset
+flag is true, UART requests DTR enable even with that flag false, UART can
+also assert BREAK with the flag true, and SPI/I2C/CAN send bridge control 5A
+with that flag. The GUI's connect must not be advertised as passive or approved
+under the recovery stop merely because no explicit flash command was found.
+
+A separate branch at 4090fc..409143 selects operation dispatcher 408540 when
+worker+0x40 is NULL instead of idle. That dispatcher contains flag-gated D1
+config writes (e.g. 408661 tests worker+0x120 before 4086a7 -> 40a930), plus
+other selected operations. Worker constructor initializes operation flags to
+zero; normal GUI supplies a notification owner. The no-owner automation path
+must not be conflated with a guarantee that every connect caller only reads.
+
+Useful semantic pseudocode (not an executable implementation)
+
+connect_worker(reset_option):                 # 408210
+    close_handle()                            # 409e30
+    attempt = 0
+    while state == CONNECT:
+        if not open_selected_transport():     # 409be0
+            retry_after_roughly_1_second()
+            continue
+        if not uart_sync_if_needed(reset_option, 10, attempt): # 409f70
+            attempt += 1
+            continue
+        break
+    while state == CONNECT:
+        reopen_if_uart()                      # 409f40(false)
+        if not open_selected_transport():
+            retry_after_roughly_1_second()
+            continue
+        if configure_bridge_then_A0(reset_option): # 40ad40
+            state = GET_INFO                 # 408f40
+
+configure_bridge_then_A0(reset_option):
+    if protocol_variant not in (1, 2): return false
+    if mode in (SPI, I2C, CAN):
+        if not send_5A_and_check_4byte_reply(parameters[mode],reset_option):
+            return false
+    return send_A0_get_52bytes_check_magic_then_sequence_3()
+
+get_info_worker():                            # 408f40
+    if not handle_open(): state = CONNECT; return
+    reopen_if_uart()
+    extract_cached_A0_words()
+    perform_family_selected_D2_reads_with_at_most_3_tries()
+    copy_working_config_to_comparison_buffer()
+    state = IDLE if notification_owner else OPERATION_DISPATCH
+
+Verification limitations
+All assertions above are static host-binary observations, not physical USB
+captures, bridge firmware analysis, target register verification, or a claim
+that any reset/config behavior is safe. HID/serial API success and device-side
+command semantics were not exercised. The initial string scan hit a PE-header
+offset outside sections and was rerun with file-backed-section filtering; the
+final tables-and-strings.txt completed successfully.

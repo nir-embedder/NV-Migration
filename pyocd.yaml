@@ -1,0 +1,8 @@
+# User-confirmed M3351KJCAE: 1 MiB APROM, vendor M3351_AP_1M.FLM.
+pack:
+  - .deps/packs/Nuvoton.NuMicroM33_DFP.1.0.6.pack
+target_override: m3351kjcae
+frequency: 1000000
+# Sector erase only. Never perform a mass erase or change security/config words.
+chip_erase: sector
+auto_unlock: false

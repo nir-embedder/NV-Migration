@@ -1,0 +1,32 @@
+OFFLINE KI/KJ FLM / SAVED FAILURE AUDIT
+Scope: cached Nuvoton.NuMicroM33_DFP.1.0.6.pack; no hardware access, reset, port open, native vendor EXE execution, source/tool/doc changes, or packet investigation.
+
+Provenance and differences
+- Pack SHA256 0aae782356a261b976169fb677a5785c8647b5e0a0a93fa1632fb71a04b2dde2.
+- Flash/M3351_AP_512.FLM SHA256 8729859484afaa838c46bc7094fdcd6f4f29f908cadac5b3d6d901cb6928d473.
+- Flash/M3351_AP_1M.FLM SHA256 6ad56e7e085dae4ed3f61abd6bcc2edde2ffd53424ca28a6fedc6d743b369717.
+- Identical PrgCode (1544 bytes, SHA256 92fe8010b78cca2f21758e07a0bb184dfa12252f2a5b9493e60d6fabac06c14f), PrgData (4 bytes), symbols, and DWARF. DevDscr changes only device name and size (0x80000 versus 0x100000); .comment also differs. Both use 0x2000 program pages/sectors and 1000/3000 ms descriptor program/erase timeout values. Host timeout policy is separate.
+- PDSC changes APROM and nonsecure-alias sizes/FLM names, not SRAM (0x20000) or algorithm workspace (0x20000000, size 0x4000).
+- Evidence: metadata.txt:3-108, descriptor-summary.txt:1-19; rechecked checks.txt:1-2.
+
+Addresses below are FLM image offsets, NOT observed target PCs. Thumb entry symbols are Init=0x1, UnInit=0xcd, EraseSector=0x103, ProgramPage=0x2b5. Conditional runtime conversion with separately saved layout: code_base=0x200039f4, Init=0x200039f5, ProgramPage=0x20003ca9.
+
+Init / CPU context
+- Init 0x0000..0x00ca writes the protected-register unlock sequence to 0x40000100, configures clock registers at 0x40000200/210/220/204, writes 0xe9 to FMC 0x4000c000, verifies masked readback, writes 2 at +0x4c. It conditionally configures another controller at 0x4000f000 based on 0x4000fffc and its status. Neither this routine nor ProgramPage sets PRIMASK/BASEPRI/FAULTMASK, CONTROL, MSP/PSP limits, MPU control/regions, or VTOR. No CPS/MSR/MRS instructions occur anywhere in the complete 1544-byte code (checks.txt:3).
+- ProgramPage starts with push {r4-r7,lr} at 0x2b4, consuming 20 bytes on the active stack immediately. It does not establish an independent stack or sanitize the CPU execution context.
+- Installed pyOCD flash/flash.py:548-583 writes argument registers, PC, LR; on Init additionally writes r9, SP and xPSR. It does not set PRIMASK, stack limits, MPU, or VTOR there. prepare_target() at :309-315 is empty in the base class. This is not a proof that every possible target-specific hook is absent; saved historical execution provides no validated sanitization evidence.
+
+ProgramPage bounds / calls (shared-code.asm:284-505)
+- 0x2e6 strips alias bit 28 for address classification. 0x2ee..0x2f2 requires 4-byte destination alignment on the ordinary flash path; 0x2f6..0x2fa rounds the byte count up to 4. It does not check source-pointer bounds/alignment, size overflow, destination+size wrap, or the 512 KiB/1 MiB device end.
+- The ordinary flash branch is selected by normalized address <0x0f210000, not by a SKU-specific APROM end. 0x31c/0x35c/0x394 load source words/pairs and 0x31e/0x360/0x398 issue FMC command 0x61; 0x338/0x374/0x3b0 poll busy without an internal iteration timeout. The other controller branches classify additional address ranges, including a gated range ending 0x0f21e0ff; these are not KI/KJ APROM-limit checks.
+- Normal valid page-buffer calls need not encounter these unchecked cases. A malformed length or buffer could fail, but saved artifacts do not establish that either occurred. Identical executable code cannot supply a KI-only MPU/interrupt/bounds implementation defect.
+
+Saved failure evidence / limits
+- passive-snapshot-20261028T211754816957Z.json:24-42 reports FMC_ISPADDR=0xe000, ISPCMD=0x22, ISPTRG=0, CFSR=0x100001 (IACCVIOL|STKOF), HFSR=0x40000000 (FORCED), SFSR=0, DAUTHSTATUS=0xff. These fault flags are sticky; their first occurrence/order is unknown. CMSIS definitions: .deps/modules/hal/cmsis/CMSIS/Core/Include/core_cm33.h:767,799,818.
+- Same snapshot:50-57 has erased vectors, changed APROM SHA256, and 16 bytes at RAM 0x20003c00. Those 16 bytes match shared PrgCode offset 0x20c for the saved layout (checks.txt:4-5). This is a small local match, not full runtime code integrity evidence.
+- Saved /Users/embedder/.embedder/hardware/f0d37af793f94e7b/script-call_9z2TSWBPtTpkGcA07qAXIoAW.log:58-70 records PC=0xeffffffe, LR=0xfffffff9, SP/MSP=0x2001fc00, PSP=0x20020000, CONTROL=0, xPSR=0x41000003, PRIMASK/BASEPRI/FAULTMASK=0. MSPLIM/PSPLIM reads were unsupported. LR is EXC_RETURN, xPSR identifies HardFault, and no verified stacked fault PC was captured. The fault-time stack is not the saved algorithm entry stack 0x200019f0; these are snapshots at different points, not proof that ProgramPage was called on the former stack.
+- Saved second-flash stderr reports 'flash program page timed out' after Erasing then Programming. Subsequently sampled ISPCMD=0x22 and ISPADDR=0xe000 do not locate the failing page or prove an erase timeout.
+- results/post-failed-flash.json belongs to the FIRST attempt and its unchanged-backup result does not describe the second attempt.
+
+Conclusion
+The SKU selection error changes host geometry and preservation risk, but no KI/KJ instruction difference explains the HardFault. Unchanged inherited stack limits and MPU state are credible hypotheses because the algorithm/standard call setup do not sanitize them and STKOF/IACCVIOL were observed. Unmasked interrupts or stale vectors after erase are another hypothesis, not an observed interrupt trace. Unknowns: actual MPU regions, stack-limit values/security bank, VTOR/NVIC/SysTick state, precise fault timing, stacked PC, and failing ProgramPage arguments. No saved evidence establishes a single root cause or validates a recovery sequence. No hardware retest or corrective firmware change was performed.

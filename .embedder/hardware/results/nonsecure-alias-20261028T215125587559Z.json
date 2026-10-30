@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-10-28T21:51:25.578756+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "method": "MEM-AP only; no core init/reset/halt; HNONSEC=1, documented non-secure aliases only",
+  "hnonsec_before": 0,
+  "hnonsec": 1,
+  "aliases": {
+    "APROM_NS": {
+      "address": "0x10000000",
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x10000000-0x1000000f",
+      "csw_after": "0x43800052",
+      "dp_ctrl_stat_after": "0xf0000040"
+    },
+    "SRAM_NS": {
+      "address": "0x30000000",
+      "error": "Memory transfer fault (SWD/JTAG communication failure (FAULT ACK)) @ 0x30000000-0x3000000f",
+      "csw_after": "0x43800052",
+      "dp_ctrl_stat_after": "0xf0000040"
+    }
+  }
+}

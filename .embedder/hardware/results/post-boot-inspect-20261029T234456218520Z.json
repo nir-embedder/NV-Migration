@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-10-29T23:44:56.186626+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "method": "attach, no reset; DHCSR halt request only if requested",
+  "halt_requested": true,
+  "DHCSR": "0x130003",
+  "S_LOCKUP": false,
+  "S_HALT": true,
+  "S_SDE": true,
+  "DAUTHSTATUS": "0xff",
+  "DEMCR": "0x100000",
+  "DSCSR": "0x30000",
+  "mem": {
+    "APROM0": "0x2000bbc0",
+    "APROM4": "0x29e5",
+    "SYS_PDID": "0x3302140",
+    "SYS_RSTSTS": "0x163",
+    "SRAM0": "0x7e3145ae",
+    "FMC_ISPSTS": "0x20000104",
+    "SCU_FNSADDR": "0x0"
+  },
+  "DHCSR_after_halt": "0x130003",
+  "halted": true,
+  "regs": {
+    "r0": "0x20006f98",
+    "r1": "0x0",
+    "sp": "0x2000afa0",
+    "lr": "0x17737",
+    "pc": "0x1123a",
+    "xpsr": "0x41000000",
+    "msp": "0x2000ae80",
+    "psp": "0x2000afa0",
+    "ctrl_primask": "0x2000001"
+  },
+  "faults": {
+    "CFSR": "0x0",
+    "HFSR": "0x0",
+    "MMFAR": "0x2000af94",
+    "BFAR": "0x2000af94",
+    "SFSR": "0x0",
+    "SFAR": "0x2000af94",
+    "VTOR": "0x0",
+    "AIRCR": "0xfa050000",
+    "SHCSR": "0x70000"
+  },
+  "mem_after": {
+    "APROM0": "0x2000bbc0",
+    "APROM4": "0x29e5",
+    "SRAM0": "0x7e3145ae"
+  },
+  "stack_words": [
+    "0x2000afb0",
+    "0x2387",
+    "0x0",
+    "0xaaaaaaaa",
+    "0xaaaaaaaa",
+    "0xaaaaaaaa",
+    "0x200041d0",
+    "0x0"
+  ],
+  "ctrl_stat": "0xf0000040"
+}

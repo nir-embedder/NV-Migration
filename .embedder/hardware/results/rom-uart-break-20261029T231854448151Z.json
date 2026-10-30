@@ -1,0 +1,111 @@
+{
+  "timestamp": "2026-10-29T23:18:47.957421+00:00",
+  "probe": "13010000003800F1047546CF0000065D",
+  "baud": 115200,
+  "attempts_requested": 12,
+  "stream": true,
+  "scope": "VCOM BREAK reset + UART sync + identify + CONFIG read; no SWD, no writes",
+  "stage": "serial_open",
+  "success": false,
+  "attempts": [
+    {
+      "attempt": 0,
+      "stage": "stream",
+      "delay_ms": 5.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 530.4
+    },
+    {
+      "attempt": 1,
+      "stage": "stream",
+      "delay_ms": 10.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 523.2
+    },
+    {
+      "attempt": 2,
+      "stage": "stream",
+      "delay_ms": 15.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 527.5
+    },
+    {
+      "attempt": 3,
+      "stage": "stream",
+      "delay_ms": 20.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 530.1
+    },
+    {
+      "attempt": 4,
+      "stage": "stream",
+      "delay_ms": 25.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 527.7
+    },
+    {
+      "attempt": 5,
+      "stage": "stream",
+      "delay_ms": 30.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 532.8
+    },
+    {
+      "attempt": 6,
+      "stage": "stream",
+      "delay_ms": 35.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 529.8
+    },
+    {
+      "attempt": 7,
+      "stage": "stream",
+      "delay_ms": 40.0,
+      "bursts": 86,
+      "response": "",
+      "elapsed_ms": 537.3
+    },
+    {
+      "attempt": 8,
+      "stage": "stream",
+      "delay_ms": 45.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 532.5
+    },
+    {
+      "attempt": 9,
+      "stage": "stream",
+      "delay_ms": 50.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 528.7
+    },
+    {
+      "attempt": 10,
+      "stage": "stream",
+      "delay_ms": 55.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 531.3
+    },
+    {
+      "attempt": 11,
+      "stage": "stream",
+      "delay_ms": 60.0,
+      "bursts": 85,
+      "response": "",
+      "elapsed_ms": 530.7
+    }
+  ],
+  "port": "/dev/cu.usbmodem1202",
+  "synchronized": false,
+  "error": "TimeoutError: no 'A' from ROM on any attempt"
+}
